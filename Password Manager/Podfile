@@ -1,0 +1,14 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'Password Manager' do
+  pod 'Qonversion', '~> 2.0.0'
+  pod 'FBSDKCoreKit/Swift'
+  pod 'Amplitude-iOS', '~> 4.9.3'
+  pod 'Purchases', '3.5.2'
+  pod 'NVActivityIndicatorView'
+  pod 'SwiftRater'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/RemoteConfig'
+pod 'KeychainAccess'
+end
