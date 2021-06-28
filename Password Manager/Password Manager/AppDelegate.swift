@@ -14,43 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        
-        let keychain = Keychain(service: "url.com")
-
-        let items = keychain.allItems()
-        for item in items {
-          print("item: \(item)")
-        }
-        
-//        let keychain2 = Keychain(service: "url888.com")
-//
-//        let items2 = keychain2.allItems()
-//        for item in items2 {
-//          print("item: \(item)")
-//        }
-        // Override point for customization after application launch.
-        
-//        let keychain = Keychain.init(accessGroup: accessGroup)
-//        print("\(keychain)")
-//
-//
-//        let keys = keychain.allKeys()
-//        for key in keys {
-//          print("key: \(key)")
-//        }
-//
-//        let items = keychain.allItems()
-//        for item in items {
-//          print("item: \(item)")
-//        }
-//
-//        do {
-//            try Keychain.init(accessGroup: accessGroup).removeAll()
-//        } catch let error {
-//           // Manager.log.error("Failed to remove all keychains with error: \(error)")
-//        }
-        
+        PasswordSingletone.shared.grabAllPasswords()
+        QuickTypeManager.shared.activate()
         return true
     }
 

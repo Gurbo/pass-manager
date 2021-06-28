@@ -8,11 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		407E85017FB8DC72D7CB801D /* Pods_Password_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 224641B5A7E9560589222A7A /* Pods_Password_Manager.framework */; };
+		94B55C923105F9F8536F23E7 /* Pods_AutoFillExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950BBD2FA8A4AA90F67544FC /* Pods_AutoFillExtension.framework */; };
+		F005DFD22683363200099DD6 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005DFD12683363200099DD6 /* Password.swift */; };
+		F005DFE526835D9400099DD6 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005DFD12683363200099DD6 /* Password.swift */; };
 		F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082612682376F00A5A94C /* CredentialProviderViewController.swift */; };
 		F08082652682376F00A5A94C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08082632682376F00A5A94C /* MainInterface.storyboard */; };
 		F080826A2682376F00A5A94C /* AutoFillExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F080825D2682376F00A5A94C /* AutoFillExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F080827B2682393800A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
+		F08082862682502300A5A94C /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082852682502300A5A94C /* PasscodeField.swift */; };
+		F080828E268250CC00A5A94C /* QuickTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080828D268250CC00A5A94C /* QuickTypeManager.swift */; };
+		F0808293268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */; };
+		F0808294268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */; };
+		F080829C268250FF00A5A94C /* UserDefaults+AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */; };
+		F08082A2268252E000A5A94C /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082852682502300A5A94C /* PasscodeField.swift */; };
+		F08082A3268252E200A5A94C /* QuickTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080828D268250CC00A5A94C /* QuickTypeManager.swift */; };
+		F08082A6268252E400A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */; };
+		F08082A9268252E600A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */; };
+		F08082AF268252EB00A5A94C /* UserDefaults+AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */; };
+		F0C03EDE2689C24A00579BCB /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */; };
+		F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
+		F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
 		F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB6A512680C963006F4101 /* AppDelegate.swift */; };
 		F0EB6A542680C963006F4101 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB6A532680C963006F4101 /* SceneDelegate.swift */; };
 		F0EB6A592680C963006F4101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EB6A572680C963006F4101 /* Main.storyboard */; };
@@ -50,14 +66,27 @@
 
 /* Begin PBXFileReference section */
 		224641B5A7E9560589222A7A /* Pods_Password_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Password_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		365243DCA26EDE07693ABB88 /* Pods-AutoFillExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoFillExtension.debug.xcconfig"; path = "Target Support Files/Pods-AutoFillExtension/Pods-AutoFillExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		5E52DB47F8D0DCD7A3F9F94F /* Pods-Password Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Password Manager.release.xcconfig"; path = "Target Support Files/Pods-Password Manager/Pods-Password Manager.release.xcconfig"; sourceTree = "<group>"; };
+		6FBD1D06F1013DBC61BF2690 /* Pods-AutoFillExtension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AutoFillExtension.release.xcconfig"; path = "Target Support Files/Pods-AutoFillExtension/Pods-AutoFillExtension.release.xcconfig"; sourceTree = "<group>"; };
+		950BBD2FA8A4AA90F67544FC /* Pods_AutoFillExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoFillExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0BAD18F7ED92EF76C52BC4 /* Pods-Password Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Password Manager.debug.xcconfig"; path = "Target Support Files/Pods-Password Manager/Pods-Password Manager.debug.xcconfig"; sourceTree = "<group>"; };
+		F005DFD12683363200099DD6 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		F080825D2682376F00A5A94C /* AutoFillExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutoFillExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F080825E2682376F00A5A94C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		F08082612682376F00A5A94C /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
 		F08082642682376F00A5A94C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F08082662682376F00A5A94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F08082672682376F00A5A94C /* AutoFillExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoFillExtension.entitlements; sourceTree = "<group>"; };
+		F08082852682502300A5A94C /* PasscodeField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeField.swift; sourceTree = "<group>"; };
+		F080828D268250CC00A5A94C /* QuickTypeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickTypeManager.swift; sourceTree = "<group>"; };
+		F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASPasswordCredentialIdentity+PasswordItem.swift"; sourceTree = "<group>"; };
+		F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASPasswordCredential+PasswordItem.swift"; sourceTree = "<group>"; };
+		F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppGroup.swift"; sourceTree = "<group>"; };
+		F0BC1BE326836A9B003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BC1BE826837D02003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSingletone.swift; sourceTree = "<group>"; };
 		F0EB6A4E2680C963006F4101 /* Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EB6A512680C963006F4101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EB6A532680C963006F4101 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,7 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0C03EDE2689C24A00579BCB /* KeychainAccess.framework in Frameworks */,
 				F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */,
+				94B55C923105F9F8536F23E7 /* Pods_AutoFillExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +129,8 @@
 			children = (
 				AE0BAD18F7ED92EF76C52BC4 /* Pods-Password Manager.debug.xcconfig */,
 				5E52DB47F8D0DCD7A3F9F94F /* Pods-Password Manager.release.xcconfig */,
+				365243DCA26EDE07693ABB88 /* Pods-AutoFillExtension.debug.xcconfig */,
+				6FBD1D06F1013DBC61BF2690 /* Pods-AutoFillExtension.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -105,8 +138,12 @@
 		631CFF21D978DD84758D06A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */,
+				F0BC1BE826837D02003FB40E /* KeychainAccess.framework */,
+				F0BC1BE326836A9B003FB40E /* KeychainAccess.framework */,
 				224641B5A7E9560589222A7A /* Pods_Password_Manager.framework */,
 				F080825E2682376F00A5A94C /* AuthenticationServices.framework */,
+				950BBD2FA8A4AA90F67544FC /* Pods_AutoFillExtension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +157,20 @@
 				F08082672682376F00A5A94C /* AutoFillExtension.entitlements */,
 			);
 			path = AutoFillExtension;
+			sourceTree = "<group>";
+		};
+		F080828426824FB700A5A94C /* Shared Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */,
+				F080828D268250CC00A5A94C /* QuickTypeManager.swift */,
+				F005DFD12683363200099DD6 /* Password.swift */,
+				F08082852682502300A5A94C /* PasscodeField.swift */,
+				F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */,
+				F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */,
+				F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */,
+			);
+			path = "Shared Modules";
 			sourceTree = "<group>";
 		};
 		F0EB6A452680C963006F4101 = {
@@ -145,11 +196,12 @@
 		F0EB6A502680C963006F4101 /* Password Manager */ = {
 			isa = PBXGroup;
 			children = (
+				F0EB6A512680C963006F4101 /* AppDelegate.swift */,
 				F0FBC36B2680E8E100A555A5 /* Password Manager.entitlements */,
 				F0EB6A572680C963006F4101 /* Main.storyboard */,
 				F0FBC32F2680CD0000A555A5 /* Views */,
 				F0FBC3292680CBC500A555A5 /* ViewControllers */,
-				F0EB6A512680C963006F4101 /* AppDelegate.swift */,
+				F080828426824FB700A5A94C /* Shared Modules */,
 				F0EB6A532680C963006F4101 /* SceneDelegate.swift */,
 				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
 				F0EB6A5C2680C965006F4101 /* LaunchScreen.storyboard */,
@@ -183,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F080826E2682376F00A5A94C /* Build configuration list for PBXNativeTarget "AutoFillExtension" */;
 			buildPhases = (
+				97A427F2B13A43C74E12B3DE /* [CP] Check Pods Manifest.lock */,
 				F08082592682376F00A5A94C /* Sources */,
 				F080825A2682376F00A5A94C /* Frameworks */,
 				F080825B2682376F00A5A94C /* Resources */,
@@ -314,6 +367,28 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Password Manager/Pods-Password Manager-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		97A427F2B13A43C74E12B3DE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AutoFillExtension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -321,7 +396,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08082A6268252E400A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */,
+				F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */,
+				F08082A9268252E600A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */,
+				F08082A2268252E000A5A94C /* PasscodeField.swift in Sources */,
+				F005DFE526835D9400099DD6 /* Password.swift in Sources */,
 				F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */,
+				F08082AF268252EB00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
+				F08082A3268252E200A5A94C /* QuickTypeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,11 +411,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0808294268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */,
 				F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */,
 				F0FBC34C2680D0B400A555A5 /* AddPasswordViewController.swift in Sources */,
+				F08082862682502300A5A94C /* PasscodeField.swift in Sources */,
+				F0808293268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */,
+				F080828E268250CC00A5A94C /* QuickTypeManager.swift in Sources */,
 				F0EB6A542680C963006F4101 /* SceneDelegate.swift in Sources */,
+				F080829C268250FF00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
 				F0FBC32B2680CBF700A555A5 /* VaultViewController.swift in Sources */,
+				F005DFD22683363200099DD6 /* Password.swift in Sources */,
 				F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */,
+				F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */,
 				F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,9 +467,10 @@
 /* Begin XCBuildConfiguration section */
 		F080826C2682376F00A5A94C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 365243DCA26EDE07693ABB88 /* Pods-AutoFillExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = AutoFillExtension/Info.plist;
@@ -400,9 +490,10 @@
 		};
 		F080826D2682376F00A5A94C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6FBD1D06F1013DBC61BF2690 /* Pods-AutoFillExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = AutoFillExtension/Info.plist;

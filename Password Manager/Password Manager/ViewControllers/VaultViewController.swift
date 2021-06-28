@@ -20,39 +20,21 @@ class VaultViewController: UIViewController {
         self.tableView.rowHeight = 102
         self.navigationController?.navigationBar.topItem?.title = "Vault"
         
+        itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
+        
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(reloadData), name: Notification.Name("kUpdateVaultNotification"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        reloadData()
-        tableView.reloadData()
+        reloadData()    
     }
-    
-  
     
     @objc func reloadData() {
-        let items = Keychain.allItems(.genericPassword)
-        itemsGroupedByService = groupBy(items) { item -> String in
-            if let service = item["service"] as? String {
-                return service
-            }
-            return ""
-        }
-    }
-    
-    private func groupBy<C: Collection, K: Hashable>(_ xs: C, key: (C.Iterator.Element) -> K) -> [K:[C.Iterator.Element]] {
-        var gs: [K:[C.Iterator.Element]] = [:]
-        for x in xs {
-            let k = key(x)
-            var ys = gs[k] ?? []
-            ys.append(x)
-            gs.updateValue(ys, forKey: k)
-        }
-        return gs
+        tableView.reloadData()
     }
 }
 
@@ -94,6 +76,7 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
     let keychain = Keychain(service: service)
     if let attributes = keychain[attributes: (item["key"] as? String)!] {
         print(" LABEL  \(attributes.label)")
+        print("CREATEING DATE \(attributes.creationDate)")
     }
     
     cell.websiteLabel?.text = item["key"] as? String

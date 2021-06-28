@@ -10,5 +10,9 @@ target 'Password Manager' do
   pod 'SwiftRater'
   pod 'Firebase/Analytics'
   pod 'Firebase/RemoteConfig'
-pod 'KeychainAccess'
+  pod 'KeychainAccess'
+end
+
+target 'AutoFillExtension' do
+  pod 'KeychainAccess'
 end
