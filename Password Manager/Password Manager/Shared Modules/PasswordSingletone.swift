@@ -27,6 +27,8 @@ class PasswordSingletone: NSObject {
             return ""
         }
         
+        passwordItems = [Password]()
+        
         if let items = itemsGroupedByService {
             for (index, _) in items.enumerated() {
                 
@@ -34,7 +36,7 @@ class PasswordSingletone: NSObject {
                 let service = services[index]
     
                 let arrayOfSevenItemsForService = Keychain(service: service).allItems()
-                passwordItems = [Password]()
+                
                 
                 for elementOfService in arrayOfSevenItemsForService {
                     var website: String = ""

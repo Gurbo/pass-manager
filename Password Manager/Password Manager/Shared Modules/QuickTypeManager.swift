@@ -36,21 +36,26 @@ class QuickTypeManager: NSObject {
             if self.isEnabled == false {
                 return
             }
-            var passwordItems = PasswordSingletone.shared.passwordItems
+            
+            let passwordItems = PasswordSingletone.shared.passwordItems
+            print("+++++ passwordItems COUNT ==== \(String(describing: passwordItems?.count))")
+            
+            
+            var filteredItems: [Password]?
             
             if state.supportsIncrementalUpdates, let lastSyncDate = UserDefaults.forAppGroup.lastSyncDate {
-                print("")
-                //passwordItems = passwordItems?.filter("date >= %@", lastSyncDate)
+                filteredItems = passwordItems?.filter({$0.date >= lastSyncDate}) ?? nil
+                print("+++++ filteredItems COUNT ==== \(String(describing: filteredItems?.count))")
             }
             
-            if passwordItems?.count == 0 {
+            if filteredItems?.count == 0 {
                 DispatchQueue.main.async {
                     completionHandler?(true)
                 }
                 return
             }
             
-            let credentialIdentifiers = Array(passwordItems ?? []).map({ ASPasswordCredentialIdentity($0) })
+            let credentialIdentifiers = Array(filteredItems ?? []).map({ ASPasswordCredentialIdentity($0) })
             
             ASCredentialIdentityStore.shared.saveCredentialIdentities(credentialIdentifiers, completion: { (success, error) in
                 if let error = error {
@@ -59,7 +64,6 @@ class QuickTypeManager: NSObject {
                     DispatchQueue.main.async {
                         completionHandler?(false)
                     }
-
                     return
                 }
                 
