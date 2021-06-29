@@ -10,7 +10,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)W3KLYB8DPV.group.com.ag.password.manager</string>
+		<string>W3KLYB8DPV.com.ag.password.manager</string>
 	</array>
 </dict>
 </plist>
