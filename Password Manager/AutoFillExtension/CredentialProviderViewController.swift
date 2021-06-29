@@ -28,10 +28,13 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        navigationBar.topItem?.leftBarButtonItem = nil
-//        navigationBar.topItem?.rightBarButtonItem = nil
+        PasswordSingletone.shared.grabAllPasswords()
+        passwordItems = PasswordSingletone.shared.passwordItems
         
-//        tableView.tableHeaderView = nil
+        navigationBar.topItem?.leftBarButtonItem = nil
+        navigationBar.topItem?.rightBarButtonItem = nil
+        
+        tableView.tableHeaderView = nil
     }
     
     // MARK: - Credential provider methods
@@ -43,11 +46,11 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
     */
     override func prepareCredentialList(for serviceIdentifiers: [ASCredentialServiceIdentifier]) {
         navigationBar.topItem?.leftBarButtonItem = cancelButtonItem
-
+        
+        
 //        // Load password items
         if serviceIdentifiers.count == 1 {
             passwordItems = passwordItems.filter({$0.website == serviceIdentifiers.first!.domainForFilter})
-            
         } else {
             passwordItems = PasswordSingletone.shared.passwordItems
         }

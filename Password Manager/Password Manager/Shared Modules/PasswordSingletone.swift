@@ -71,6 +71,7 @@ class PasswordSingletone: NSObject {
                 }
             }
         }
+        print("Grab passwords finished")
     }
     
     private func groupBy<C: Collection, K: Hashable>(_ xs: C, key: (C.Iterator.Element) -> K) -> [K:[C.Iterator.Element]] {
