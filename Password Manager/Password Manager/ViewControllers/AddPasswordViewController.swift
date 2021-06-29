@@ -71,7 +71,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
             try keychain
                 .label(nameTextfield.text!) //service name
                 .comment(customID) //id
-                .set(loginTextfield.text!, key: passwordTextfield.text!) //login & pass
+                .set(passwordTextfield.text!, key: loginTextfield.text!) //login & pass
         } catch let error {
             print("error: \(error)")
         }

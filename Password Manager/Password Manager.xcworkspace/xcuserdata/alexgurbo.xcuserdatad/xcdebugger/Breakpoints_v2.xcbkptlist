@@ -52,53 +52,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FE9E68C3-C713-4404-8987-E8266511B6AB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Password Manager/Shared Modules/PasswordSingletone.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "grabAllPasswords()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FE9E68C3-C713-4404-8987-E8266511B6AB - 4ba59640fd4894dd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Password_Manager.PasswordSingletone.grabAllPasswords() -&gt; ()"
-                  moduleName = "Password Manager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexgurbo/Documents/Work/Code/password/Password%20Manager/Password%20Manager/Shared%20Modules/PasswordSingletone.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "422">
-               </Location>
-               <Location
-                  uuid = "FE9E68C3-C713-4404-8987-E8266511B6AB - eed0a630b65a7afc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; Swift.String in Password_Manager.PasswordSingletone.grabAllPasswords() -&gt; ()"
-                  moduleName = "Password Manager"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexgurbo/Documents/Work/Code/password/Password%20Manager/Password%20Manager/Shared%20Modules/PasswordSingletone.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "67">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
