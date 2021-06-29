@@ -43,27 +43,30 @@ class PasswordSingletone: NSObject {
                     var user: String = ""
                     var password: String = ""
                     var date = Date()
+                    var customID = ""
                                         
-                    for huiZnaet in elementOfService {
-                        if huiZnaet.key == "service" {
-                            website = huiZnaet.value as! String
+                    for keyValue in elementOfService {
+                        if keyValue.key == "service" {
+                            website = keyValue.value as! String
                         }
                     
-                        if huiZnaet.key == "key" {
-                            user = huiZnaet.value as! String
+                        if keyValue.key == "key" {
+                            user = keyValue.value as! String
                         }
                         
-                        if huiZnaet.key == "value" {
-                            password = huiZnaet.value as! String
+                        if keyValue.key == "value" {
+                            password = keyValue.value as! String
                         }
                     }
                     
                     let keychain = Keychain(service: service)
                     if let attributes = keychain[attributes: (elementOfService["key"] as? String)!] {
                         date = attributes.creationDate!
+                        customID = attributes.comment! //id
+                        
                     }
                     
-                    let passwordForQuickType = Password.init(website: website, user: user, password: password, date: date)
+                    let passwordForQuickType = Password.init(id: customID, website: website, user: user, password: password, date: date)
                     passwordItems?.append(passwordForQuickType)
                 }
             }

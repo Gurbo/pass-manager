@@ -10,14 +10,15 @@ import AuthenticationServices
 
 class Password: NSObject {
 
-    var id = UUID().uuidString
+    var id = ""
     var website = ""
     var user = ""
     var password = ""
     var date = Date()
     
-    convenience init(website: String, user: String, password: String, date: Date) {
+    convenience init(id: String, website: String, user: String, password: String, date: Date) {
         self.init()
+        self.id = id
         self.website = website
         self.user = user
         self.password = password
@@ -27,6 +28,7 @@ class Password: NSObject {
     // MARK: - Managing PasswordItem
     
     func add() {
+        print("ID IS \(self.id)")
         QuickTypeManager.shared.save(ASPasswordCredentialIdentity(self))
     }
     

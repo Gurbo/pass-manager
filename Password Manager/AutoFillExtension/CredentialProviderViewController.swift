@@ -7,7 +7,34 @@
 
 import AuthenticationServices
 
-class CredentialProviderViewController: ASCredentialProviderViewController {
+class CredentialProviderViewController: ASCredentialProviderViewController, UITableViewDataSource, UITableViewDelegate, PasscodeViewControllerDelegate {
+
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet var configurationHeaderView: UIView!
+    
+    @IBOutlet var configurationStatusLabel: UILabel!
+    
+    @IBOutlet var cancelButtonItem: UIBarButtonItem!
+    
+    @IBOutlet var doneButtonItem: UIBarButtonItem!
+    
+    private var passwordItems: [Password]!
+
+    // MARK: - View controller lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+//        navigationBar.topItem?.leftBarButtonItem = nil
+//        navigationBar.topItem?.rightBarButtonItem = nil
+        
+//        tableView.tableHeaderView = nil
+    }
+    
+    // MARK: - Credential provider methods
 
     /*
      Prepare your UI to list available credentials for the user to choose from. The items in
@@ -15,6 +42,21 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
      prioritize the most relevant credentials in the list.
     */
     override func prepareCredentialList(for serviceIdentifiers: [ASCredentialServiceIdentifier]) {
+        navigationBar.topItem?.leftBarButtonItem = cancelButtonItem
+
+//        // Load password items
+        if serviceIdentifiers.count == 1 {
+            passwordItems = passwordItems.filter({$0.website == serviceIdentifiers.first!.domainForFilter})
+            
+        } else {
+            passwordItems = PasswordSingletone.shared.passwordItems
+        }
+        
+        //passwordItems = PasswordSingletone.shared.passwordItems
+        tableView.reloadData()
+
+        // Check Passcode lock
+        showPasscodeScreenIfLocked()
     }
 
     /*
@@ -24,35 +66,120 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
      Provide the password by completing the extension request with the associated ASPasswordCredential.
      If using the credential would require showing custom UI for authenticating the user, cancel
      the request with error code ASExtensionError.userInteractionRequired.
-
+    */
     override func provideCredentialWithoutUserInteraction(for credentialIdentity: ASPasswordCredentialIdentity) {
-        let databaseIsUnlocked = true
-        if (databaseIsUnlocked) {
-            let passwordCredential = ASPasswordCredential(user: "j_appleseed", password: "apple1234")
-            self.extensionContext.completeRequest(withSelectedCredential: passwordCredential, completionHandler: nil)
+        if UserDefaults.forAppGroup.isLocked {
+            // Passcode lock enabled
+            extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code:ASExtensionError.userInteractionRequired.rawValue))
+            return
+        }
+        
+        if let foo = passwordItems.first(where: {$0.id == credentialIdentity.recordIdentifier}) {
+            let passwordCredential = ASPasswordCredential(foo)
+            extensionContext.completeRequest(withSelectedCredential: passwordCredential, completionHandler: nil)
         } else {
-            self.extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code:ASExtensionError.userInteractionRequired.rawValue))
+            // PasswordItem not found
+            extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code:ASExtensionError.credentialIdentityNotFound.rawValue))
+            return
         }
     }
-    */
 
     /*
      Implement this method if provideCredentialWithoutUserInteraction(for:) can fail with
      ASExtensionError.userInteractionRequired. In this case, the system may present your extension's
      UI and call this method. Show appropriate UI for authenticating the user then provide the password
      by completing the extension request with the associated ASPasswordCredential.
-
+     */
     override func prepareInterfaceToProvideCredential(for credentialIdentity: ASPasswordCredentialIdentity) {
-    }
-    */
+        navigationBar.topItem?.leftBarButtonItem = cancelButtonItem
+        // Load password items
+        if let id = credentialIdentity.recordIdentifier {
+            passwordItems = passwordItems.filter({$0.id == id})
+        } else {
+            passwordItems = passwordItems.filter({$0.website == credentialIdentity.serviceIdentifier.domainForFilter})
+        }
 
-    @IBAction func cancel(_ sender: AnyObject?) {
-        self.extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code: ASExtensionError.userCanceled.rawValue))
+        tableView.reloadData()
+
+        // Check Passcode lock
+        showPasscodeScreenIfLocked()
+    }
+ 
+    /*
+     Prepare your UI for Settings.
+     */
+    override func prepareInterfaceForExtensionConfiguration() {
+        navigationBar.topItem?.rightBarButtonItem = doneButtonItem
+
+        tableView.tableHeaderView = configurationHeaderView
+
+        // Update QuickType data
+        configurationStatusLabel.text = "Updating QuickType..."
+
+        QuickTypeManager.shared.updateState { (success) in
+            if success {
+                self.configurationStatusLabel.text = "QuickType updated successfully."
+            } else {
+                self.configurationStatusLabel.text = "QuickType updated failed."
+            }
+        }
     }
 
-    @IBAction func passwordSelected(_ sender: AnyObject?) {
-        let passwordCredential = ASPasswordCredential(user: "j_appleseed", password: "apple1234")
-        self.extensionContext.completeRequest(withSelectedCredential: passwordCredential, completionHandler: nil)
+    // MARK: - Table view data source
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let passwordItems = passwordItems else {
+            return 0
+        }
+        return passwordItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let passwordItem = passwordItems[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.imageView?.layer.cornerRadius = 6
+        cell.imageView?.layer.masksToBounds = true
+//        cell.imageView?.image = passwordItem.image
+        cell.textLabel?.text = passwordItem.website + " - " + passwordItem.user
+        cell.detailTextLabel?.text = passwordItem.website
+        return cell
+    }
+    
+    // MARK: - Table view delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let passwordItem = passwordItems[indexPath.row]
+        extensionContext.completeRequest(withSelectedCredential: ASPasswordCredential(passwordItem), completionHandler: nil)
+    }
+    
+    // MARK: - Passcode view controller delegate
+    
+    func passcodeViewControllerDidCanceled() {
+        let error = NSError(domain: ASExtensionErrorDomain, code: ASExtensionError.userCanceled.rawValue)
+        extensionContext.cancelRequest(withError: error)
+    }
+
+    // MARK: - Actions
+    
+    @IBAction func doneTapped(_ sender: Any) {
+        extensionContext.completeExtensionConfigurationRequest()
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        let error = NSError(domain: ASExtensionErrorDomain, code: ASExtensionError.userCanceled.rawValue)
+        extensionContext.cancelRequest(withError: error)
+    }
+    
+    // MARK: - Show Passcode Lock screen
+    
+    private func showPasscodeScreenIfLocked() {
+        guard UserDefaults.forAppGroup.isLocked else {
+            return
+        }
+
+        let passcodeNavigationController = PasscodeViewController.instantiate(delegate: self)
+        present(passcodeNavigationController, animated: true, completion: nil)
     }
 
 }

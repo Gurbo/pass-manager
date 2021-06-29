@@ -65,18 +65,19 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBAction func saveTapped(_ sender: Any) {
         
         //Saved to Keychain
-        let keychain: Keychain = Keychain(service: parseDomain(from: urlTextfield.text!))
+        let customID = UUID().uuidString
+        let keychain: Keychain = Keychain(service: parseDomain(from: urlTextfield.text!)) //website
         do {
             try keychain
-                .label(nameTextfield.text!)
-                .comment(nameTextfield.text!)
-                .set(loginTextfield.text!, key: passwordTextfield.text!)
+                .label(nameTextfield.text!) //service name
+                .comment(customID) //id
+                .set(loginTextfield.text!, key: passwordTextfield.text!) //login & pass
         } catch let error {
             print("error: \(error)")
         }
         
         //Saved to autofill
-        let password = Password(website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date())
+        let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date())
         password.add()
     
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {

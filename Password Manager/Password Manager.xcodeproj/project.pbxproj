@@ -11,9 +11,11 @@
 		94B55C923105F9F8536F23E7 /* Pods_AutoFillExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950BBD2FA8A4AA90F67544FC /* Pods_AutoFillExtension.framework */; };
 		F005DFD22683363200099DD6 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005DFD12683363200099DD6 /* Password.swift */; };
 		F005DFE526835D9400099DD6 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005DFD12683363200099DD6 /* Password.swift */; };
+		F0091E94268B188700C8764F /* ASCredentialServiceIdentifier+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0091E93268B188700C8764F /* ASCredentialServiceIdentifier+Domain.swift */; };
+		F0091E98268B18FC00C8764F /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0091E97268B18FC00C8764F /* PasscodeViewController.swift */; };
+		F0091EED268B71C200C8764F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0091EEC268B71C200C8764F /* MainInterface.storyboard */; };
 		F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082612682376F00A5A94C /* CredentialProviderViewController.swift */; };
-		F08082652682376F00A5A94C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F08082632682376F00A5A94C /* MainInterface.storyboard */; };
 		F080826A2682376F00A5A94C /* AutoFillExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F080825D2682376F00A5A94C /* AutoFillExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F080827B2682393800A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082862682502300A5A94C /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082852682502300A5A94C /* PasscodeField.swift */; };
@@ -72,10 +74,12 @@
 		950BBD2FA8A4AA90F67544FC /* Pods_AutoFillExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AutoFillExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE0BAD18F7ED92EF76C52BC4 /* Pods-Password Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Password Manager.debug.xcconfig"; path = "Target Support Files/Pods-Password Manager/Pods-Password Manager.debug.xcconfig"; sourceTree = "<group>"; };
 		F005DFD12683363200099DD6 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		F0091E93268B188700C8764F /* ASCredentialServiceIdentifier+Domain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASCredentialServiceIdentifier+Domain.swift"; sourceTree = "<group>"; };
+		F0091E97268B18FC00C8764F /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
+		F0091EEC268B71C200C8764F /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		F080825D2682376F00A5A94C /* AutoFillExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutoFillExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F080825E2682376F00A5A94C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		F08082612682376F00A5A94C /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
-		F08082642682376F00A5A94C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		F08082662682376F00A5A94C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F08082672682376F00A5A94C /* AutoFillExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AutoFillExtension.entitlements; sourceTree = "<group>"; };
 		F08082852682502300A5A94C /* PasscodeField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeField.swift; sourceTree = "<group>"; };
@@ -151,8 +155,10 @@
 		F08082602682376F00A5A94C /* AutoFillExtension */ = {
 			isa = PBXGroup;
 			children = (
+				F0091EEC268B71C200C8764F /* MainInterface.storyboard */,
 				F08082612682376F00A5A94C /* CredentialProviderViewController.swift */,
-				F08082632682376F00A5A94C /* MainInterface.storyboard */,
+				F0091E97268B18FC00C8764F /* PasscodeViewController.swift */,
+				F0091E93268B188700C8764F /* ASCredentialServiceIdentifier+Domain.swift */,
 				F08082662682376F00A5A94C /* Info.plist */,
 				F08082672682376F00A5A94C /* AutoFillExtension.entitlements */,
 			);
@@ -162,8 +168,8 @@
 		F080828426824FB700A5A94C /* Shared Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */,
 				F080828D268250CC00A5A94C /* QuickTypeManager.swift */,
+				F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */,
 				F005DFD12683363200099DD6 /* Password.swift */,
 				F08082852682502300A5A94C /* PasscodeField.swift */,
 				F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */,
@@ -171,6 +177,18 @@
 				F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */,
 			);
 			path = "Shared Modules";
+			sourceTree = "<group>";
+		};
+		F0C03F0F268A1C2100579BCB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0EB6A572680C963006F4101 /* Main.storyboard */,
+				F0EB6A5C2680C965006F4101 /* LaunchScreen.storyboard */,
+				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
+				F0FBC3672680E2DD00A555A5 /* Constants.swift */,
+				F0EB6A532680C963006F4101 /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F0EB6A452680C963006F4101 = {
@@ -196,17 +214,13 @@
 		F0EB6A502680C963006F4101 /* Password Manager */ = {
 			isa = PBXGroup;
 			children = (
-				F0EB6A512680C963006F4101 /* AppDelegate.swift */,
 				F0FBC36B2680E8E100A555A5 /* Password Manager.entitlements */,
-				F0EB6A572680C963006F4101 /* Main.storyboard */,
-				F0FBC32F2680CD0000A555A5 /* Views */,
+				F0EB6A5F2680C965006F4101 /* Info.plist */,
+				F0EB6A512680C963006F4101 /* AppDelegate.swift */,
 				F0FBC3292680CBC500A555A5 /* ViewControllers */,
 				F080828426824FB700A5A94C /* Shared Modules */,
-				F0EB6A532680C963006F4101 /* SceneDelegate.swift */,
-				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
-				F0EB6A5C2680C965006F4101 /* LaunchScreen.storyboard */,
-				F0EB6A5F2680C965006F4101 /* Info.plist */,
-				F0FBC3672680E2DD00A555A5 /* Constants.swift */,
+				F0C03F0F268A1C2100579BCB /* Resources */,
+				F0FBC32F2680CD0000A555A5 /* Views */,
 			);
 			path = "Password Manager";
 			sourceTree = "<group>";
@@ -311,7 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F08082652682376F00A5A94C /* MainInterface.storyboard in Resources */,
+				F0091EED268B71C200C8764F /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,11 +412,13 @@
 			files = (
 				F08082A6268252E400A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */,
 				F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */,
+				F0091E98268B18FC00C8764F /* PasscodeViewController.swift in Sources */,
 				F08082A9268252E600A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */,
 				F08082A2268252E000A5A94C /* PasscodeField.swift in Sources */,
 				F005DFE526835D9400099DD6 /* Password.swift in Sources */,
 				F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */,
 				F08082AF268252EB00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
+				F0091E94268B188700C8764F /* ASCredentialServiceIdentifier+Domain.swift in Sources */,
 				F08082A3268252E200A5A94C /* QuickTypeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,14 +454,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F08082632682376F00A5A94C /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F08082642682376F00A5A94C /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		F0EB6A572680C963006F4101 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -639,6 +647,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = "Password Manager/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,6 +672,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = "Password Manager/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
