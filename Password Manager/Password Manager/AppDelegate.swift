@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        KeychainNew.logout()
+
         PasswordSingletone.shared.grabAllPasswords()
         QuickTypeManager.shared.activate()
         return true
@@ -34,5 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+public class KeychainNew: NSObject {
+  public class func logout()  {
+    let secItemClasses =  [
+      kSecClassGenericPassword,
+      kSecClassInternetPassword,
+      kSecClassCertificate,
+      kSecClassKey,
+      kSecClassIdentity,
+    ]
+    for itemClass in secItemClasses {
+      let spec: NSDictionary = [kSecClass: itemClass]
+      SecItemDelete(spec)
+    }
+  }
 }
 
