@@ -46,16 +46,13 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
     */
     override func prepareCredentialList(for serviceIdentifiers: [ASCredentialServiceIdentifier]) {
         navigationBar.topItem?.leftBarButtonItem = cancelButtonItem
-        
-        
-//        // Load password items
+
         if serviceIdentifiers.count == 1 {
-            passwordItems = passwordItems.filter({$0.website == serviceIdentifiers.first!.domainForFilter})
+            passwordItems = passwordItems.filter({$0.website.contains(serviceIdentifiers.first!.domainForFilter)})
         } else {
             passwordItems = PasswordSingletone.shared.passwordItems
         }
-        
-        //passwordItems = PasswordSingletone.shared.passwordItems
+
         tableView.reloadData()
 
         // Check Passcode lock
@@ -99,7 +96,7 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
         if let id = credentialIdentity.recordIdentifier {
             passwordItems = passwordItems.filter({$0.id == id})
         } else {
-            passwordItems = passwordItems.filter({$0.website == credentialIdentity.serviceIdentifier.domainForFilter})
+            passwordItems = passwordItems.filter({$0.website.contains(credentialIdentity.serviceIdentifier.domainForFilter)})
         }
 
         tableView.reloadData()

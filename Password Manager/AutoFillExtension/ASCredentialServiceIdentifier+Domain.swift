@@ -13,13 +13,12 @@ extension ASCredentialServiceIdentifier {
     
     var domainForFilter: String {
         let host = URL(string: identifier)?.host ?? identifier
-        
         let components = host.components(separatedBy: ".")
         switch components.count {
         case 0...1:
-            return "*" + host
+            return host
         default:
-            return "*" + components[components.count - 2] + "." + components[components.count - 1]
+            return components[components.count - 2] + "." + components[components.count - 1]
         }
     }
     

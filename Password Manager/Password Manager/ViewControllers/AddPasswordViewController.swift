@@ -59,7 +59,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         if !urlString.starts(with: "http://") && !urlString.starts(with: "https://") {
             urlString = "https://" + urlString
         }
-        return URL(string: urlString)?.host ?? ""
+        return URL(string: urlString)?.host?.lowercased() ?? ""
     }
     
     @IBAction func saveTapped(_ sender: Any) {
