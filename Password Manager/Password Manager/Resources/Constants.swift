@@ -7,8 +7,8 @@
 
 import Foundation
 
-let kName = "k_name"
-let kWebsite = "k_website"
-let kLogin = "k_login"
-let kPassword = "k_password"
-let accessGroup = "com.ag.password.manager"
+//let kName = "k_name"
+//let kWebsite = "k_website"
+//let kLogin = "k_login"
+//let kPassword = "k_password"
+//let accessGroup = "group.com.ag.password.saver"

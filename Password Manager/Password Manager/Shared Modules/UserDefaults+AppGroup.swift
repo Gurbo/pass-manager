@@ -7,7 +7,7 @@
 
 import UIKit
 
-let appGroup = "group.com.ag.password.manager"
+let appGroup = "group.com.ag.password.saver"
 
 extension UserDefaults {
     
