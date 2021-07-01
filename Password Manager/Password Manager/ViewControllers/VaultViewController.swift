@@ -100,10 +100,26 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
 
         let item = items[indexPath.row]
         let key = item["key"] as! String
-
+        
+        var keychainItemIdToDelete = ""
+        for elementOfService in items  {
+            let keychain = Keychain(service: service)
+            if let attributes = keychain[attributes: (elementOfService["key"] as? String)!] {
+                keychainItemIdToDelete = attributes.comment!
+            }
+        }
+    
         keychain[key] = nil
 
         if items.count == 1 {
+            if let autofillPasswords = PasswordSingletone.shared.passwordItems {
+                for password in autofillPasswords {
+                    if password.id == keychainItemIdToDelete {
+                        password.delete() //delete from autofill
+                    }
+                }
+            }
+        
             reloadData()
             tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
         } else {

@@ -18,8 +18,11 @@ class PasswordSingletone: NSObject {
     
     
     func grabAllPasswords() {
-        
+        print("Grab All Passwords Before \(self.passwordItems?.count)")
         grabPureKeychainItemsForVault()
+        
+        
+        
         
         passwordItems = [Password]()
         
@@ -65,7 +68,7 @@ class PasswordSingletone: NSObject {
                 }
             }
         }
-        print("Grab passwords finished")
+        print("Grab All Passwords After \(self.passwordItems?.count)")
     }
     
     private func grabPureKeychainItemsForVault() {

@@ -28,7 +28,6 @@ class Password: NSObject {
     // MARK: - Managing PasswordItem
     
     func add() {
-//        print("ID IS \(self.id)")
         QuickTypeManager.shared.save(ASPasswordCredentialIdentity(self))
     }
     

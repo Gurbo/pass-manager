@@ -80,8 +80,7 @@ class QuickTypeManager: NSObject {
     func save(_ credentialIdentity: ASPasswordCredentialIdentity) {
         if isEnabled == false {
             return
-        }
-        print("credentialIdentity IS \(credentialIdentity.recordIdentifier)")
+        } 
         ASCredentialIdentityStore.shared.saveCredentialIdentities([credentialIdentity]) { (success, error) in
             print("Saved to ASCredentialIdentityStore")
             if let error = error {
