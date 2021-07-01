@@ -21,23 +21,24 @@ class VaultViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = "Vault"
         
         let nc = NotificationCenter.default
-        nc.addObserver(self, selector: #selector(reloadData), name: Notification.Name("kUpdateVaultNotification"), object: nil)
+        nc.addObserver(self, selector: #selector(updateVaultAfterAddingRecord), name: Notification.Name("kUpdateVaultNotification"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        reloadData()    
+        reloadData()
+        tableView.reloadData()
     }
     
     @objc func reloadData() {
         PasswordSingletone.shared.grabAllPasswords()
-        
-//        let items3 = Keychain.allItems(.genericPassword)
-//        print("reloadData \(items3.count)")
-//        
         self.itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
-        self.tableView.reloadData()
+    }
+    
+    @objc func updateVaultAfterAddingRecord() {
+        reloadData()
+        tableView.reloadData()
     }
 }
 
