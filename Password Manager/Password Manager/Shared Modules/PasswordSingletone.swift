@@ -13,28 +13,27 @@ class PasswordSingletone: NSObject {
     
     var itemsGroupedByService: [String: [[String: Any]]]?
     var passwordItems: [Password]?
+    var sortedKeys: [String]?
     static let shared = PasswordSingletone()
     override private init() {}
     
     
     func grabAllPasswords() {
-        print("Grab All Passwords Before \(self.passwordItems?.count)")
         grabPureKeychainItemsForVault()
-        
-        
-        
-        
         passwordItems = [Password]()
         
+        if let unwraped = itemsGroupedByService {
+            sortedKeys = unwraped.keys.sorted()
+            //sortedKeys = unwraped.sorted(by: { $0.0 < $1.0 })
+        }
+
         if let items = itemsGroupedByService {
             for (index, _) in items.enumerated() {
                 
                 let services = Array(itemsGroupedByService!.keys)
                 let service = services[index]
-    
                 let arrayOfSevenItemsForService = Keychain(service: service).allItems()
-                
-                
+            
                 for elementOfService in arrayOfSevenItemsForService {
                     var website: String = ""
                     var user: String = ""
@@ -60,7 +59,6 @@ class PasswordSingletone: NSObject {
                     if let attributes = keychain[attributes: (elementOfService["key"] as? String)!] {
                         date = attributes.creationDate!
                         customID = attributes.comment! //id
-                        
                     }
                     
                     let passwordForQuickType = Password.init(id: customID, website: website, user: user, password: password, date: date)
@@ -68,7 +66,6 @@ class PasswordSingletone: NSObject {
                 }
             }
         }
-        print("Grab All Passwords After \(self.passwordItems?.count)")
     }
     
     private func grabPureKeychainItemsForVault() {

@@ -12,6 +12,7 @@ class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addPasswordButton: UIBarButtonItem!
     var itemsGroupedByService: [String: [[String: Any]]]?
+    var sortedKeys: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class VaultViewController: UIViewController {
     @objc func reloadData() {
         PasswordSingletone.shared.grabAllPasswords()
         self.itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
+        self.sortedKeys = PasswordSingletone.shared.sortedKeys
     }
     
     @objc func updateVaultAfterAddingRecord() {
@@ -46,21 +48,19 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if itemsGroupedByService != nil {
-            let services = Array(itemsGroupedByService!.keys)
-            return services.count
+            if sortedKeys != nil {
+                return sortedKeys!.count
+            }
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let services = Array(itemsGroupedByService!.keys)
-        return services[section]
+        return sortedKeys![section]
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let services = Array(itemsGroupedByService!.keys)
-        let service = services[section]
-
+        let service = sortedKeys![section]
         let items = Keychain(service: service).allItems()
         return items.count
     }
@@ -69,10 +69,7 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "PasswordItemTableViewCell", for: indexPath) as! PasswordItemTableViewCell
     cell.selectionStyle = .none
     
-    
-
-    let services = Array(itemsGroupedByService!.keys)
-    let service = services[indexPath.section]
+    let service = sortedKeys![indexPath.section]
 
     let items = Keychain(service: service).allItems()
     let item = items[indexPath.row]
@@ -91,8 +88,8 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
   }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let services = Array(itemsGroupedByService!.keys)
-        let service = services[indexPath.section]
+
+        let service = sortedKeys![indexPath.section]
 
         let keychain = Keychain(service: service)
         let items = keychain.allItems()
