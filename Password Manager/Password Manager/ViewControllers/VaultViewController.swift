@@ -90,7 +90,6 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
     return cell
   }
     
-    #if swift(>=4.2)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let services = Array(itemsGroupedByService!.keys)
         let service = services[indexPath.section]
@@ -98,47 +97,23 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
         let keychain = Keychain(service: service)
         let items = keychain.allItems()
 
-        let item = items[indexPath.row]
+        let item = items[indexPath.row] //TRUE ITEM
         let key = item["key"] as! String
         
         var keychainItemIdToDelete = ""
-        for elementOfService in items  {
-            let keychain = Keychain(service: service)
-            if let attributes = keychain[attributes: (elementOfService["key"] as? String)!] {
-                keychainItemIdToDelete = attributes.comment!
-            }
+        if let attributes = keychain[attributes: (item["key"] as? String)!] {
+            keychainItemIdToDelete = attributes.comment!
         }
-    
-        keychain[key] = nil
-
-        if items.count == 1 {
-            if let autofillPasswords = PasswordSingletone.shared.passwordItems {
-                for password in autofillPasswords {
-                    if password.id == keychainItemIdToDelete {
-                        password.delete() //delete from autofill
-                    }
+        if let autofillPasswords = PasswordSingletone.shared.passwordItems {
+            for password in autofillPasswords {
+                if password.id == keychainItemIdToDelete {
+                    print("")
+                    password.delete() //delete from autofill
                 }
             }
-        
-            reloadData()
-            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
-        } else {
-            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
-    }
-    #else
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let services = Array(itemsGroupedByService!.keys)
-        let service = services[indexPath.section]
-
-        let keychain = Keychain(service: service)
-        let items = keychain.allItems()
-
-        let item = items[indexPath.row]
-        let key = item["key"] as! String
-
         keychain[key] = nil
-
+        
         if items.count == 1 {
             reloadData()
             tableView.deleteSections(IndexSet(integer: indexPath.section), with: .automatic)
@@ -146,6 +121,4 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    #endif
-  
 }
