@@ -17,9 +17,14 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
+    @IBOutlet weak var blackView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "New Password"
+        
+        blackView.isHidden = true
+        blackView.alpha = 0.0
         
         nameTextfield.delegate = self
         urlTextfield.delegate = self
@@ -75,15 +80,20 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         } catch let error {
             print("error: \(error)")
         }
-        
+
         //Saved to autofill
         let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date())
         password.add()
-    
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let nc = NotificationCenter.default
-            nc.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
-            self.dismiss(animated: true, completion: nil)
+        
+        self.blackView.isHidden = false
+        UIView.animate(withDuration: 0.2, animations: {
+            self.blackView.alpha = 0.7
+        }) { (finished) in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
+                NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
+                self.blackView.isHidden = true
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

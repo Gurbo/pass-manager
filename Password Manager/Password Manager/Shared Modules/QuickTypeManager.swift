@@ -83,6 +83,7 @@ class QuickTypeManager: NSObject {
         }
         print("credentialIdentity IS \(credentialIdentity.recordIdentifier)")
         ASCredentialIdentityStore.shared.saveCredentialIdentities([credentialIdentity]) { (success, error) in
+            print("Saved to ASCredentialIdentityStore")
             if let error = error {
                 print(error)
             }

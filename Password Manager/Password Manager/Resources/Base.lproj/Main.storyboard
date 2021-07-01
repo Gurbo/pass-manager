@@ -159,10 +159,15 @@
                                     <action selector="fieldEditingChanged:" destination="Tzw-zb-lbV" eventType="editingChanged" id="jSt-6E-x0z"/>
                                 </connections>
                             </textField>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-TK-n8s">
+                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YLg-dI-cd0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9f6-TK-n8s" firstAttribute="trailing" secondItem="YLg-dI-cd0" secondAttribute="trailing" id="0Jt-4D-ISE"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="trailing" secondItem="vUz-D0-Ngm" secondAttribute="trailing" id="1WX-ME-3og"/>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="leading" secondItem="EGG-8C-tNR" secondAttribute="leading" id="2ge-sd-PAQ"/>
                             <constraint firstItem="EGG-8C-tNR" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" constant="41" id="6Qx-Qr-P1C"/>
@@ -172,7 +177,10 @@
                             <constraint firstItem="UCn-d7-MoO" firstAttribute="top" secondItem="HVq-CN-6vK" secondAttribute="bottom" constant="8" symbolic="YES" id="ECW-Ho-aEH"/>
                             <constraint firstItem="EGG-8C-tNR" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" constant="155" id="JBp-ig-fSJ"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="leading" secondItem="vUz-D0-Ngm" secondAttribute="leading" id="MGz-8X-Mt1"/>
+                            <constraint firstItem="9f6-TK-n8s" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" id="T0O-XB-YiQ"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="top" secondItem="vUz-D0-Ngm" secondAttribute="bottom" constant="8" symbolic="YES" id="Upl-hp-eKG"/>
+                            <constraint firstItem="9f6-TK-n8s" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" id="cE2-AA-nS2"/>
+                            <constraint firstAttribute="bottom" secondItem="9f6-TK-n8s" secondAttribute="bottom" id="jmY-pY-wv3"/>
                             <constraint firstItem="UCn-d7-MoO" firstAttribute="trailing" secondItem="HVq-CN-6vK" secondAttribute="trailing" id="m6r-LX-TMz"/>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="top" secondItem="EGG-8C-tNR" secondAttribute="bottom" constant="8" symbolic="YES" id="msH-1q-NNP"/>
                         </constraints>
@@ -186,6 +194,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="blackView" destination="9f6-TK-n8s" id="tBJ-qL-tXR"/>
                         <outlet property="cancelButton" destination="37U-Pt-Ip7" id="rk5-QE-QEE"/>
                         <outlet property="loginTextfield" destination="HVq-CN-6vK" id="oTg-SA-UdH"/>
                         <outlet property="nameTextfield" destination="EGG-8C-tNR" id="ecA-k6-Zcy"/>
@@ -196,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgs-rf-r31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="125"/>
+            <point key="canvasLocation" x="1779.7101449275365" y="124.55357142857142"/>
         </scene>
     </scenes>
     <resources>

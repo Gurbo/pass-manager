@@ -20,21 +20,20 @@ class VaultViewController: UIViewController {
         self.tableView.rowHeight = 102
         self.navigationController?.navigationBar.topItem?.title = "Vault"
         
-        itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
-        
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(reloadData), name: Notification.Name("kUpdateVaultNotification"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
         reloadData()    
     }
     
     @objc func reloadData() {
-        tableView.reloadData()
+        PasswordSingletone.shared.grabAllPasswords()
+        self.itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
+        self.tableView.reloadData()
     }
 }
 
