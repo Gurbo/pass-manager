@@ -69,6 +69,9 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveTapped(_ sender: Any) {
         
+        
+//        let items = Keychain.allItems(.genericPassword)
+//        print("SAVE TAPPED \(items.count)")
         //Saved to Keychain
         let customID = UUID().uuidString
         let keychain: Keychain = Keychain(service: parseDomain(from: urlTextfield.text!)) //website
@@ -85,16 +88,26 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date())
         password.add()
         
-        self.blackView.isHidden = false
-        UIView.animate(withDuration: 0.2, animations: {
-            self.blackView.alpha = 0.7
-        }) { (finished) in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.8) {
-                NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
-                self.blackView.isHidden = true
-                self.dismiss(animated: true, completion: nil)
-            }
-        }
+        NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
+        self.dismiss(animated: true, completion: nil)
+        
+//        let items2 = Keychain.allItems(.genericPassword)
+//        print("BEFORE BLACK VIEW \(items2.count)")
+//        
+//        self.blackView.isHidden = false
+//        UIView.animate(withDuration: 0.0, animations: {
+//            self.blackView.alpha = 0.7
+//        }) { (finished) in
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//                NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
+//                self.blackView.isHidden = true
+//                
+//                let items3 = Keychain.allItems(.genericPassword)
+//                print("BLACK VIEW HIDDEN \(items3.count)")
+//                
+//                self.dismiss(animated: true, completion: nil)
+//            }
+//        }
     }
     
     @objc func dismissController(sender: UIBarButtonItem) {

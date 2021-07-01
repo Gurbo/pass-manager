@@ -18,14 +18,8 @@ class PasswordSingletone: NSObject {
     
     
     func grabAllPasswords() {
-        let kcItems = Keychain.allItems(.genericPassword)
         
-        itemsGroupedByService = groupBy(kcItems) { item -> String in
-            if let service = item["service"] as? String {
-                return service
-            }
-            return ""
-        }
+        grabPureKeychainItemsForVault()
         
         passwordItems = [Password]()
         
@@ -72,6 +66,17 @@ class PasswordSingletone: NSObject {
             }
         }
         print("Grab passwords finished")
+    }
+    
+    private func grabPureKeychainItemsForVault() {
+        let kcItems = Keychain.allItems(.genericPassword)
+        
+        itemsGroupedByService = groupBy(kcItems) { item -> String in
+            if let service = item["service"] as? String {
+                return service
+            }
+            return ""
+        }
     }
     
     private func groupBy<C: Collection, K: Hashable>(_ xs: C, key: (C.Iterator.Element) -> K) -> [K:[C.Iterator.Element]] {

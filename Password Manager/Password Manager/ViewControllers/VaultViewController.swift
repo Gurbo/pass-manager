@@ -32,6 +32,10 @@ class VaultViewController: UIViewController {
     
     @objc func reloadData() {
         PasswordSingletone.shared.grabAllPasswords()
+        
+//        let items3 = Keychain.allItems(.genericPassword)
+//        print("reloadData \(items3.count)")
+//        
         self.itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
         self.tableView.reloadData()
     }
