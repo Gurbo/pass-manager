@@ -23,6 +23,13 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.title = "New Password"
         
+        nameTextfield.keyboardType = .alphabet
+        urlTextfield.keyboardType = .URL
+        loginTextfield.keyboardType = .emailAddress
+        passwordTextfield.keyboardType = .alphabet
+        
+        urlTextfield.text = "https://www."
+        
         blackView.isHidden = true
         blackView.alpha = 0.0
         
