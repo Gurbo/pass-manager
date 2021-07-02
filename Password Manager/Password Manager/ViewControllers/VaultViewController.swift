@@ -65,26 +65,43 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
         return items.count
     }
   
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "PasswordItemTableViewCell", for: indexPath) as! PasswordItemTableViewCell
-    cell.selectionStyle = .none
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PasswordItemTableViewCell", for: indexPath) as! PasswordItemTableViewCell
+        cell.selectionStyle = .none
     
-    let service = sortedKeys![indexPath.section]
+        let service = sortedKeys![indexPath.section]
 
-    let items = Keychain(service: service).allItems()
-    let item = items[indexPath.row]
+        let items = Keychain(service: service).allItems()
+        let item = items[indexPath.row]
 
-    let keychain = Keychain(service: service)
-    if let attributes = keychain[attributes: (item["key"] as? String)!] {
-        cell.itemNameLabel?.text = attributes.label
+        let keychain = Keychain(service: service)
+        if let attributes = keychain[attributes: (item["key"] as? String)!] {
+            cell.itemNameLabel?.text = attributes.label
+        }
+        cell.usernameLabel?.text = item["key"] as? String
+    
+        return cell
     }
-    cell.usernameLabel?.text = item["key"] as? String
     
-    return cell
-  }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let service = sortedKeys![indexPath.section]
+        let items = Keychain(service: service).allItems()
+        let item = items[indexPath.row]
+        
+        var itemID = ""
+        let keychain = Keychain(service: service)
+        if let attributes = keychain[attributes: (item["key"] as? String)!] {
+            itemID = attributes.comment! //id
+        }
+        
+        let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AddPasswordViewController") as AddPasswordViewController
+        if itemID != "" {
+            addPassVC.customItemID = itemID
+        }
+        self.present(addPassVC, animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
         let service = sortedKeys![indexPath.section]
 
         let keychain = Keychain(service: service)

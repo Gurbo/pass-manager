@@ -8,6 +8,11 @@
 import UIKit
 import KeychainAccess
 
+enum AddPasswordControllerState {
+    case create
+    case show
+}
+
 class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -17,18 +22,26 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
+    var editState: AddPasswordControllerState = .create
+    var customItemID = ""
+    
     @IBOutlet weak var blackView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "New Password"
+        
+        switch editState {
+        case .create:
+            self.title = "New Password"
+            urlTextfield.text = "https://www."
+        case .show:
+            self.title = "Password"
+        }
         
         nameTextfield.keyboardType = .alphabet
         urlTextfield.keyboardType = .URL
         loginTextfield.keyboardType = .emailAddress
         passwordTextfield.keyboardType = .alphabet
-        
-        urlTextfield.text = "https://www."
         
         blackView.isHidden = true
         blackView.alpha = 0.0
