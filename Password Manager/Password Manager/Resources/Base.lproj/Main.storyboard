@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qYr-Ce-UFd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a8A-aI-kln">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -8,10 +8,29 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Custom Tabbar View Controller-->
+        <scene sceneID="695-ye-Lb5">
+            <objects>
+                <tabBarController storyboardIdentifier="CustomTabbarViewController" id="a8A-aI-kln" customClass="CustomTabbarViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UEc-jk-qvr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qYr-Ce-UFd" kind="relationship" relationship="viewControllers" id="dth-xI-E6S"/>
+                        <segue destination="nSP-Ph-E5d" kind="relationship" relationship="viewControllers" id="DJf-gX-mIb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Vc-QN-T8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2123" y="597"/>
+        </scene>
+        <!--Vault-->
         <scene sceneID="6Pe-M7-38e">
             <objects>
-                <navigationController id="qYr-Ce-UFd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="VaultNavigationViewController" id="qYr-Ce-UFd" customClass="VaultNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Vault" id="CtT-gp-Njc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MTn-Ec-UPI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -23,6 +42,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQU-Qi-CoC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-759" y="125"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="DHw-hp-JN3">
+            <objects>
+                <navigationController storyboardIdentifier="SettingsNavigationViewController" id="nSP-Ph-E5d" customClass="SettingsNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" id="n9l-13-NeB"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXz-Ux-YNx">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="M8r-G2-rEe" kind="relationship" relationship="rootViewController" id="S9y-tt-hHv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qC7-IQ-DIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759" y="1019"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="uTN-AH-UNb">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="M8r-G2-rEe" customClass="SettingsViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1xS-3A-Zp0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="uvm-3J-bs6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pBE-EX-A9X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0vk-Zb-qvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-26" y="1019"/>
         </scene>
         <!--Vault View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -93,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.666666666666671" y="124.55357142857142"/>
+            <point key="canvasLocation" x="-25" y="125"/>
         </scene>
         <!--Password Navigation View Controller-->
         <scene sceneID="W9x-Fb-0xD">
@@ -106,7 +158,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQw-1U-wOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="984" y="125"/>
+            <point key="canvasLocation" x="981" y="125"/>
         </scene>
         <!--Add Password View Controller-->
         <scene sceneID="12d-8J-3V7">
@@ -198,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgs-rf-r31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1779.7101449275365" y="124.55357142857142"/>
+            <point key="canvasLocation" x="1699" y="125"/>
         </scene>
     </scenes>
     <resources>
