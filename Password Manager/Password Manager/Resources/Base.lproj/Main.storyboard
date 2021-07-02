@@ -53,28 +53,46 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="M8r-G2-rEe" kind="relationship" relationship="rootViewController" id="S9y-tt-hHv"/>
+                        <segue destination="u2e-rT-yV3" kind="relationship" relationship="rootViewController" id="pvn-MU-hEu"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qC7-IQ-DIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-759" y="1019"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="uTN-AH-UNb">
+        <!--Settings Table View Controller-->
+        <scene sceneID="BNg-3B-izp">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="M8r-G2-rEe" customClass="SettingsViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1xS-3A-Zp0">
+                <tableViewController storyboardIdentifier="SettingsTableViewController" id="u2e-rT-yV3" customClass="SettingsTableViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="axL-ie-8UH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="uvm-3J-bs6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="pBE-EX-A9X"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0vk-Zb-qvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <sections>
+                            <tableViewSection id="lwb-wA-SmW">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="f3N-Tu-ejZ">
+                                        <rect key="frame" x="0.0" y="18" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f3N-Tu-ejZ" id="VOM-GK-Rza">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.98823529409999999" green="0.24313725489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="u2e-rT-yV3" id="Lal-uE-qBC"/>
+                            <outlet property="delegate" destination="u2e-rT-yV3" id="OPZ-8g-Wo8"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="m1E-Q6-AWD"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c7o-Lh-dDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26" y="1019"/>
+            <point key="canvasLocation" x="30" y="1019"/>
         </scene>
         <!--Vault View Controller-->
         <scene sceneID="tne-QT-ifu">

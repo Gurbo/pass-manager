@@ -34,6 +34,7 @@
 		F08FEFFC268F3F600035909B /* VaultNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FEFFB268F3F600035909B /* VaultNavigationViewController.swift */; };
 		F08FF000268F46300035909B /* SettingsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FEFFF268F46300035909B /* SettingsNavigationViewController.swift */; };
 		F08FF004268F46540035909B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FF003268F46540035909B /* SettingsViewController.swift */; };
+		F08FF00A268F4D8B0035909B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */; };
 		F0C03EDE2689C24A00579BCB /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */; };
 		F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
 		F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
@@ -99,6 +100,7 @@
 		F08FEFFB268F3F600035909B /* VaultNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultNavigationViewController.swift; sourceTree = "<group>"; };
 		F08FEFFF268F46300035909B /* SettingsNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationViewController.swift; sourceTree = "<group>"; };
 		F08FF003268F46540035909B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F0BC1BE326836A9B003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC1BE826837D02003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +258,7 @@
 				F0FBC32A2680CBF700A555A5 /* VaultViewController.swift */,
 				F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */,
 				F08FF003268F46540035909B /* SettingsViewController.swift */,
+				F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -469,6 +472,7 @@
 				F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */,
 				F08FEFD6268F32D40035909B /* PasswordNavigationViewController.swift in Sources */,
 				F08FEFF2268F3CF20035909B /* CustomTabbarViewController.swift in Sources */,
+				F08FF00A268F4D8B0035909B /* SettingsTableViewController.swift in Sources */,
 				F08FEFFC268F3F600035909B /* VaultNavigationViewController.swift in Sources */,
 				F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */,
 				F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */,
