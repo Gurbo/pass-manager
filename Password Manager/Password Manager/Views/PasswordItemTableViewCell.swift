@@ -8,7 +8,7 @@
 import UIKit
 
 class PasswordItemTableViewCell: UITableViewCell {
-    @IBOutlet weak var websiteLabel: UILabel!
+    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

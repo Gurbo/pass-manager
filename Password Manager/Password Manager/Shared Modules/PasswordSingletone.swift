@@ -24,7 +24,6 @@ class PasswordSingletone: NSObject {
         
         if let unwraped = itemsGroupedByService {
             sortedKeys = unwraped.keys.sorted()
-            //sortedKeys = unwraped.sorted(by: { $0.0 < $1.0 })
         }
 
         if let items = itemsGroupedByService {

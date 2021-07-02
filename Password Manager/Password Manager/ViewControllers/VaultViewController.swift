@@ -74,15 +74,11 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
     let items = Keychain(service: service).allItems()
     let item = items[indexPath.row]
 
-//    let keychain = Keychain(service: service)
-//    if let attributes = keychain[attributes: (item["key"] as? String)!] {
-//        print(" LABEL  \(attributes.label)")
-//        print("CREATEING DATE \(attributes.creationDate)")
-//    }
-    
-    cell.websiteLabel?.text = item["key"] as? String
-    cell.usernameLabel?.text = item["value"] as? String
-    
+    let keychain = Keychain(service: service)
+    if let attributes = keychain[attributes: (item["key"] as? String)!] {
+        cell.itemNameLabel?.text = attributes.label
+    }
+    cell.usernameLabel?.text = item["key"] as? String
     
     return cell
   }

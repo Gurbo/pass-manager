@@ -67,8 +67,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="itemNameLabel" destination="TTJ-aQ-doi" id="0rZ-Qe-QhE"/>
                                             <outlet property="usernameLabel" destination="px1-Rq-7GX" id="kLK-La-icW"/>
-                                            <outlet property="websiteLabel" destination="TTJ-aQ-doi" id="0rZ-Qe-QhE"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

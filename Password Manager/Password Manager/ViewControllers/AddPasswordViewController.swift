@@ -64,15 +64,18 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         if !urlString.starts(with: "http://") && !urlString.starts(with: "https://") {
             urlString = "https://" + urlString
         }
-        return URL(string: urlString)?.host?.lowercased() ?? ""
+        
+        let host = URL(string: urlString)?.host?.lowercased() ?? ""
+        let components = host.components(separatedBy: ".")
+        switch components.count {
+        case 0...1:
+            return host
+        default:
+            return components[components.count - 2] + "." + components[components.count - 1]
+        }
     }
     
     @IBAction func saveTapped(_ sender: Any) {
-        
-        
-//        let items = Keychain.allItems(.genericPassword)
-//        print("SAVE TAPPED \(items.count)")
-        //Saved to Keychain
         let customID = UUID().uuidString
         let keychain: Keychain = Keychain(service: parseDomain(from: urlTextfield.text!)) //website
         do {
@@ -86,15 +89,12 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
 
         //Saved to autofill
         let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date())
-        print("ADDED RECORD WITH ID \(customID)")
         password.add()
         
         NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
         self.dismiss(animated: true, completion: nil)
         
-//        let items2 = Keychain.allItems(.genericPassword)
-//        print("BEFORE BLACK VIEW \(items2.count)")
-//
+
 //        self.blackView.isHidden = false
 //        UIView.animate(withDuration: 0.0, animations: {
 //            self.blackView.alpha = 0.7
@@ -102,10 +102,6 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
 //            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
 //                NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
 //                self.blackView.isHidden = true
-//
-//                let items3 = Keychain.allItems(.genericPassword)
-//                print("BLACK VIEW HIDDEN \(items3.count)")
-//
 //                self.dismiss(animated: true, completion: nil)
 //            }
 //        }
@@ -114,4 +110,5 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @objc func dismissController(sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+
 }

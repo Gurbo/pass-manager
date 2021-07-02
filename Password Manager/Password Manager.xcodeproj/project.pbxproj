@@ -168,8 +168,8 @@
 		F080828426824FB700A5A94C /* Shared Modules */ = {
 			isa = PBXGroup;
 			children = (
-				F080828D268250CC00A5A94C /* QuickTypeManager.swift */,
 				F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */,
+				F080828D268250CC00A5A94C /* QuickTypeManager.swift */,
 				F005DFD12683363200099DD6 /* Password.swift */,
 				F08082852682502300A5A94C /* PasscodeField.swift */,
 				F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */,

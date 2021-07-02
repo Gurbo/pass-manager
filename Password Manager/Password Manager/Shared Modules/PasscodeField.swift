@@ -16,13 +16,9 @@ protocol PasscodeFieldDelegate: class {
 class PasscodeField: UITextField, UITextFieldDelegate {
 
     weak var passcodeDelegate: PasscodeFieldDelegate?
-
     var valueSymbol = "●"
-
     var nonValueSymbol = "○"
-    
     var passcode = "1234"
-
     var value = "" {
         didSet {
             text = String(repeating: valueSymbol, count: value.count) + String(repeating: nonValueSymbol, count: passcode.count - value.count)

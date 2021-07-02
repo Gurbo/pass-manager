@@ -15,12 +15,8 @@ class QuickTypeManager: NSObject {
     private var isEnabled = false
     static let shared = QuickTypeManager()
     
-    override private init() {
-
-    }
+    override private init() {}
     
-    // MARK: - Start observing store state
-
     func activate() {
         updateState()
         
@@ -38,14 +34,10 @@ class QuickTypeManager: NSObject {
             }
             
             let passwordItems = PasswordSingletone.shared.passwordItems
-            print("+++++ passwordItems COUNT ==== \(String(describing: passwordItems?.count))")
-            
-            
             var filteredItems: [Password]?
             
             if state.supportsIncrementalUpdates, let lastSyncDate = UserDefaults.forAppGroup.lastSyncDate {
                 filteredItems = passwordItems?.filter({$0.date >= lastSyncDate}) ?? nil
-                print("+++++ filteredItems COUNT ==== \(String(describing: filteredItems?.count))")
             }
             
             if filteredItems?.count == 0 {
@@ -82,7 +74,6 @@ class QuickTypeManager: NSObject {
             return
         } 
         ASCredentialIdentityStore.shared.saveCredentialIdentities([credentialIdentity]) { (success, error) in
-            print("Saved to ASCredentialIdentityStore")
             if let error = error {
                 print(error)
             }
