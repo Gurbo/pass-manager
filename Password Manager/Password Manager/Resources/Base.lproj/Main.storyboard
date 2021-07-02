@@ -84,11 +84,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iHX-lT-1F5">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zgI-uY-kqw">
-                            <connections>
-                                <segue destination="9IP-G0-LP9" kind="presentation" id="ZTp-NN-07F"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zgI-uY-kqw"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addPasswordButton" destination="zgI-uY-kqw" id="Ryr-yJ-uUp"/>
@@ -99,17 +95,14 @@
             </objects>
             <point key="canvasLocation" x="66.666666666666671" y="124.55357142857142"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Password Navigation View Controller-->
         <scene sceneID="W9x-Fb-0xD">
             <objects>
-                <navigationController id="9IP-G0-LP9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PasswordNavigationViewController" id="9IP-G0-LP9" customClass="PasswordNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="htO-Hm-Ksa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="Tzw-zb-lbV" kind="relationship" relationship="rootViewController" id="oxs-Gq-WcH"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQw-1U-wOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,11 +113,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddPasswordViewController" id="Tzw-zb-lbV" customClass="AddPasswordViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AJQ-Iw-vvw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EGG-8C-tNR">
-                                <rect key="frame" x="41" y="211" width="333" height="34"/>
+                                <rect key="frame" x="41" y="199" width="333" height="34"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -133,7 +126,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vUz-D0-Ngm">
-                                <rect key="frame" x="41" y="253" width="333" height="34"/>
+                                <rect key="frame" x="41" y="241" width="333" height="34"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -142,7 +135,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVq-CN-6vK">
-                                <rect key="frame" x="41" y="295" width="333" height="34"/>
+                                <rect key="frame" x="41" y="283" width="333" height="34"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -151,7 +144,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UCn-d7-MoO">
-                                <rect key="frame" x="41" y="337" width="333" height="34"/>
+                                <rect key="frame" x="41" y="325" width="333" height="34"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -160,7 +153,7 @@
                                 </connections>
                             </textField>
                             <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-TK-n8s">
-                                <rect key="frame" x="0.0" y="56" width="414" height="786"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>

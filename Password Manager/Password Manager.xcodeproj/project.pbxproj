@@ -28,6 +28,7 @@
 		F08082A6268252E400A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */; };
 		F08082A9268252E600A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */; };
 		F08082AF268252EB00A5A94C /* UserDefaults+AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */; };
+		F08FEFD6268F32D40035909B /* PasswordNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FEFD5268F32D40035909B /* PasswordNavigationViewController.swift */; };
 		F0C03EDE2689C24A00579BCB /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */; };
 		F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
 		F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
@@ -87,6 +88,7 @@
 		F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASPasswordCredentialIdentity+PasswordItem.swift"; sourceTree = "<group>"; };
 		F0808292268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASPasswordCredential+PasswordItem.swift"; sourceTree = "<group>"; };
 		F080829B268250FF00A5A94C /* UserDefaults+AppGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserDefaults+AppGroup.swift"; sourceTree = "<group>"; };
+		F08FEFD5268F32D40035909B /* PasswordNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordNavigationViewController.swift; sourceTree = "<group>"; };
 		F0BC1BE326836A9B003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC1BE826837D02003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +232,7 @@
 			children = (
 				F0FBC32A2680CBF700A555A5 /* VaultViewController.swift */,
 				F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */,
+				F08FEFD5268F32D40035909B /* PasswordNavigationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				F0FBC32B2680CBF700A555A5 /* VaultViewController.swift in Sources */,
 				F005DFD22683363200099DD6 /* Password.swift in Sources */,
 				F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */,
+				F08FEFD6268F32D40035909B /* PasswordNavigationViewController.swift in Sources */,
 				F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */,
 				F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */,
 			);

@@ -8,11 +8,6 @@
 import UIKit
 import KeychainAccess
 
-enum AddPasswordControllerState {
-    case create
-    case show
-}
-
 class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -22,20 +17,41 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
-    var editState: AddPasswordControllerState = .create
-    var customItemID = ""
+    var itemToShow: [String: Any]?
+    var serviceToShow: String = ""
     
     @IBOutlet weak var blackView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        switch editState {
-        case .create:
-            self.title = "New Password"
-            urlTextfield.text = "https://www."
-        case .show:
+        self.title = "New Password"
+        
+        if let item = itemToShow {
             self.title = "Password"
+            
+            saveButton.isEnabled = false
+            navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
+            
+            nameTextfield.isEnabled = false
+            urlTextfield.isEnabled = false
+            loginTextfield.isEnabled = false
+            passwordTextfield.isEnabled = false
+            
+            let keychain = Keychain(service: self.serviceToShow)
+            if let attributes = keychain[attributes: (item["key"] as? String)!] {
+                nameTextfield.text = attributes.label
+            }
+            if let password = item["value"] as? String {
+                passwordTextfield.text = password
+            }
+            if let username = item["key"] as? String {
+                loginTextfield.text = username
+            }
+            urlTextfield.text = "https://www.\(serviceToShow)"
+        } else {
+            nameTextfield.becomeFirstResponder()
+            urlTextfield.text = "https://www."
         }
         
         nameTextfield.keyboardType = .alphabet
@@ -53,7 +69,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         
         cancelButton.target = self
         cancelButton.action = #selector(dismissController(sender:))
-        nameTextfield.becomeFirstResponder()
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

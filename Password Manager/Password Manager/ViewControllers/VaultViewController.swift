@@ -21,8 +21,18 @@ class VaultViewController: UIViewController {
         self.tableView.rowHeight = 102
         self.navigationController?.navigationBar.topItem?.title = "Vault"
         
+        addPasswordButton.target = self
+        addPasswordButton.action = #selector(showAddPasswordScreen)
+        
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateVaultAfterAddingRecord), name: Notification.Name("kUpdateVaultNotification"), object: nil)
+    }
+    
+    @objc func showAddPasswordScreen(sender:UIButton) {
+        let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "PasswordNavigationViewController") as PasswordNavigationViewController
+        let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AddPasswordViewController") as AddPasswordViewController
+        navVC.viewControllers = [addPassVC]
+        self.present(navVC, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,18 +97,15 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
         let service = sortedKeys![indexPath.section]
         let items = Keychain(service: service).allItems()
         let item = items[indexPath.row]
-        
-        var itemID = ""
-        let keychain = Keychain(service: service)
-        if let attributes = keychain[attributes: (item["key"] as? String)!] {
-            itemID = attributes.comment! //id
-        }
-        
+
+        let navPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "PasswordNavigationViewController") as PasswordNavigationViewController
         let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AddPasswordViewController") as AddPasswordViewController
-        if itemID != "" {
-            addPassVC.customItemID = itemID
-        }
-        self.present(addPassVC, animated: true, completion: nil)
+
+        addPassVC.itemToShow = item
+        addPassVC.serviceToShow = service
+        navPassVC.viewControllers = [addPassVC]
+        
+        self.present(navPassVC, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
