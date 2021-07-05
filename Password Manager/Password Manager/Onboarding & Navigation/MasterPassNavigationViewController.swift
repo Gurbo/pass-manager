@@ -1,25 +1,18 @@
 //
-//  SettingsViewController.swift
+//  MasterPassNavigationViewController.swift
 //  Password Manager
 //
-//  Created by Alex Gurbo on 7/2/21.
+//  Created by Alex Gurbo on 7/4/21.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+class MasterPassNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Settings"
+
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationItem.largeTitleDisplayMode = .automatic
-        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 

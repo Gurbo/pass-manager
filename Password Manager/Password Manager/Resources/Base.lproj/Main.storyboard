@@ -71,14 +71,35 @@
                         <sections>
                             <tableViewSection id="lwb-wA-SmW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="f3N-Tu-ejZ">
-                                        <rect key="frame" x="0.0" y="18" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="f3N-Tu-ejZ">
+                                        <rect key="frame" x="0.0" y="18" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f3N-Tu-ejZ" id="VOM-GK-Rza">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Master Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzo-NM-JHd">
+                                                    <rect key="frame" x="20" y="22.5" width="295" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kj-fp-i7c">
+                                                    <rect key="frame" x="345" y="17.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="masterPaasswordAction:" destination="u2e-rT-yV3" eventType="valueChanged" id="oZL-GV-Ku6"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Kj-fp-i7c" firstAttribute="trailing" secondItem="VOM-GK-Rza" secondAttribute="trailingMargin" id="VJ0-Xn-4RK"/>
+                                                <constraint firstItem="7Kj-fp-i7c" firstAttribute="leading" secondItem="fzo-NM-JHd" secondAttribute="trailing" constant="30" id="grN-JC-9ci"/>
+                                                <constraint firstItem="7Kj-fp-i7c" firstAttribute="centerY" secondItem="VOM-GK-Rza" secondAttribute="centerY" id="mPo-2r-5Ah"/>
+                                                <constraint firstItem="fzo-NM-JHd" firstAttribute="centerY" secondItem="VOM-GK-Rza" secondAttribute="centerY" id="pho-79-MKd"/>
+                                                <constraint firstItem="fzo-NM-JHd" firstAttribute="leading" secondItem="VOM-GK-Rza" secondAttribute="leadingMargin" id="uky-Ll-CcV"/>
+                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.24313725489999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -89,10 +110,90 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="m1E-Q6-AWD"/>
+                    <connections>
+                        <outlet property="masterPasswordSwitcher" destination="7Kj-fp-i7c" id="ExY-Fn-XAn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7o-Lh-dDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="1019"/>
+            <point key="canvasLocation" x="28.985507246376812" y="1018.5267857142857"/>
+        </scene>
+        <!--Master Pass Navigation View Controller-->
+        <scene sceneID="Ril-ej-c2K">
+            <objects>
+                <navigationController storyboardIdentifier="MasterPassNavigationViewController" id="vhr-W3-JCq" customClass="MasterPassNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="go1-Bu-mC3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zOE-Mf-PCP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="962" y="1009"/>
+        </scene>
+        <!--Master Password View Controller-->
+        <scene sceneID="oXa-AM-hcK">
+            <objects>
+                <viewController storyboardIdentifier="MasterPasswordViewController" id="14s-JR-JQ8" customClass="MasterPasswordViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OGb-k4-KgB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="mIJ-uj-ClY">
+                                <rect key="frame" x="102.5" y="160" width="209" height="51.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pAC-aS-4QS">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="51.5"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.85098039219999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="fJo-Aa-ezx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oRp-BB-okc">
+                                        <rect key="frame" x="67" y="0.0" width="36" height="51.5"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.85098039219999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dpa-Gn-7lG">
+                                        <rect key="frame" x="120" y="0.0" width="36" height="51.5"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.85098039219999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CPG-ry-p1u">
+                                        <rect key="frame" x="173" y="0.0" width="36" height="51.5"/>
+                                        <color key="backgroundColor" red="0.83529411760000005" green="0.85098039219999999" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="oRp-BB-okc" firstAttribute="width" secondItem="pAC-aS-4QS" secondAttribute="width" multiplier="0.72" id="MWu-MC-s8z"/>
+                                    <constraint firstItem="CPG-ry-p1u" firstAttribute="width" secondItem="pAC-aS-4QS" secondAttribute="width" multiplier="0.72" id="hmV-Et-tVP"/>
+                                    <constraint firstItem="Dpa-Gn-7lG" firstAttribute="width" secondItem="pAC-aS-4QS" secondAttribute="width" multiplier="0.72" id="kzh-Uf-tUP"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="A5x-Py-YML"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mIJ-uj-ClY" firstAttribute="top" secondItem="A5x-Py-YML" secondAttribute="top" constant="116" id="58F-XU-fpe"/>
+                            <constraint firstItem="mIJ-uj-ClY" firstAttribute="centerX" secondItem="OGb-k4-KgB" secondAttribute="centerX" id="XaQ-D0-hpK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="firstPasswordTextfield" destination="pAC-aS-4QS" id="4E8-1G-hgG"/>
+                        <outlet property="fourthPasswordTextfield" destination="CPG-ry-p1u" id="agn-i9-sOh"/>
+                        <outlet property="secondPasswordTextfield" destination="oRp-BB-okc" id="sg2-xH-oYC"/>
+                        <outlet property="thirdPasswordTextfield" destination="Dpa-Gn-7lG" id="ESg-QE-ZX9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkZ-H7-ZWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1660.8695652173915" y="1007.8125"/>
         </scene>
         <!--Vault View Controller-->
         <scene sceneID="tne-QT-ifu">

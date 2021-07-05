@@ -52,6 +52,15 @@ class VaultViewController: UIViewController {
         reloadData()
         tableView.reloadData()
     }
+    
+    private func showPasscodeScreenIfLocked() {
+        guard UserDefaults.forAppGroup.isLocked else {
+            return
+        }
+
+//        let passcodeNavigationController = PasscodeViewController.instantiate()
+//        present(passcodeNavigationController, animated: true, completion: nil)
+    }
 }
 
 extension VaultViewController: UITableViewDelegate, UITableViewDataSource {

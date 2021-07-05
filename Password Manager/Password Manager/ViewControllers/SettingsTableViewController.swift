@@ -8,15 +8,40 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
+    @IBOutlet weak var masterPasswordSwitcher: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
+        
+        if UserDefaults.forAppGroup.isLocked {
+            masterPasswordSwitcher.isOn = true
+        } else {
+            masterPasswordSwitcher.isOn = false
+        }
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    @IBAction func masterPaasswordAction(_ sender: Any) {
+        if let switcher = sender as? UISwitch {
+            if switcher.isOn {
+                UserDefaults.forAppGroup.isLocked = true //перенести в MasterPasswordViewController
+                
+                let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MasterPassNavigationViewController") as MasterPassNavigationViewController
+                let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MasterPasswordViewController") as MasterPasswordViewController
+                navVC.viewControllers = [addPassVC]
+                self.present(navVC, animated: true, completion: nil)
+                
+            } else {
+                UserDefaults.forAppGroup.isLocked = false
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
