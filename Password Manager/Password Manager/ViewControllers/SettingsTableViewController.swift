@@ -11,6 +11,7 @@ import AppLocker
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var masterPasswordSwitcher: UISwitch!
     @IBOutlet weak var faceIDSwitcher: UISwitch!
+    @IBOutlet weak var autofillSwitcher: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,12 @@ class SettingsTableViewController: UITableViewController {
             faceIDSwitcher.isOn = true
         } else {
             faceIDSwitcher.isOn = false
+        }
+        
+        if UserDefaults.forAppGroup.isAutofillEnabledInSettings {
+            autofillSwitcher.isOn = true
+        } else {
+            autofillSwitcher.isOn = false
         }
     }
     
@@ -52,6 +59,21 @@ class SettingsTableViewController: UITableViewController {
                 }
             } else {
                 UserDefaults.forAppGroup.isFaceIDEnabled = false
+            }
+        }
+    }
+    
+    @IBAction func autofillSwitcherAction(_ sender: Any) {
+        if let switcher = sender as? UISwitch {
+            if switcher.isOn {
+                switcher.isOn = false
+                let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AutofillNavigationViewController") as AutofillNavigationViewController
+                let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AutofillViewController") as AutofillViewController
+                navVC.viewControllers = [addPassVC]
+                self.present(navVC, animated: true, completion: nil)
+            } else {
+                //alert to disable turn off in settings
+                //nothing
             }
         }
     }
@@ -86,6 +108,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        updateSwitcherStates()
         self.navigationItem.largeTitleDisplayMode = .automatic
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }

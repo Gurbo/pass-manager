@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>$(PRODUCT_NAME) need an access to your FaceID to authorize into the Vault</string>
+	<string>$(PRODUCT_NAME) need an access to your Face ID to authorize into the Vault</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>

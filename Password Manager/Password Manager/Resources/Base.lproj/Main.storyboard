@@ -131,6 +131,36 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="VIp-0l-cyL">
+                                        <rect key="frame" x="0.0" y="150" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VIp-0l-cyL" id="N6d-GD-2W8">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Websites Autofill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh6-yX-W6n">
+                                                    <rect key="frame" x="20" y="22.5" width="295" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ww-NU-Vxj">
+                                                    <rect key="frame" x="345" y="17.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="autofillSwitcherAction:" destination="u2e-rT-yV3" eventType="valueChanged" id="nqS-8V-G1Q"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0Ww-NU-Vxj" firstAttribute="trailing" secondItem="N6d-GD-2W8" secondAttribute="trailingMargin" id="PQK-zl-jeM"/>
+                                                <constraint firstItem="0Ww-NU-Vxj" firstAttribute="centerY" secondItem="N6d-GD-2W8" secondAttribute="centerY" id="R7b-Cw-Eo1"/>
+                                                <constraint firstItem="sh6-yX-W6n" firstAttribute="leading" secondItem="N6d-GD-2W8" secondAttribute="leadingMargin" id="mjZ-q7-m3I"/>
+                                                <constraint firstItem="sh6-yX-W6n" firstAttribute="centerY" secondItem="N6d-GD-2W8" secondAttribute="centerY" id="nT1-rL-kkl"/>
+                                                <constraint firstItem="0Ww-NU-Vxj" firstAttribute="leading" secondItem="sh6-yX-W6n" secondAttribute="trailing" constant="30" id="rLn-L2-M7c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -141,6 +171,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="m1E-Q6-AWD"/>
                     <connections>
+                        <outlet property="autofillSwitcher" destination="0Ww-NU-Vxj" id="vGT-rZ-JOb"/>
                         <outlet property="faceIDSwitcher" destination="c0H-hS-PWR" id="CKU-a3-QAk"/>
                         <outlet property="masterPasswordSwitcher" destination="7Kj-fp-i7c" id="ExY-Fn-XAn"/>
                     </connections>
@@ -148,6 +179,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7o-Lh-dDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="1018.5267857142857"/>
+        </scene>
+        <!--Autofill Navigation View Controller-->
+        <scene sceneID="mGn-mp-DRl">
+            <objects>
+                <navigationController storyboardIdentifier="AutofillNavigationViewController" id="BL8-nz-Ngu" customClass="AutofillNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qbp-er-czw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="11j-dZ-Nla" kind="relationship" relationship="rootViewController" id="wUh-Ic-1WD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMR-cn-VCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="980" y="1019"/>
+        </scene>
+        <!--Autofill View Controller-->
+        <scene sceneID="ne2-pd-mLS">
+            <objects>
+                <viewController storyboardIdentifier="AutofillViewController" id="11j-dZ-Nla" customClass="AutofillViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="un4-rH-9mu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sVh-cM-ZIa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aqR-vH-oZJ">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="done" id="9aa-nw-1eW"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="9aa-nw-1eW" id="HSi-nR-fMK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bEh-mZ-AQx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1699" y="1019"/>
         </scene>
         <!--Vault View Controller-->
         <scene sceneID="tne-QT-ifu">

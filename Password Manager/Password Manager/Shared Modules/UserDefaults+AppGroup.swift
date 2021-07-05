@@ -20,6 +20,15 @@ extension UserDefaults {
         }
     }
     
+    var isAutofillEnabledInSettings: Bool {
+        get {
+            return bool(forKey: "isAutofillEnabledInSettings")
+        }
+        set {
+            set(newValue, forKey: "isAutofillEnabledInSettings")
+        }
+    }
+    
     var isFaceIDEnabled: Bool {
         get {
             return bool(forKey: "isFaceIDEnabled")

@@ -47,6 +47,8 @@
 		F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBC3302680CD0E00A555A5 /* PasswordItemTableViewCell.swift */; };
 		F0FBC34C2680D0B400A555A5 /* AddPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */; };
 		F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBC3672680E2DD00A555A5 /* Constants.swift */; };
+		F0FC46782693259500A7EE8D /* AutofillNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC46772693259500A7EE8D /* AutofillNavigationViewController.swift */; };
+		F0FC467C2693265300A7EE8D /* AutofillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC467B2693265200A7EE8D /* AutofillViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,8 @@
 		F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPasswordViewController.swift; sourceTree = "<group>"; };
 		F0FBC3672680E2DD00A555A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F0FBC36B2680E8E100A555A5 /* Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Password Manager.entitlements"; sourceTree = "<group>"; };
+		F0FC46772693259500A7EE8D /* AutofillNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillNavigationViewController.swift; sourceTree = "<group>"; };
+		F0FC467B2693265200A7EE8D /* AutofillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 				F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */,
 				F08FEFFB268F3F600035909B /* VaultNavigationViewController.swift */,
 				F08FEFFF268F46300035909B /* SettingsNavigationViewController.swift */,
+				F0FC46772693259500A7EE8D /* AutofillNavigationViewController.swift */,
 			);
 			path = "Onboarding & Navigation";
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				F0FBC32A2680CBF700A555A5 /* VaultViewController.swift */,
 				F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */,
 				F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */,
+				F0FC467B2693265200A7EE8D /* AutofillViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -472,6 +478,8 @@
 				F08FF00A268F4D8B0035909B /* SettingsTableViewController.swift in Sources */,
 				F08FEFFC268F3F600035909B /* VaultNavigationViewController.swift in Sources */,
 				F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */,
+				F0FC467C2693265300A7EE8D /* AutofillViewController.swift in Sources */,
+				F0FC46782693259500A7EE8D /* AutofillNavigationViewController.swift in Sources */,
 				F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */,
 				F04C6B7B269307C500F44830 /* PasswordNavigationViewController.swift in Sources */,
 			);

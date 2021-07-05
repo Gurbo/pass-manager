@@ -30,8 +30,10 @@ class QuickTypeManager: NSObject {
             self.isEnabled = state.isEnabled
             
             if self.isEnabled == false {
+                UserDefaults.forAppGroup.isAutofillEnabledInSettings = false
                 return
             }
+            UserDefaults.forAppGroup.isAutofillEnabledInSettings = true
             
             let passwordItems = PasswordSingletone.shared.passwordItems
             var filteredItems: [Password]?
