@@ -17,26 +17,31 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Settings"
         
-        updateSwitcherStates()
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(updateSwitcherStates),
+            name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
+            object: nil)
     }
     
-    func updateSwitcherStates() {
-        if UserDefaults.forAppGroup.isLocked {
-            masterPasswordSwitcher.isOn = true
-        } else {
-            masterPasswordSwitcher.isOn = false
-        }
-        
-        if UserDefaults.forAppGroup.isFaceIDEnabled {
-            faceIDSwitcher.isOn = true
-        } else {
-            faceIDSwitcher.isOn = false
-        }
-        
-        if UserDefaults.forAppGroup.isAutofillEnabledInSettings {
-            autofillSwitcher.isOn = true
-        } else {
-            autofillSwitcher.isOn = false
+    @objc func updateSwitcherStates() {
+        DispatchQueue.main.async {
+            if UserDefaults.forAppGroup.isLocked {
+                self.masterPasswordSwitcher.isOn = true
+            } else {
+                self.masterPasswordSwitcher.isOn = false
+            }
+            
+            if UserDefaults.forAppGroup.isFaceIDEnabled {
+                self.faceIDSwitcher.isOn = true
+            } else {
+                self.faceIDSwitcher.isOn = false
+            }
+
+            if UserDefaults.forAppGroup.isAutofillEnabledInSettings {
+                self.autofillSwitcher.isOn = true
+            } else {
+                self.autofillSwitcher.isOn = false
+            }
         }
     }
     
@@ -72,8 +77,14 @@ class SettingsTableViewController: UITableViewController {
                 navVC.viewControllers = [addPassVC]
                 self.present(navVC, animated: true, completion: nil)
             } else {
-                //alert to disable turn off in settings
-                //nothing
+                switcher.isOn = true
+                let alert = UIAlertController(title: "!!!!", message: "To turn off Autofill - Settings -> Passwords -> Autofill -> Uncheck ", preferredStyle: .alert)
+                     let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+                     })
+                     alert.addAction(ok)
+                     DispatchQueue.main.async(execute: {
+                        self.present(alert, animated: true)
+                })
             }
         }
     }

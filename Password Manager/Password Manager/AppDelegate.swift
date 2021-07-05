@@ -16,12 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        KeychainNew.logout()
-
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(applicationDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
+            object: nil)
         PasswordSingletone.shared.grabAllPasswords()
         QuickTypeManager.shared.activate()
         
         
         return true
+    }
+    
+    @objc func applicationDidBecomeActive() {
+        QuickTypeManager.shared.updateState()
+        print("updateState")
+        
     }
 
     // MARK: UISceneSession Lifecycle
