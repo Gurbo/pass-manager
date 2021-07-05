@@ -7,6 +7,7 @@
 
 import UIKit
 import KeychainAccess
+import AppLocker
 
 class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -26,6 +27,15 @@ class VaultViewController: UIViewController {
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateVaultAfterAddingRecord), name: Notification.Name("kUpdateVaultNotification"), object: nil)
+        
+        if UserDefaults.forAppGroup.isLocked {
+            var options = ALOptions()
+            //options.image = UIImage(named: "face")!
+            options.title = "Devios Ryasnoy"
+            options.color = .green
+//            options.isSensorsEnabled = true
+            AppLocker.present(with: .validate, and: options, over: self)
+        }
     }
     
     @objc func showAddPasswordScreen(sender:UIButton) {

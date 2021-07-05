@@ -19,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         PasswordSingletone.shared.grabAllPasswords()
         QuickTypeManager.shared.activate()
+        
+        
         return true
     }
 

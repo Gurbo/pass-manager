@@ -1,5 +1,6 @@
 PODS:
   - Amplitude-iOS (4.9.3)
+  - AppLocker (2.0)
   - FBSDKCoreKit/Basics (6.5.2)
   - FBSDKCoreKit/Core (6.5.2):
     - FBSDKCoreKit/Basics
@@ -116,6 +117,7 @@ PODS:
 
 DEPENDENCIES:
   - Amplitude-iOS (~> 4.9.3)
+  - AppLocker (from `https://github.com/Ryasnoy/AppLocker.git`, commit `411725a`)
   - FBSDKCoreKit/Swift
   - Firebase/Analytics
   - Firebase/RemoteConfig
@@ -147,8 +149,19 @@ SPEC REPOS:
     - Qonversion
     - SwiftRater
 
+EXTERNAL SOURCES:
+  AppLocker:
+    :commit: 411725a
+    :git: https://github.com/Ryasnoy/AppLocker.git
+
+CHECKOUT OPTIONS:
+  AppLocker:
+    :commit: 411725a
+    :git: https://github.com/Ryasnoy/AppLocker.git
+
 SPEC CHECKSUMS:
   Amplitude-iOS: 122e026c44db8460e5efcf84859aa290a0ae9786
+  AppLocker: 363de943253ac02150e3c0a3b5a699d9bafc96ce
   FBSDKCoreKit: ada5c8a05188daefc9addb985c52b8a1b26da519
   Firebase: 4bb49ae87756034cef870fa3c4006235eb46f475
   FirebaseABTesting: 5b22abfa9a55d5b9cd3d1e500a3ca29f6b1264cb
@@ -168,6 +181,6 @@ SPEC CHECKSUMS:
   Qonversion: 550da5e779fced3c0da3a70a62eb86e70d1e50e5
   SwiftRater: 6094fa6e9b3866ff8beca0a871b4b5f9ab896a6d
 
-PODFILE CHECKSUM: fd936f728e2c0d7ea8ef6fab57f8431d5f0c4d23
+PODFILE CHECKSUM: ce43c183710c38183a311509aa30aff6cab74e35
 
 COCOAPODS: 1.10.1

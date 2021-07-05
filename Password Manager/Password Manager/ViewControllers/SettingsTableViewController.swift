@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AppLocker
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var masterPasswordSwitcher: UISwitch!
@@ -31,13 +32,26 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func masterPaasswordAction(_ sender: Any) {
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
-                UserDefaults.forAppGroup.isLocked = true //перенести в MasterPasswordViewController
+                var options = ALOptions()
+                //options.image = UIImage(named: "face")!
+                options.title = "Devios Ryasnoy"
+                options.color = .red
                 
-                let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MasterPassNavigationViewController") as MasterPassNavigationViewController
-                let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "MasterPasswordViewController") as MasterPasswordViewController
-                navVC.viewControllers = [addPassVC]
-                self.present(navVC, animated: true, completion: nil)
-                
+                options.isSensorsEnabled = true
+                options.onSuccessfulDismiss = { (mode: ALMode?) in
+                    if let _ = mode {
+                        UserDefaults.forAppGroup.isLocked = true
+                        self.masterPasswordSwitcher.isOn = true
+                    } else {
+                        UserDefaults.forAppGroup.isLocked = false
+                        self.masterPasswordSwitcher.isOn = false
+                    }
+                }
+                options.onFailedAttempt = { (mode: ALMode?) in
+                    UserDefaults.forAppGroup.isLocked = false
+                    self.masterPasswordSwitcher.isOn = false
+                }
+                AppLocker.present(with: .create, and: options, over: self)
             } else {
                 UserDefaults.forAppGroup.isLocked = false
             }
