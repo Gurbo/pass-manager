@@ -10,23 +10,50 @@ import AppLocker
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var masterPasswordSwitcher: UISwitch!
+    @IBOutlet weak var faceIDSwitcher: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
         
+        updateSwitcherStates()
+    }
+    
+    func updateSwitcherStates() {
         if UserDefaults.forAppGroup.isLocked {
             masterPasswordSwitcher.isOn = true
         } else {
             masterPasswordSwitcher.isOn = false
         }
         
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if UserDefaults.forAppGroup.isFaceIDEnabled {
+            faceIDSwitcher.isOn = true
+        } else {
+            faceIDSwitcher.isOn = false
+        }
+    }
+    
+    @IBAction func faceIDSwitcherAction(_ sender: Any) {
+        if let switcher = sender as? UISwitch {
+            if switcher.isOn {
+                //включили в ON
+                if UserDefaults.forAppGroup.isLocked {
+                    UserDefaults.forAppGroup.isFaceIDEnabled = true
+                } else {
+                    UserDefaults.forAppGroup.isFaceIDEnabled = false
+                    updateSwitcherStates()
+                    let alert = UIAlertController(title: "First enable master password", message: "First enable master password", preferredStyle: .alert)
+                         let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+                         })
+                         alert.addAction(ok)
+                         DispatchQueue.main.async(execute: {
+                            self.present(alert, animated: true)
+                    })
+                }
+            } else {
+                UserDefaults.forAppGroup.isFaceIDEnabled = false
+            }
+        }
     }
     
     @IBAction func masterPaasswordAction(_ sender: Any) {
@@ -36,8 +63,6 @@ class SettingsTableViewController: UITableViewController {
                 //options.image = UIImage(named: "face")!
                 options.title = "Devios Ryasnoy"
                 options.color = .red
-                
-                options.isSensorsEnabled = true
                 options.onSuccessfulDismiss = { (mode: ALMode?) in
                     if let _ = mode {
                         UserDefaults.forAppGroup.isLocked = true
@@ -54,6 +79,8 @@ class SettingsTableViewController: UITableViewController {
                 AppLocker.present(with: .create, and: options, over: self)
             } else {
                 UserDefaults.forAppGroup.isLocked = false
+                UserDefaults.forAppGroup.isFaceIDEnabled = false
+                updateSwitcherStates()
             }
         }
     }

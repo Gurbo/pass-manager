@@ -20,6 +20,15 @@ extension UserDefaults {
         }
     }
     
+    var isFaceIDEnabled: Bool {
+        get {
+            return bool(forKey: "isFaceIDEnabled")
+        }
+        set {
+            set(newValue, forKey: "isFaceIDEnabled")
+        }
+    }
+    
     var lastSyncDate: Date? {
         get {
             return value(forKey: "lastSyncDate") as? Date

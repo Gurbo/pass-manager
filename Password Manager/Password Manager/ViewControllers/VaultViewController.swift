@@ -33,7 +33,7 @@ class VaultViewController: UIViewController {
             //options.image = UIImage(named: "face")!
             options.title = "Devios Ryasnoy"
             options.color = .green
-//            options.isSensorsEnabled = true
+            options.isSensorsEnabled = UserDefaults.forAppGroup.isFaceIDEnabled
             AppLocker.present(with: .validate, and: options, over: self)
         }
     }
