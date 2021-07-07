@@ -84,7 +84,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Kj-fp-i7c">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Kj-fp-i7c">
                                                     <rect key="frame" x="345" y="17.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="masterPaasswordAction:" destination="u2e-rT-yV3" eventType="valueChanged" id="oZL-GV-Ku6"/>
@@ -114,7 +114,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0H-hS-PWR">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c0H-hS-PWR">
                                                     <rect key="frame" x="345" y="17.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="faceIDSwitcherAction:" destination="u2e-rT-yV3" eventType="valueChanged" id="Od4-7P-GGg"/>
@@ -144,7 +144,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Ww-NU-Vxj">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0Ww-NU-Vxj">
                                                     <rect key="frame" x="345" y="17.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="autofillSwitcherAction:" destination="u2e-rT-yV3" eventType="valueChanged" id="nqS-8V-G1Q"/>
@@ -157,6 +157,36 @@
                                                 <constraint firstItem="sh6-yX-W6n" firstAttribute="leading" secondItem="N6d-GD-2W8" secondAttribute="leadingMargin" id="mjZ-q7-m3I"/>
                                                 <constraint firstItem="sh6-yX-W6n" firstAttribute="centerY" secondItem="N6d-GD-2W8" secondAttribute="centerY" id="nT1-rL-kkl"/>
                                                 <constraint firstItem="0Ww-NU-Vxj" firstAttribute="leading" secondItem="sh6-yX-W6n" secondAttribute="trailing" constant="30" id="rLn-L2-M7c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="slJ-Mn-pvj">
+                                        <rect key="frame" x="0.0" y="216" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="slJ-Mn-pvj" id="Rs8-VY-yVh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share data across my devices" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBH-gt-USe">
+                                                    <rect key="frame" x="20" y="22.5" width="295" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k5w-Re-kp3">
+                                                    <rect key="frame" x="345" y="17.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="syncSwitcherAction:" destination="u2e-rT-yV3" eventType="valueChanged" id="A2B-h6-drg"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="k5w-Re-kp3" firstAttribute="trailing" secondItem="Rs8-VY-yVh" secondAttribute="trailingMargin" id="5oL-Ux-a76"/>
+                                                <constraint firstItem="k5w-Re-kp3" firstAttribute="centerY" secondItem="Rs8-VY-yVh" secondAttribute="centerY" id="6VY-c3-oyM"/>
+                                                <constraint firstItem="YBH-gt-USe" firstAttribute="centerY" secondItem="Rs8-VY-yVh" secondAttribute="centerY" id="EOR-j9-nqz"/>
+                                                <constraint firstItem="k5w-Re-kp3" firstAttribute="leading" secondItem="YBH-gt-USe" secondAttribute="trailing" constant="30" id="MHI-XZ-o6m"/>
+                                                <constraint firstItem="YBH-gt-USe" firstAttribute="leading" secondItem="Rs8-VY-yVh" secondAttribute="leadingMargin" id="ts2-AH-KK8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -174,6 +204,7 @@
                         <outlet property="autofillSwitcher" destination="0Ww-NU-Vxj" id="vGT-rZ-JOb"/>
                         <outlet property="faceIDSwitcher" destination="c0H-hS-PWR" id="CKU-a3-QAk"/>
                         <outlet property="masterPasswordSwitcher" destination="7Kj-fp-i7c" id="ExY-Fn-XAn"/>
+                        <outlet property="syncSwitcher" destination="k5w-Re-kp3" id="Z7d-Hl-N37"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7o-Lh-dDk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

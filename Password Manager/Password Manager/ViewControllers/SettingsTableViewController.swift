@@ -12,6 +12,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var masterPasswordSwitcher: UISwitch!
     @IBOutlet weak var faceIDSwitcher: UISwitch!
     @IBOutlet weak var autofillSwitcher: UISwitch!
+    @IBOutlet weak var syncSwitcher: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,12 @@ class SettingsTableViewController: UITableViewController {
                 self.masterPasswordSwitcher.isOn = false
             }
             
+            if UserDefaults.forAppGroup.isSyncToICloudEnabled {
+                self.syncSwitcher.isOn = true
+            } else {
+                self.syncSwitcher.isOn = false
+            }
+            
             if UserDefaults.forAppGroup.isFaceIDEnabled {
                 self.faceIDSwitcher.isOn = true
             } else {
@@ -42,6 +49,18 @@ class SettingsTableViewController: UITableViewController {
             } else {
                 self.autofillSwitcher.isOn = false
             }
+        }
+    }
+    
+    @IBAction func syncSwitcherAction(_ sender: Any) {
+        if let switcher = sender as? UISwitch {
+            if switcher.isOn {
+                #warning("INSERT ALERT TEXT - 1 iCLOUD FOR ALL DEVICES")
+                UserDefaults.forAppGroup.isSyncToICloudEnabled = true
+            } else {
+                UserDefaults.forAppGroup.isSyncToICloudEnabled = false
+            }
+            PasswordSingletone.shared.allKCItemsShouldSynchronize()
         }
     }
     

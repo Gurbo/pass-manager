@@ -113,7 +113,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveTapped(_ sender: Any) {
         let customID = UUID().uuidString
-        let keychain: Keychain = Keychain(service: parseDomain(from: urlTextfield.text!)) //website
+        let keychain: Keychain = Keychain(service: parseDomain(from: urlTextfield.text!)).synchronizable(UserDefaults.forAppGroup.isSyncToICloudEnabled) //website
         do {
             try keychain
                 .label(nameTextfield.text!) //service name
@@ -124,7 +124,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         }
 
         //Saved to autofill
-        let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date())
+        let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date(), name: nameTextfield.text!)
         password.add()
         
         NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)

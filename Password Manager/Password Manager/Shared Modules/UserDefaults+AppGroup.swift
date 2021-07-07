@@ -20,6 +20,15 @@ extension UserDefaults {
         }
     }
     
+    var isSyncToICloudEnabled: Bool {
+        get {
+            return bool(forKey: "isSyncToICloudEnabled")
+        }
+        set {
+            set(newValue, forKey: "isSyncToICloudEnabled")
+        }
+    }
+    
     var isAutofillEnabledInSettings: Bool {
         get {
             return bool(forKey: "isAutofillEnabledInSettings")

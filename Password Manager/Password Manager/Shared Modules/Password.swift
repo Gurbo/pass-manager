@@ -15,14 +15,16 @@ class Password: NSObject {
     var user = ""
     var password = ""
     var date = Date()
+    var name = ""
     
-    convenience init(id: String, website: String, user: String, password: String, date: Date) {
+    convenience init(id: String, website: String, user: String, password: String, date: Date, name: String) {
         self.init()
         self.id = id
         self.website = website
         self.user = user
         self.password = password
         self.date = date
+        self.name = name
     }
     
     // MARK: - Managing PasswordItem
