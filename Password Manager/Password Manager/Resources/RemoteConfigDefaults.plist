@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>onboarding_offering</key>
+	<string>annual.offering</string>
+	<key>show_onboarding_paywall</key>
+	<false/>
+	<key>show_paywall_exit_after</key>
+	<string>0</string>
+	<key>uses_until_prompt</key>
+	<string>1</string>
+	<key>subscription_offering</key>
+	<string>monthly.annual.offering</string>
+	<key>paid_mode_enabled</key>
+	<true/>
+</dict>
+</plist>

@@ -15,6 +15,12 @@
 		F0091E98268B18FC00C8764F /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0091E97268B18FC00C8764F /* PasscodeViewController.swift */; };
 		F0091EED268B71C200C8764F /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0091EEC268B71C200C8764F /* MainInterface.storyboard */; };
 		F02BF8A72697408C00C0714A /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02BF8A62697408C00C0714A /* LoadingViewController.swift */; };
+		F0419AC62698715B005057F7 /* RemoteConfigHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AC52698715B005057F7 /* RemoteConfigHandler.swift */; };
+		F0419ACC26987185005057F7 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0419ACB26987185005057F7 /* RemoteConfigDefaults.plist */; };
+		F0419AD026987197005057F7 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419ACF26987197005057F7 /* Reachability.swift */; };
+		F0419AD4269871AD005057F7 /* InAppHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AD3269871AD005057F7 /* InAppHandler.swift */; };
+		F0419AD8269872AF005057F7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AD7269872AF005057F7 /* UserData.swift */; };
+		F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0419ADB269872F1005057F7 /* GoogleService-Info.plist */; };
 		F04C6B7B269307C500F44830 /* PasswordNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */; };
 		F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082612682376F00A5A94C /* CredentialProviderViewController.swift */; };
@@ -88,6 +94,12 @@
 		F0091E97268B18FC00C8764F /* PasscodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		F0091EEC268B71C200C8764F /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		F02BF8A62697408C00C0714A /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		F0419AC52698715B005057F7 /* RemoteConfigHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigHandler.swift; sourceTree = "<group>"; };
+		F0419ACB26987185005057F7 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
+		F0419ACF26987197005057F7 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		F0419AD3269871AD005057F7 /* InAppHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppHandler.swift; sourceTree = "<group>"; };
+		F0419AD7269872AF005057F7 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		F0419ADB269872F1005057F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordNavigationViewController.swift; sourceTree = "<group>"; };
 		F080825D2682376F00A5A94C /* AutoFillExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutoFillExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F080825E2682376F00A5A94C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
@@ -213,6 +225,12 @@
 		F0C03F0F268A1C2100579BCB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0419ADB269872F1005057F7 /* GoogleService-Info.plist */,
+				F0419AD7269872AF005057F7 /* UserData.swift */,
+				F0419AD3269871AD005057F7 /* InAppHandler.swift */,
+				F0419ACF26987197005057F7 /* Reachability.swift */,
+				F0419ACB26987185005057F7 /* RemoteConfigDefaults.plist */,
+				F0419AC52698715B005057F7 /* RemoteConfigHandler.swift */,
 				F08FEFF7268F3E150035909B /* Helper.swift */,
 				F0EB6A572680C963006F4101 /* Main.storyboard */,
 				F0EB6A5C2680C965006F4101 /* LaunchScreen.storyboard */,
@@ -371,6 +389,8 @@
 			files = (
 				F0EB6A5E2680C965006F4101 /* LaunchScreen.storyboard in Resources */,
 				F0EB6A5B2680C965006F4101 /* Assets.xcassets in Resources */,
+				F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */,
+				F0419ACC26987185005057F7 /* RemoteConfigDefaults.plist in Resources */,
 				F0EB6A592680C963006F4101 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,8 +487,10 @@
 				F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */,
 				F0FBC34C2680D0B400A555A5 /* AddPasswordViewController.swift in Sources */,
 				F08082862682502300A5A94C /* PasscodeField.swift in Sources */,
+				F0419AC62698715B005057F7 /* RemoteConfigHandler.swift in Sources */,
 				F0808293268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */,
 				F080828E268250CC00A5A94C /* QuickTypeManager.swift in Sources */,
+				F0419AD4269871AD005057F7 /* InAppHandler.swift in Sources */,
 				F0EB6A542680C963006F4101 /* SceneDelegate.swift in Sources */,
 				F08FEFF8268F3E150035909B /* Helper.swift in Sources */,
 				F080829C268250FF00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
@@ -482,9 +504,11 @@
 				F08FF00A268F4D8B0035909B /* SettingsTableViewController.swift in Sources */,
 				F08FEFFC268F3F600035909B /* VaultNavigationViewController.swift in Sources */,
 				F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */,
+				F0419AD8269872AF005057F7 /* UserData.swift in Sources */,
 				F0FC467C2693265300A7EE8D /* AutofillViewController.swift in Sources */,
 				F0FC46782693259500A7EE8D /* AutofillNavigationViewController.swift in Sources */,
 				F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */,
+				F0419AD026987197005057F7 /* Reachability.swift in Sources */,
 				F04C6B7B269307C500F44830 /* PasswordNavigationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

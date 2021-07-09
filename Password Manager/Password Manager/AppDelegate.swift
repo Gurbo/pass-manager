@@ -8,6 +8,11 @@
 import UIKit
 import KeychainAccess
 
+import Qonversion
+import Amplitude_iOS
+import Purchases
+import FBSDKCoreKit
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,13 +20,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        Purchases.debugLogsEnabled = true
+        Purchases.configure(withAPIKey: "PNfyAyCundbVAOuSMaVXShvPyDKWyiVl")
+        
+        Settings.isAutoLogAppEventsEnabled = true
+        
+        Amplitude.instance()?.initializeApiKey("4e705a46dc403fd5b4ec8d7d0cb8abdf")
+        Amplitude.instance()?.trackingSessionEvents = true
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        formatter.locale = NSLocale(localeIdentifier: "en_US") as Locale?
+        let registrationDate = formatter.string(from: Date() as Date)
+        
+        let identify = AMPIdentify.init()
+        identify.setOnce("registrationDate", value: registrationDate as NSObject)
+        Amplitude.instance()?.identify(identify)
+        
+        Qonversion.launch(withKey: "qSG1UO4uInzbUANfILtxUGl7GWpYXYg1") { (result, error) in
+           Amplitude.instance()?.setUserId(result.uid)
+        }
+        
 //        KeychainNew.logout()
         NotificationCenter.default.addObserver(self,
             selector: #selector(applicationDidBecomeActive),
             name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
             object: nil)
-        PasswordSingletone.shared.grabAllPasswords()
-        QuickTypeManager.shared.activate()
+//        PasswordSingletone.shared.grabAllPasswords()
+//        QuickTypeManager.shared.activate()
         
         
         return true
