@@ -29,9 +29,9 @@ class MainCoordinator: Coordinator {
 //    }
 //
     func showOnboardingPaywallScreen() {
-//        let vc = OnboardingPaywallViewController.instantiate()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
+        let vc = OnboardingPaywallViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
 
     func showOnboardingFirstScreen() {
