@@ -21,6 +21,14 @@
 		F0419AD4269871AD005057F7 /* InAppHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AD3269871AD005057F7 /* InAppHandler.swift */; };
 		F0419AD8269872AF005057F7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AD7269872AF005057F7 /* UserData.swift */; };
 		F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0419ADB269872F1005057F7 /* GoogleService-Info.plist */; };
+		F0419AE126987CE9005057F7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AE026987CE9005057F7 /* WelcomeViewController.swift */; };
+		F0419AE626987E93005057F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AE526987E93005057F7 /* Coordinator.swift */; };
+		F0419AEA26987E9A005057F7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AE926987E9A005057F7 /* MainCoordinator.swift */; };
+		F0419AEE2698801E005057F7 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AED2698801E005057F7 /* Storyboarded.swift */; };
+		F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AF126988108005057F7 /* VibratorEngine.swift */; };
+		F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */ = {isa = PBXBuildFile; fileRef = F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */; };
+		F0419AFA2698891D005057F7 /* 9068-password.json in Resources */ = {isa = PBXBuildFile; fileRef = F0419AF92698891D005057F7 /* 9068-password.json */; };
+		F0419AFE26988AE8005057F7 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AFD26988AE8005057F7 /* UIView+extension.swift */; };
 		F04C6B7B269307C500F44830 /* PasswordNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */; };
 		F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082612682376F00A5A94C /* CredentialProviderViewController.swift */; };
@@ -100,6 +108,14 @@
 		F0419AD3269871AD005057F7 /* InAppHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppHandler.swift; sourceTree = "<group>"; };
 		F0419AD7269872AF005057F7 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F0419ADB269872F1005057F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F0419AE026987CE9005057F7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		F0419AE526987E93005057F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F0419AE926987E9A005057F7 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		F0419AED2698801E005057F7 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		F0419AF126988108005057F7 /* VibratorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibratorEngine.swift; sourceTree = "<group>"; };
+		F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf20_rpr0qbbn.json; sourceTree = "<group>"; };
+		F0419AF92698891D005057F7 /* 9068-password.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9068-password.json"; sourceTree = "<group>"; };
+		F0419AFD26988AE8005057F7 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordNavigationViewController.swift; sourceTree = "<group>"; };
 		F080825D2682376F00A5A94C /* AutoFillExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutoFillExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F080825E2682376F00A5A94C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
@@ -183,6 +199,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F0419ADF26987C6F005057F7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F0419AE026987CE9005057F7 /* WelcomeViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F0419AE426987E88005057F7 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F0419AED2698801E005057F7 /* Storyboarded.swift */,
+				F0419AE926987E9A005057F7 /* MainCoordinator.swift */,
+				F0419AE526987E93005057F7 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		F08082602682376F00A5A94C /* AutoFillExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +259,11 @@
 		F0C03F0F268A1C2100579BCB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0EB6A572680C963006F4101 /* Main.storyboard */,
+				F0419AE426987E88005057F7 /* Coordinator */,
+				F0419AF92698891D005057F7 /* 9068-password.json */,
+				F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */,
+				F0419AF126988108005057F7 /* VibratorEngine.swift */,
 				F0419ADB269872F1005057F7 /* GoogleService-Info.plist */,
 				F0419AD7269872AF005057F7 /* UserData.swift */,
 				F0419AD3269871AD005057F7 /* InAppHandler.swift */,
@@ -232,11 +271,11 @@
 				F0419ACB26987185005057F7 /* RemoteConfigDefaults.plist */,
 				F0419AC52698715B005057F7 /* RemoteConfigHandler.swift */,
 				F08FEFF7268F3E150035909B /* Helper.swift */,
-				F0EB6A572680C963006F4101 /* Main.storyboard */,
 				F0EB6A5C2680C965006F4101 /* LaunchScreen.storyboard */,
 				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
 				F0FBC3672680E2DD00A555A5 /* Constants.swift */,
 				F0EB6A532680C963006F4101 /* SceneDelegate.swift */,
+				F0419AFD26988AE8005057F7 /* UIView+extension.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -279,6 +318,7 @@
 		F0FBC3292680CBC500A555A5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F0419ADF26987C6F005057F7 /* Onboarding */,
 				F0FBC32A2680CBF700A555A5 /* VaultViewController.swift */,
 				F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */,
 				F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */,
@@ -387,8 +427,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0419AFA2698891D005057F7 /* 9068-password.json in Resources */,
 				F0EB6A5E2680C965006F4101 /* LaunchScreen.storyboard in Resources */,
 				F0EB6A5B2680C965006F4101 /* Assets.xcassets in Resources */,
+				F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */,
 				F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */,
 				F0419ACC26987185005057F7 /* RemoteConfigDefaults.plist in Resources */,
 				F0EB6A592680C963006F4101 /* Main.storyboard in Resources */,
@@ -496,14 +538,20 @@
 				F080829C268250FF00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
 				F0FBC32B2680CBF700A555A5 /* VaultViewController.swift in Sources */,
 				F005DFD22683363200099DD6 /* Password.swift in Sources */,
+				F0419AEA26987E9A005057F7 /* MainCoordinator.swift in Sources */,
+				F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */,
+				F0419AE126987CE9005057F7 /* WelcomeViewController.swift in Sources */,
 				F08FF000268F46300035909B /* SettingsNavigationViewController.swift in Sources */,
 				F089D8CC268F5E2600CCE161 /* PasscodeViewController.swift in Sources */,
 				F02BF8A72697408C00C0714A /* LoadingViewController.swift in Sources */,
 				F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */,
+				F0419AE626987E93005057F7 /* Coordinator.swift in Sources */,
+				F0419AFE26988AE8005057F7 /* UIView+extension.swift in Sources */,
 				F08FEFF2268F3CF20035909B /* CustomTabbarViewController.swift in Sources */,
 				F08FF00A268F4D8B0035909B /* SettingsTableViewController.swift in Sources */,
 				F08FEFFC268F3F600035909B /* VaultNavigationViewController.swift in Sources */,
 				F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */,
+				F0419AEE2698801E005057F7 /* Storyboarded.swift in Sources */,
 				F0419AD8269872AF005057F7 /* UserData.swift in Sources */,
 				F0FC467C2693265300A7EE8D /* AutofillViewController.swift in Sources */,
 				F0FC46782693259500A7EE8D /* AutofillNavigationViewController.swift in Sources */,

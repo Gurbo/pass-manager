@@ -10,7 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    public var coordinator: MainCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -34,9 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
-
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "LoadingViewController") as LoadingViewController
-        navController.pushViewController(vc, animated: true)
+        coordinator = MainCoordinator(navigationController: navController)
+        coordinator?.start()
         
         
     }
@@ -71,4 +70,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
+extension UIApplication {
+    var currentWindow: UIWindow? {
+        connectedScenes
+        .filter({$0.activationState == .foregroundActive})
+        .map({$0 as? UIWindowScene})
+        .compactMap({$0})
+        .first?.windows
+        .filter({$0.isKeyWindow}).first
+    }
+}
+
 

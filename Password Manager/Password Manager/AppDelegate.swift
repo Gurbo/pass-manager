@@ -41,11 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            Amplitude.instance()?.setUserId(result.uid)
         }
         
-//        KeychainNew.logout()
         NotificationCenter.default.addObserver(self,
             selector: #selector(applicationDidBecomeActive),
             name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
             object: nil)
+        
+//        KeychainNew.logout()
 //        PasswordSingletone.shared.grabAllPasswords()
 //        QuickTypeManager.shared.activate()
         
@@ -55,8 +56,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @objc func applicationDidBecomeActive() {
         QuickTypeManager.shared.updateState()
-        print("updateState")
-        
+    }
+    
+    func purchases(_ purchases: Purchases, didReceiveUpdated purchaserInfo: Purchases.PurchaserInfo) {
+        InAppHandler.shared.checkUserSubscription { (isSubscribed) in
+        }
     }
 
     // MARK: UISceneSession Lifecycle

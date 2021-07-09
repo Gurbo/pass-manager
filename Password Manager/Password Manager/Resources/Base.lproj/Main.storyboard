@@ -493,9 +493,89 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qys-eM-GeZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3254" y="597"/>
+            <point key="canvasLocation" x="-5420" y="597"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="Yj8-Cm-hqs">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeViewController" id="kof-wo-Q0E" customClass="WelcomeViewController" customModule="BluetoothScanner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZN0-7B-EQD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6LB-ev-ZYG">
+                                <rect key="frame" x="80" y="726" width="254" height="56"/>
+                                <color key="backgroundColor" red="0.21960784310000001" green="0.5450980392" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="Vhi-JR-7Nq"/>
+                                    <constraint firstAttribute="width" constant="254" id="nXA-HX-qG8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="CONTINUE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCj-3c-8xm">
+                                <rect key="frame" x="32" y="120" width="350" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="Cq2-QK-2R4"/>
+                                </constraints>
+                                <string key="text">Welcome to 
+Password Keeper</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The app that makes Internet easier" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBk-U6-Vk4">
+                                <rect key="frame" x="22" y="208" width="370" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xxq-75-pdd" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="57" y="298" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="Qh3-7w-ZsE"/>
+                                    <constraint firstAttribute="width" secondItem="xxq-75-pdd" secondAttribute="height" multiplier="1:1" id="RBw-Bo-J80"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="gJb-ZX-9bJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="B42-Uh-86F"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="B42-Uh-86F" firstAttribute="trailing" secondItem="ZBk-U6-Vk4" secondAttribute="trailing" constant="22" id="5jt-CG-ObC"/>
+                            <constraint firstItem="ZBk-U6-Vk4" firstAttribute="centerX" secondItem="ZN0-7B-EQD" secondAttribute="centerX" id="6LU-Wm-FGw"/>
+                            <constraint firstItem="B42-Uh-86F" firstAttribute="bottom" secondItem="6LB-ev-ZYG" secondAttribute="bottom" constant="80" id="71O-PM-X2C"/>
+                            <constraint firstItem="xxq-75-pdd" firstAttribute="centerY" secondItem="ZN0-7B-EQD" secondAttribute="centerY" id="7go-FT-bxh"/>
+                            <constraint firstItem="ZBk-U6-Vk4" firstAttribute="top" secondItem="nCj-3c-8xm" secondAttribute="bottom" constant="20" id="AWr-qT-UqL"/>
+                            <constraint firstItem="nCj-3c-8xm" firstAttribute="leading" secondItem="B42-Uh-86F" secondAttribute="leading" constant="32" id="BD6-ML-Jb2"/>
+                            <constraint firstItem="B42-Uh-86F" firstAttribute="trailing" secondItem="xxq-75-pdd" secondAttribute="trailing" constant="57" id="EXS-pl-kaT"/>
+                            <constraint firstItem="nCj-3c-8xm" firstAttribute="top" secondItem="ZN0-7B-EQD" secondAttribute="top" constant="120" id="HTT-f3-kDN"/>
+                            <constraint firstItem="xxq-75-pdd" firstAttribute="leading" secondItem="B42-Uh-86F" secondAttribute="leading" constant="57" id="Pdz-ez-TL3"/>
+                            <constraint firstItem="nCj-3c-8xm" firstAttribute="centerX" secondItem="ZN0-7B-EQD" secondAttribute="centerX" id="Tc0-Yx-2iH"/>
+                            <constraint firstItem="B42-Uh-86F" firstAttribute="trailing" secondItem="nCj-3c-8xm" secondAttribute="trailing" constant="32" id="kre-Y1-aQ7"/>
+                            <constraint firstItem="ZBk-U6-Vk4" firstAttribute="leading" secondItem="B42-Uh-86F" secondAttribute="leading" constant="22" id="nMw-uY-BpR"/>
+                            <constraint firstItem="6LB-ev-ZYG" firstAttribute="centerX" secondItem="ZN0-7B-EQD" secondAttribute="centerX" id="qT8-NH-tgk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="animationView" destination="xxq-75-pdd" id="hkp-X2-LsP"/>
+                        <outlet property="continueButton" destination="6LB-ev-ZYG" id="Sm9-Dd-GEu"/>
+                        <outlet property="subtitleLabel" destination="ZBk-U6-Vk4" id="WUk-Mu-Avb"/>
+                        <outlet property="titleLabel" destination="nCj-3c-8xm" id="Rz6-qA-O8B"/>
+                        <outlet property="topLabelTopConstraint" destination="HTT-f3-kDN" id="DpX-uX-zXo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="csh-XL-lDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4599" y="597"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="xxq-75-pdd"/>
+    </designables>
     <resources>
         <image name="splash_lock" width="218" height="236"/>
         <systemColor name="systemBackgroundColor">

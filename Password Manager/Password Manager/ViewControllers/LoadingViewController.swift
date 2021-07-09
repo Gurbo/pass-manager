@@ -11,7 +11,9 @@ import Firebase
 import FirebaseInstallations
 import Amplitude_iOS
 
-class LoadingViewController: UIViewController {
+class LoadingViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
     
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     @IBOutlet weak var internetLabel: UILabel!
@@ -21,14 +23,14 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activityIndicator.color = UIColor.init(hex: "388BF1")
+        activityIndicator.color = UIColor.init(hex: "00FFFF")
         activityIndicator.type = .ballClipRotate
         activityIndicator.startAnimating()
         self.navigationController?.navigationBar.isHidden = true
         
         Amplitude.instance()?.logEvent("loading_screen")
         
-        titleLabel.text = "PassKeeper"
+        titleLabel.text = ""
         internetLabel.text = "Turn on the Internet to use the app"
         
         UIView.animate (withDuration: 2.0, delay: 0.0, options: [.curveEaseIn], animations: {
@@ -38,7 +40,7 @@ class LoadingViewController: UIViewController {
         internetLabel.isHidden = true
         if Reachability.isConnectedToNetwork(){
             print("Internet Connection is Available!")
-        }else{
+        } else {
             internetLabel.isHidden = false
         }
         
@@ -54,7 +56,7 @@ class LoadingViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                //self.coordinator?.showOnboardingOrMainScreen()
+                self.coordinator?.showOnboardingOrMainScreen()
             }
         }
 
