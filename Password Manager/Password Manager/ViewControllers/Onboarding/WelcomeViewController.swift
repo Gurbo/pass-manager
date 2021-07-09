@@ -26,7 +26,7 @@ class WelcomeViewController: UIViewController, Storyboarded {
         titleLabel.text = "Welcome to\nPassword Keeper"
         subtitleLabel.text = "The app that makes Internet easier"
         
-        continueButton.setTitle("CONTINUE", for: .normal)
+        continueButton.setTitle("Continue", for: .normal)
         
         addAnimation(to: animationView, name: "lf20_rpr0qbbn")
         
