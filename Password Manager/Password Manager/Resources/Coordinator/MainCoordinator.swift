@@ -28,29 +28,35 @@ class MainCoordinator: Coordinator {
 //        navigationController.pushViewController(vc, animated: true)
 //    }
 //
-//    func showOnboardingPaywallScreen() {
+    func showOnboardingPaywallScreen() {
 //        let vc = OnboardingPaywallViewController.instantiate()
 //        vc.coordinator = self
 //        navigationController.pushViewController(vc, animated: true)
-//    }
-//
+    }
+
     func showOnboardingFirstScreen() {
-//        let vc = OnboardingFirstViewController.instantiate()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
+        let vc = OnboardingFirstViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
     }
 //
-//    func showOnboardingSecondScreen() {
-//        let vc = OnboardingSecondViewController.instantiate()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
-//    }
+    func showOnboardingSecondScreen() {
+        let vc = OnboardingSecondViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
 //
-//    func showOnboardingThirdScreen() {
-//        let vc = OnboardingThirdViewController.instantiate()
-//        vc.coordinator = self
-//        navigationController.pushViewController(vc, animated: true)
-//    }
+    func showOnboardingThirdScreen() {
+        let vc = OnboardingThirdViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func showOnboardingFourthScreen() {
+        let vc = OnboardingFourthViewController.instantiate()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
     
     func showOnboardingOrMainScreen() {
         if UserData.isFirstLaunch {
