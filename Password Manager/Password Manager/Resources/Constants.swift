@@ -25,3 +25,12 @@ let onboarding_offering = "onboarding_offering"
 let show_our_apps = "show_our_apps"
 let onbPaywlSize = "onbPaywlSize"
 
+
+//Colors
+
+let kMintColor = "00FFFF"
+let kRedColor = "FF004D"
+let kBlackBackgroundColor = "0E0E11"
+let kTitleWhiteColor = "FFFFFF"
+let kSubtitleColor = "66667A"
+let kCellColor = "17171D"

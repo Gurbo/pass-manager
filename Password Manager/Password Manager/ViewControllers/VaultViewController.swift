@@ -12,15 +12,25 @@ import AppLocker
 class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addPasswordButton: UIBarButtonItem!
+    @IBOutlet weak var emptyTableLabel: UILabel!
     var itemsGroupedByService: [String: [[String: Any]]]?
     var sortedKeys: [String]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        PasswordSingletone.shared.grabAllPasswords()
+        QuickTypeManager.shared.activate()
+        
+        self.view.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
+        self.tableView.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.rowHeight = 102
         self.navigationController?.navigationBar.topItem?.title = "Vault"
+        
+        emptyTableLabel.text = "Click the “+” at the top right to add a password"
         
         addPasswordButton.target = self
         addPasswordButton.action = #selector(showAddPasswordScreen)
@@ -56,6 +66,14 @@ class VaultViewController: UIViewController {
         PasswordSingletone.shared.grabAllPasswords()
         self.itemsGroupedByService = PasswordSingletone.shared.itemsGroupedByService
         self.sortedKeys = PasswordSingletone.shared.sortedKeys
+        
+        emptyTableLabel.isHidden = false
+        
+        if let keys = sortedKeys, let itemss = itemsGroupedByService {
+            if !keys.isEmpty && !itemss.isEmpty {
+                emptyTableLabel.isHidden = true
+            }
+        }
     }
     
     @objc func updateVaultAfterAddingRecord() {

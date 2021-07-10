@@ -190,10 +190,28 @@ class PasswordSingletone: NSObject {
         var gs: [K:[C.Iterator.Element]] = [:]
         for x in xs {
             let k = key(x)
-            var ys = gs[k] ?? []
-            ys.append(x)
-            gs.updateValue(ys, forKey: k)
+            
+            if let stringToValidate = k as? String {
+                if stringToValidate.isValidURL {
+                    var ys = gs[k] ?? []
+                    ys.append(x)
+                    gs.updateValue(ys, forKey: k)
+                }
+            }
         }
         return gs
+    }
+}
+
+
+extension String {
+    var isValidURL: Bool {
+        let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
+        if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.utf16.count)) {
+            // it is a link, if the match covers the whole string
+            return match.range.length == self.utf16.count
+        } else {
+            return false
+        }
     }
 }

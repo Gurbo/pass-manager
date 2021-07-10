@@ -15,7 +15,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UEc-jk-qvr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.082352941176470587" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="qYr-Ce-UFd" kind="relationship" relationship="viewControllers" id="dth-xI-E6S"/>
@@ -30,7 +30,7 @@
         <scene sceneID="6Pe-M7-38e">
             <objects>
                 <navigationController storyboardIdentifier="VaultNavigationViewController" id="qYr-Ce-UFd" customClass="VaultNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Vault" id="CtT-gp-Njc"/>
+                    <tabBarItem key="tabBarItem" title="Vault" image="tb_vault_disabled" selectedImage="tb_vault_enabled" id="CtT-gp-Njc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MTn-Ec-UPI">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -47,7 +47,7 @@
         <scene sceneID="DHw-hp-JN3">
             <objects>
                 <navigationController storyboardIdentifier="SettingsNavigationViewController" id="nSP-Ph-E5d" customClass="SettingsNavigationViewController" customModule="Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="n9l-13-NeB"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="tb_settings_disabled" selectedImage="tb_settings_enabled" id="n9l-13-NeB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXz-Ux-YNx">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -297,21 +297,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhK-hs-65X">
+                                <rect key="frame" x="74.666666666666657" y="427.66666666666669" width="264.66666666666674" height="40.666666666666686"/>
+                                <string key="text">Click the “+” at the top right to add 
+a password</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XhK-hs-65X" secondAttribute="trailing" constant="74.670000000000002" id="GQW-et-9bs"/>
                             <constraint firstItem="Pau-3N-s6A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="J1f-9M-lXq"/>
                             <constraint firstItem="Pau-3N-s6A" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SHa-aV-kgv"/>
                             <constraint firstAttribute="bottom" secondItem="Pau-3N-s6A" secondAttribute="bottom" id="TSV-yX-6XO"/>
                             <constraint firstItem="Pau-3N-s6A" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YiN-5q-A4H"/>
+                            <constraint firstItem="XhK-hs-65X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="74.670000000000002" id="aIU-qx-FtA"/>
+                            <constraint firstItem="XhK-hs-65X" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fYL-4g-gtu"/>
+                            <constraint firstItem="XhK-hs-65X" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pWz-Lr-FvC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iHX-lT-1F5">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zgI-uY-kqw"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zgI-uY-kqw">
+                            <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addPasswordButton" destination="zgI-uY-kqw" id="Ryr-yJ-uUp"/>
+                        <outlet property="emptyTableLabel" destination="XhK-hs-65X" id="4s3-kp-uZE"/>
                         <outlet property="tableView" destination="Pau-3N-s6A" id="F1v-j5-Kht"/>
                     </connections>
                 </viewController>
@@ -1256,6 +1271,10 @@ Features</string>
         <image name="pw_sync" width="24" height="24"/>
         <image name="pw_unlimited" width="24" height="24"/>
         <image name="splash_lock" width="218" height="236"/>
+        <image name="tb_settings_disabled" width="24" height="24"/>
+        <image name="tb_settings_enabled" width="24" height="24"/>
+        <image name="tb_vault_disabled" width="24" height="24"/>
+        <image name="tb_vault_enabled" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

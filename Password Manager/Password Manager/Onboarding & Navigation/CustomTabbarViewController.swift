@@ -7,15 +7,17 @@
 
 import UIKit
 
-class CustomTabbarViewController: UITabBarController, UITabBarControllerDelegate {
+class CustomTabbarViewController: UITabBarController, UITabBarControllerDelegate, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
         
-        self.tabBar.tintColor = UIColor.init(hex: "388BF1") // tab bar icon tint color
+        self.tabBar.tintColor = UIColor.init(hex: kMintColor) // tab bar icon tint color
         self.tabBar.isTranslucent = false
-        UITabBar.appearance().barTintColor = UIColor.white // tab
+        UITabBar.appearance().barTintColor = UIColor.init(hex: "111115")
         
         self.tabBar.clipsToBounds = true
         

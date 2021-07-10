@@ -65,15 +65,15 @@ class MainCoordinator: Coordinator {
             vc.coordinator = self
             navigationController.pushViewController(vc, animated: true)
         } else {
-//            print("SHOW MAIN SCREEN")
-//            let vc = CustomTabbarViewController.instantiate()
-//            vc.coordinator = self
-//
-//            if let window = UIApplication.shared.currentWindow {
-//                UIView.transition(with: window, duration: 0.3, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: {
-//                    window.rootViewController = vc
-//                }, completion: nil)
-//            }
+            print("SHOW MAIN SCREEN")
+            let vc = CustomTabbarViewController.instantiate()
+            vc.coordinator = self
+
+            if let window = UIApplication.shared.currentWindow {
+                UIView.transition(with: window, duration: 0.3, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: {
+                    window.rootViewController = vc
+                }, completion: nil)
+            }
         }
     }
 }
