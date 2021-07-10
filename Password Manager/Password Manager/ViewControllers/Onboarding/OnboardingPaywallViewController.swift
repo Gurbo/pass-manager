@@ -28,10 +28,11 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var premiumAccessLabel: UILabel!
-    @IBOutlet weak var showMapLabel: UILabel!
-    @IBOutlet weak var unlimitedScanningLabel: UILabel!
-    @IBOutlet weak var noAdsLabel: UILabel!
-    @IBOutlet weak var appleSupportLabel: UILabel!
+    @IBOutlet weak var unlimitedLabel: UILabel!
+    @IBOutlet weak var signInLabel: UILabel!
+    @IBOutlet weak var backupLabel: UILabel!
+    @IBOutlet weak var faceLabel: UILabel!
+    @IBOutlet weak var neverLabel: UILabel!
     @IBOutlet weak var purchaseButton: UIButton!
     @IBOutlet weak var priceLabel: UILabel!
     
@@ -45,47 +46,54 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
         priceLabel.font = UIFont.systemFont(ofSize: prcSize as! CGFloat, weight: .medium)
         //here
         restoreButton.setTitle("Restore", for: .normal)
-        premiumAccessLabel.text = "Get Premium Access"
-        showMapLabel.text = "Find On The Map"
-        unlimitedScanningLabel.text = "Unlimited Scanning"
-        noAdsLabel.text = "No Ads"
-        appleSupportLabel.text = "1000+ Devices Support"
-        purchaseButton.setTitle("CONTINUE", for: .normal)
-        //priceLabel
+        premiumAccessLabel.text = "Get All Premium Features"
+
+        unlimitedLabel.text = "Unlimited password storage"
+        signInLabel.text = "Sign in to sites with one tap"
+        backupLabel.text = "Securely backup your vault"
+        faceLabel.text = "Use your face/finger as a key"
+        neverLabel.text = "Never forget again"
+        
+        purchaseButton.setTitle("Continue", for: .normal)
+        purchaseButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in
+                    guard let purchaseButton = view as? UIButton, let imageView = purchaseButton.imageView else { return }
+            purchaseButton.bringSubviewToFront(imageView) // To display imageview of button
+        }
+        
         
         Analytics.logEvent("paywall_onboarding", parameters: nil)
         Amplitude.instance()?.logEvent("paywall_onboarding")
         
-        crossTopConstraint.constant = 64
-        topLabelTopConstraint.constant = 130
-        if UIDevice().userInterfaceIdiom == .phone {
-        switch UIScreen.main.nativeBounds.height {
-        case 1136:
-            print("5s")
-            topLabelTopConstraint.constant = 25
-            crossTopConstraint.constant = 20
-        case 1334:
-            print("iPhone 6/6S/7/8/SE2nd")
-            topLabelTopConstraint.constant = 80
-            crossTopConstraint.constant = 30
-        case 1920, 2208:
-            print("iPhone 6+/6S+/7+/8+")
-            topLabelTopConstraint.constant = 130
-            case 2436:
-                print("iPhone X/XS/11 Pro")
-
-            case 2688:
-                print("iPhone XS Max/11 Pro Max")
-
-            case 1792:
-                print("iPhone XR/ 11")
-
-            default:
-                print("Unknown")
-            }
-        }
+//        crossTopConstraint.constant = 64
+//        topLabelTopConstraint.constant = 130
+//        if UIDevice().userInterfaceIdiom == .phone {
+//        switch UIScreen.main.nativeBounds.height {
+//        case 1136:
+//            print("5s")
+//            topLabelTopConstraint.constant = 25
+//            crossTopConstraint.constant = 20
+//        case 1334:
+//            print("iPhone 6/6S/7/8/SE2nd")
+//            topLabelTopConstraint.constant = 80
+//            crossTopConstraint.constant = 30
+//        case 1920, 2208:
+//            print("iPhone 6+/6S+/7+/8+")
+//            topLabelTopConstraint.constant = 130
+//            case 2436:
+//                print("iPhone X/XS/11 Pro")
+//
+//            case 2688:
+//                print("iPhone XS Max/11 Pro Max")
+//
+//            case 1792:
+//                print("iPhone XR/ 11")
+//
+//            default:
+//                print("Unknown")
+//            }
+//        }
         
-        purchaseButton.layer.cornerRadius = 12.0
+
         self.closeButton.isHidden = true
         let showExitAfter = RemoteConfigHandler.shared.remoteConfig[show_paywall_exit_after].numberValue
         
@@ -94,7 +102,7 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
         }
         
         indicator.type = .lineScalePulseOut
-        indicator.color = .white
+        indicator.color = UIColor.init(hex: "00FFFF")
         blackView.isHidden = false
         indicator.startAnimating()
         
@@ -125,7 +133,7 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
                 var productDurationString = ""
                 switch package.packageType {
                 case .annual:
-                    productDurationString = "Unlimited Yearly VIP for "
+                    productDurationString = "Unlimited Yearly Access for "
                     priceString = "\(productDurationString)"
                     self.annualPrice = Float(truncating: package.product.price)
                 case .monthly:

@@ -7,6 +7,8 @@
 
 import Foundation
 
+let proEntitlementName = "Premium"
+
 //Remote Config
 let uses_until_prompt = "uses_until_prompt"
 let ads_enabled = "ads_enabled"
