@@ -342,6 +342,9 @@ a password</string>
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="Tzw-zb-lbV" kind="relationship" relationship="rootViewController" id="3yR-jD-Ini"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQw-1U-wOZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,8 +359,12 @@ a password</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EGG-8C-tNR">
-                                <rect key="frame" x="41" y="199" width="333" height="34"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="128" width="382" height="42"/>
+                                <color key="backgroundColor" red="0.090196078431372548" green="0.090196078431372548" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="7eN-Cl-G1g"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -365,8 +372,9 @@ a password</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vUz-D0-Ngm">
-                                <rect key="frame" x="41" y="241" width="333" height="34"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="182" width="382" height="42"/>
+                                <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -374,8 +382,9 @@ a password</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVq-CN-6vK">
-                                <rect key="frame" x="41" y="283" width="333" height="34"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="236" width="382" height="42"/>
+                                <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -383,43 +392,50 @@ a password</string>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UCn-d7-MoO">
-                                <rect key="frame" x="41" y="325" width="333" height="34"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="290" width="382" height="42"/>
+                                <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="fieldEditingChanged:" destination="Tzw-zb-lbV" eventType="editingChanged" id="jSt-6E-x0z"/>
                                 </connections>
                             </textField>
-                            <view alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-TK-n8s">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            <view alpha="0.69999999999999996" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9f6-TK-n8s">
+                                <rect key="frame" x="0.0" y="624" width="414" height="272"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YLg-dI-cd0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9f6-TK-n8s" firstAttribute="trailing" secondItem="YLg-dI-cd0" secondAttribute="trailing" id="0Jt-4D-ISE"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="trailing" secondItem="vUz-D0-Ngm" secondAttribute="trailing" id="1WX-ME-3og"/>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="leading" secondItem="EGG-8C-tNR" secondAttribute="leading" id="2ge-sd-PAQ"/>
-                            <constraint firstItem="EGG-8C-tNR" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" constant="41" id="6Qx-Qr-P1C"/>
+                            <constraint firstItem="EGG-8C-tNR" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" constant="16" id="6Qx-Qr-P1C"/>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="trailing" secondItem="EGG-8C-tNR" secondAttribute="trailing" id="AGs-w6-X51"/>
-                            <constraint firstItem="YLg-dI-cd0" firstAttribute="trailing" secondItem="EGG-8C-tNR" secondAttribute="trailing" constant="40" id="Bw9-7i-ti1"/>
+                            <constraint firstItem="YLg-dI-cd0" firstAttribute="trailing" secondItem="EGG-8C-tNR" secondAttribute="trailing" constant="16" id="Bw9-7i-ti1"/>
+                            <constraint firstItem="HVq-CN-6vK" firstAttribute="height" secondItem="EGG-8C-tNR" secondAttribute="height" id="DDi-7N-uVd"/>
                             <constraint firstItem="UCn-d7-MoO" firstAttribute="leading" secondItem="HVq-CN-6vK" secondAttribute="leading" id="Dp6-g6-1wr"/>
-                            <constraint firstItem="UCn-d7-MoO" firstAttribute="top" secondItem="HVq-CN-6vK" secondAttribute="bottom" constant="8" symbolic="YES" id="ECW-Ho-aEH"/>
-                            <constraint firstItem="EGG-8C-tNR" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" constant="155" id="JBp-ig-fSJ"/>
+                            <constraint firstItem="UCn-d7-MoO" firstAttribute="top" secondItem="HVq-CN-6vK" secondAttribute="bottom" constant="12" id="ECW-Ho-aEH"/>
+                            <constraint firstItem="UCn-d7-MoO" firstAttribute="height" secondItem="EGG-8C-tNR" secondAttribute="height" id="Ghv-zn-QnA"/>
+                            <constraint firstItem="vUz-D0-Ngm" firstAttribute="height" secondItem="EGG-8C-tNR" secondAttribute="height" id="HG1-vN-QSQ"/>
+                            <constraint firstItem="EGG-8C-tNR" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" constant="40" id="JBp-ig-fSJ"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="leading" secondItem="vUz-D0-Ngm" secondAttribute="leading" id="MGz-8X-Mt1"/>
                             <constraint firstItem="9f6-TK-n8s" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" id="T0O-XB-YiQ"/>
-                            <constraint firstItem="HVq-CN-6vK" firstAttribute="top" secondItem="vUz-D0-Ngm" secondAttribute="bottom" constant="8" symbolic="YES" id="Upl-hp-eKG"/>
+                            <constraint firstItem="HVq-CN-6vK" firstAttribute="top" secondItem="vUz-D0-Ngm" secondAttribute="bottom" constant="12" id="Upl-hp-eKG"/>
                             <constraint firstItem="9f6-TK-n8s" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" id="cE2-AA-nS2"/>
                             <constraint firstAttribute="bottom" secondItem="9f6-TK-n8s" secondAttribute="bottom" id="jmY-pY-wv3"/>
                             <constraint firstItem="UCn-d7-MoO" firstAttribute="trailing" secondItem="HVq-CN-6vK" secondAttribute="trailing" id="m6r-LX-TMz"/>
-                            <constraint firstItem="vUz-D0-Ngm" firstAttribute="top" secondItem="EGG-8C-tNR" secondAttribute="bottom" constant="8" symbolic="YES" id="msH-1q-NNP"/>
+                            <constraint firstItem="vUz-D0-Ngm" firstAttribute="top" secondItem="EGG-8C-tNR" secondAttribute="bottom" constant="12" id="msH-1q-NNP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pg6-8J-284">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="37U-Pt-Ip7"/>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="save" id="r8s-j1-bsI">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="37U-Pt-Ip7">
+                            <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="r8s-j1-bsI">
+                            <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveTapped:" destination="Tzw-zb-lbV" id="K58-sS-CHh"/>
                             </connections>
@@ -437,7 +453,7 @@ a password</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgs-rf-r31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1699" y="125"/>
+            <point key="canvasLocation" x="1698.5507246376812" y="124.55357142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SGV-e5-6e3">

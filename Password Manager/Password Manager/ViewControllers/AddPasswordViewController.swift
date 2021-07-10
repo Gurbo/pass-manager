@@ -33,6 +33,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
             saveButton.isEnabled = false
             navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
             
+            
             nameTextfield.isEnabled = false
             urlTextfield.isEnabled = false
             loginTextfield.isEnabled = false
@@ -58,6 +59,12 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         urlTextfield.keyboardType = .URL
         loginTextfield.keyboardType = .emailAddress
         passwordTextfield.keyboardType = .alphabet
+        
+        
+        nameTextfield.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kSubtitleColor)])
+        urlTextfield.attributedPlaceholder = NSAttributedString(string:"Website", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kSubtitleColor)])
+        loginTextfield.attributedPlaceholder = NSAttributedString(string:"Login", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kSubtitleColor)])
+        passwordTextfield.attributedPlaceholder = NSAttributedString(string:"Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kSubtitleColor)])
         
         blackView.isHidden = true
         blackView.alpha = 0.0
