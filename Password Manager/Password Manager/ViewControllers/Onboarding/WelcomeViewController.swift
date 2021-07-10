@@ -16,8 +16,7 @@ class WelcomeViewController: UIViewController, Storyboarded {
     @IBOutlet weak var continueButton: UIButton!
     
     @IBOutlet weak var animationView: AnimationView!
-    
-    weak var coordinator: MainCoordinator?
+
     @IBOutlet weak var topLabelTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -82,6 +81,7 @@ class WelcomeViewController: UIViewController, Storyboarded {
     
     @objc func showFirstOnboardingScreen() {
         VibratorEngine.shared.actionTaptic()
-        self.coordinator?.showOnboardingFirstScreen()
+        let vc = OnboardingFirstViewController.instantiate()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

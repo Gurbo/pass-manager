@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a8A-aI-kln">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W8u-Ph-KDz">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
@@ -439,6 +439,22 @@ a password</string>
             </objects>
             <point key="canvasLocation" x="1699" y="125"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SGV-e5-6e3">
+            <objects>
+                <navigationController id="W8u-Ph-KDz" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R5Q-FD-0hj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Uxz-c2-MHd" kind="relationship" relationship="rootViewController" id="dID-Zy-x6u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W43-EW-EKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-8925" y="597"/>
+        </scene>
         <!--Loading View Controller-->
         <scene sceneID="qus-D4-x1D">
             <objects>
@@ -499,6 +515,7 @@ a password</string>
                             <constraint firstItem="YbB-Ap-xM7" firstAttribute="top" secondItem="pDK-G1-EgN" secondAttribute="bottom" constant="45" id="yBV-iu-HQt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8Zs-Jb-8QA"/>
                     <connections>
                         <outlet property="activityIndicator" destination="YbB-Ap-xM7" id="VLz-rW-IT5"/>
                         <outlet property="internetLabel" destination="pDK-G1-EgN" id="Q0l-5F-JXF"/>

@@ -13,8 +13,6 @@ import Amplitude_iOS
 
 class LoadingViewController: UIViewController, Storyboarded {
     
-    weak var coordinator: MainCoordinator?
-    
     @IBOutlet weak var activityIndicator: NVActivityIndicatorView!
     @IBOutlet weak var internetLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -56,7 +54,17 @@ class LoadingViewController: UIViewController, Storyboarded {
             }
             
             DispatchQueue.main.async {
-                self.coordinator?.showOnboardingOrMainScreen()
+                if UserData.isFirstLaunch {
+                    let vc = WelcomeViewController.instantiate()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let vc = CustomTabbarViewController.instantiate()
+                    if let window = UIApplication.shared.currentWindow {
+                        UIView.transition(with: window, duration: 0.3, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: {
+                            window.rootViewController = vc
+                        }, completion: nil)
+                    }
+                }
             }
         }
 

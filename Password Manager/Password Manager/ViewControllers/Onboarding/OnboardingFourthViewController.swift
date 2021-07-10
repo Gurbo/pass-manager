@@ -13,7 +13,6 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
-    weak var coordinator: MainCoordinator?
 //    @IBOutlet weak var topLabelTopConstraint: NSLayoutConstraint!
 //    @IBOutlet weak var imageBottomConstraint: NSLayoutConstraint!
     
@@ -88,10 +87,20 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
         let showPaywall = RemoteConfigHandler.shared.remoteConfig[show_onboarding_paywall].boolValue
         let paidModeEnabled = RemoteConfigHandler.shared.remoteConfig[paid_mode_enabled].boolValue
         if showPaywall && paidModeEnabled && !UserData.isUserSubscribed {
-            self.coordinator?.showOnboardingPaywallScreen()
+            let vc = OnboardingPaywallViewController.instantiate()
+            navigationController?.pushViewController(vc, animated: true)
         } else {
-            UserData.isFirstLaunch = false
-            self.coordinator?.showOnboardingOrMainScreen()
+            if UserData.isFirstLaunch {
+                let vc = WelcomeViewController.instantiate()
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = CustomTabbarViewController.instantiate()
+                if let window = UIApplication.shared.currentWindow {
+                    UIView.transition(with: window, duration: 0.3, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: {
+                        window.rootViewController = vc
+                    }, completion: nil)
+                }
+            }
         }
     }
     

@@ -22,7 +22,6 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
     var monthlyPrice: Float = 0
     var annualPrice: Float = 0
     
-    weak var coordinator: MainCoordinator?
     @IBOutlet weak var blackView: UIView!
     @IBOutlet weak var indicator: NVActivityIndicatorView!
     
@@ -182,7 +181,17 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
         VibratorEngine.shared.actionTaptic()
         UserData.isFirstLaunch = false
         Amplitude.instance()?.logEvent("paywall_onboarding_close")
-        self.coordinator?.showOnboardingOrMainScreen()
+        if UserData.isFirstLaunch {
+            let vc = WelcomeViewController.instantiate()
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = CustomTabbarViewController.instantiate()
+            if let window = UIApplication.shared.currentWindow {
+                UIView.transition(with: window, duration: 0.3, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: {
+                    window.rootViewController = vc
+                }, completion: nil)
+            }
+        }
     }
     
     @objc func restorePurchase() {

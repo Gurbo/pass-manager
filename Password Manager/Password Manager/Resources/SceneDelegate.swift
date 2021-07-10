@@ -10,34 +10,34 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    public var coordinator: MainCoordinator?
+//    public var coordinator: MainCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-//        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let _ = (scene as? UIWindowScene) else { return }
         
-        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
-        self.window = UIWindow(windowScene: windowScene)
-        let navController = UINavigationController()
+//        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+//        self.window = UIWindow(windowScene: windowScene)
+//        let navController = UINavigationController()
+//
+//        navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+//        navController.navigationBar.shadowImage = UIImage()
+//        navController.navigationBar.isTranslucent = true
+//        navController.navigationBar.isHidden = true
+//
+//        let BarButtonItemAppearance = UIBarButtonItem.appearance()
+//        let attributes = [NSAttributedString.Key.font:  UIFont(name: "Helvetica-Bold", size: 0.1)!, NSAttributedString.Key.foregroundColor: UIColor.clear]
+//        BarButtonItemAppearance.setTitleTextAttributes(attributes, for: .normal)
+//        BarButtonItemAppearance.setTitleTextAttributes(attributes, for: .highlighted)
+//
+//        window?.rootViewController = navController
+//        window?.makeKeyAndVisible()
+//        coordinator = MainCoordinator(navigationController: navController)
+//        coordinator?.start()
         
-        navController.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navController.navigationBar.shadowImage = UIImage()
-        navController.navigationBar.isTranslucent = true
-        navController.navigationBar.isHidden = true
-        
-        let BarButtonItemAppearance = UIBarButtonItem.appearance()
-        let attributes = [NSAttributedString.Key.font:  UIFont(name: "Helvetica-Bold", size: 0.1)!, NSAttributedString.Key.foregroundColor: UIColor.clear]
-        BarButtonItemAppearance.setTitleTextAttributes(attributes, for: .normal)
-        BarButtonItemAppearance.setTitleTextAttributes(attributes, for: .highlighted)
-
-        window?.rootViewController = navController
-        window?.makeKeyAndVisible()
-        coordinator = MainCoordinator(navigationController: navController)
-        coordinator?.start()
-        
-        
+        //
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

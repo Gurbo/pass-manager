@@ -13,7 +13,6 @@ class OnboardingThirdViewController: UIViewController, Storyboarded {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
-    weak var coordinator: MainCoordinator?
 //    @IBOutlet weak var topLabelTopConstraint: NSLayoutConstraint!
 //    @IBOutlet weak var imageBottomConstraint: NSLayoutConstraint!
     
@@ -86,7 +85,8 @@ class OnboardingThirdViewController: UIViewController, Storyboarded {
     
     @objc func showFourthOnboardingScreen() {
         VibratorEngine.shared.actionTaptic()
-        self.coordinator?.showOnboardingFourthScreen()
+        let vc = OnboardingFourthViewController.instantiate()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 

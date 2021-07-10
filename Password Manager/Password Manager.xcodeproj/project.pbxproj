@@ -22,8 +22,6 @@
 		F0419AD8269872AF005057F7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AD7269872AF005057F7 /* UserData.swift */; };
 		F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0419ADB269872F1005057F7 /* GoogleService-Info.plist */; };
 		F0419AE126987CE9005057F7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AE026987CE9005057F7 /* WelcomeViewController.swift */; };
-		F0419AE626987E93005057F7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AE526987E93005057F7 /* Coordinator.swift */; };
-		F0419AEA26987E9A005057F7 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AE926987E9A005057F7 /* MainCoordinator.swift */; };
 		F0419AEE2698801E005057F7 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AED2698801E005057F7 /* Storyboarded.swift */; };
 		F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AF126988108005057F7 /* VibratorEngine.swift */; };
 		F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */ = {isa = PBXBuildFile; fileRef = F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */; };
@@ -114,8 +112,6 @@
 		F0419AD7269872AF005057F7 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		F0419ADB269872F1005057F7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0419AE026987CE9005057F7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		F0419AE526987E93005057F7 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		F0419AE926987E9A005057F7 /* MainCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		F0419AED2698801E005057F7 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		F0419AF126988108005057F7 /* VibratorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibratorEngine.swift; sourceTree = "<group>"; };
 		F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf20_rpr0qbbn.json; sourceTree = "<group>"; };
@@ -226,8 +222,6 @@
 			isa = PBXGroup;
 			children = (
 				F0419AED2698801E005057F7 /* Storyboarded.swift */,
-				F0419AE926987E9A005057F7 /* MainCoordinator.swift */,
-				F0419AE526987E93005057F7 /* Coordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -554,14 +548,12 @@
 				F080829C268250FF00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
 				F0FBC32B2680CBF700A555A5 /* VaultViewController.swift in Sources */,
 				F005DFD22683363200099DD6 /* Password.swift in Sources */,
-				F0419AEA26987E9A005057F7 /* MainCoordinator.swift in Sources */,
 				F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */,
 				F0419AE126987CE9005057F7 /* WelcomeViewController.swift in Sources */,
 				F08FF000268F46300035909B /* SettingsNavigationViewController.swift in Sources */,
 				F089D8CC268F5E2600CCE161 /* PasscodeViewController.swift in Sources */,
 				F02BF8A72697408C00C0714A /* LoadingViewController.swift in Sources */,
 				F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */,
-				F0419AE626987E93005057F7 /* Coordinator.swift in Sources */,
 				F0419AFE26988AE8005057F7 /* UIView+extension.swift in Sources */,
 				F08FEFF2268F3CF20035909B /* CustomTabbarViewController.swift in Sources */,
 				F0419B10269896AB005057F7 /* OnboardingFourthViewController.swift in Sources */,
