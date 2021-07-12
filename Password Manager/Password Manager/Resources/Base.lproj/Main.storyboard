@@ -256,43 +256,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Pau-3N-s6A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Pau-3N-s6A">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PasswordItemTableViewCell" rowHeight="102" id="BpT-kC-nXP" customClass="PasswordItemTableViewCell" customModule="Password_Manager" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="102"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PasswordItemTableViewCell" rowHeight="75" id="BpT-kC-nXP" customClass="PasswordItemTableViewCell" customModule="Password_Manager" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BpT-kC-nXP" id="PXB-yh-OQ5">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTJ-aQ-doi">
-                                                    <rect key="frame" x="26.999999999999996" y="24" width="41.666666666666657" height="20.666666666666671"/>
-                                                    <color key="backgroundColor" red="0.50980392159999999" green="0.53333333329999999" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsr-Yb-OTA">
+                                                    <rect key="frame" x="20" y="17" width="374" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px1-Rq-7GX">
-                                                    <rect key="frame" x="26.999999999999996" y="60" width="41.666666666666657" height="20.666666666666657"/>
-                                                    <color key="backgroundColor" red="0.50980392159999999" green="0.53333333329999999" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hh2-fy-KzG">
+                                                    <rect key="frame" x="20" y="40" width="374" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ah-of-wRD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="cFN-gU-1Ng"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nfV-lA-zez">
+                                                    <rect key="frame" x="0.0" y="74" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.15294117647058825" green="0.15294117647058825" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="R4O-oX-0BM"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="px1-Rq-7GX" secondAttribute="bottom" constant="10.5" id="3Q7-hH-LSV"/>
-                                                <constraint firstItem="TTJ-aQ-doi" firstAttribute="top" secondItem="PXB-yh-OQ5" secondAttribute="topMargin" constant="13" id="a8C-UA-UTl"/>
-                                                <constraint firstItem="px1-Rq-7GX" firstAttribute="leading" secondItem="PXB-yh-OQ5" secondAttribute="leadingMargin" constant="7" id="bps-4X-aJY"/>
-                                                <constraint firstItem="TTJ-aQ-doi" firstAttribute="leading" secondItem="PXB-yh-OQ5" secondAttribute="leadingMargin" constant="7" id="hJz-2k-uF7"/>
-                                                <constraint firstItem="px1-Rq-7GX" firstAttribute="top" secondItem="TTJ-aQ-doi" secondAttribute="bottom" constant="15.5" id="seD-qh-pl6"/>
+                                                <constraint firstAttribute="trailing" secondItem="nfV-lA-zez" secondAttribute="trailing" id="4d6-w6-yvb"/>
+                                                <constraint firstItem="8ah-of-wRD" firstAttribute="top" secondItem="PXB-yh-OQ5" secondAttribute="top" id="4mb-2N-M5B"/>
+                                                <constraint firstItem="nfV-lA-zez" firstAttribute="leading" secondItem="PXB-yh-OQ5" secondAttribute="leading" id="FwE-t0-z39"/>
+                                                <constraint firstItem="Hh2-fy-KzG" firstAttribute="trailing" secondItem="Vsr-Yb-OTA" secondAttribute="trailing" id="Gdp-IC-tc0"/>
+                                                <constraint firstItem="Vsr-Yb-OTA" firstAttribute="top" secondItem="PXB-yh-OQ5" secondAttribute="topMargin" constant="6" id="Glk-3P-3aY"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vsr-Yb-OTA" secondAttribute="trailing" constant="20" id="K7s-mv-jaI"/>
+                                                <constraint firstItem="Vsr-Yb-OTA" firstAttribute="leading" secondItem="PXB-yh-OQ5" secondAttribute="leadingMargin" id="LST-LR-3uS"/>
+                                                <constraint firstItem="Hh2-fy-KzG" firstAttribute="leading" secondItem="Vsr-Yb-OTA" secondAttribute="leading" id="i6C-HX-IQQ"/>
+                                                <constraint firstItem="8ah-of-wRD" firstAttribute="leading" secondItem="PXB-yh-OQ5" secondAttribute="leading" id="kcY-2F-EaG"/>
+                                                <constraint firstAttribute="trailing" secondItem="8ah-of-wRD" secondAttribute="trailing" id="lT1-HE-ffu"/>
+                                                <constraint firstAttribute="bottom" secondItem="nfV-lA-zez" secondAttribute="bottom" id="lZs-rh-5kH"/>
+                                                <constraint firstItem="Hh2-fy-KzG" firstAttribute="bottom" secondItem="PXB-yh-OQ5" secondAttribute="bottomMargin" constant="-6" id="sIu-fN-4hE"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="itemNameLabel" destination="TTJ-aQ-doi" id="0rZ-Qe-QhE"/>
-                                            <outlet property="usernameLabel" destination="px1-Rq-7GX" id="kLK-La-icW"/>
+                                            <outlet property="bottomSeparatorView" destination="nfV-lA-zez" id="HhW-75-hRA"/>
+                                            <outlet property="itemNameLabel" destination="Vsr-Yb-OTA" id="sdG-Km-ikf"/>
+                                            <outlet property="topSeparatorView" destination="8ah-of-wRD" id="hBe-Fs-hhQ"/>
+                                            <outlet property="usernameLabel" destination="Hh2-fy-KzG" id="BZa-dX-Hmd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -332,7 +354,7 @@ a password</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-25" y="125"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="124.55357142857142"/>
         </scene>
         <!--Password Navigation View Controller-->
         <scene sceneID="W9x-Fb-0xD">
@@ -365,7 +387,7 @@ a password</string>
                                     <constraint firstAttribute="height" constant="42" id="7eN-Cl-G1g"/>
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="fieldEditingChanged:" destination="Tzw-zb-lbV" eventType="editingChanged" id="2Mh-fI-HLe"/>
@@ -375,7 +397,7 @@ a password</string>
                                 <rect key="frame" x="16" y="182" width="382" height="42"/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="fieldEditingChanged:" destination="Tzw-zb-lbV" eventType="editingChanged" id="ZcR-uY-tFN"/>
@@ -385,7 +407,7 @@ a password</string>
                                 <rect key="frame" x="16" y="236" width="382" height="42"/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="fieldEditingChanged:" destination="Tzw-zb-lbV" eventType="editingChanged" id="cCf-x0-HC6"/>
@@ -395,7 +417,7 @@ a password</string>
                                 <rect key="frame" x="16" y="290" width="382" height="42"/>
                                 <color key="backgroundColor" red="0.090196078430000007" green="0.090196078430000007" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="fieldEditingChanged:" destination="Tzw-zb-lbV" eventType="editingChanged" id="jSt-6E-x0z"/>

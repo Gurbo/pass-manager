@@ -101,9 +101,27 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return 0
     }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sortedKeys![section]
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 55
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        let myLabel = UILabel()
+        myLabel.frame = CGRect(x: 20, y: 28, width: 320, height: 20)
+        myLabel.font = UIFont.systemFont(ofSize: 12.0, weight: .regular)
+        myLabel.text = sortedKeys![section].uppercased()
+        myLabel.textColor = UIColor.init(hex: kMintColor)
+
+        let headerView = UIView()
+        headerView.addSubview(myLabel)
+
+        return headerView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -115,11 +133,22 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PasswordItemTableViewCell", for: indexPath) as! PasswordItemTableViewCell
         cell.selectionStyle = .none
+        
+
     
         let service = sortedKeys![indexPath.section]
 
         let items = Keychain(service: service).allItems()
         let item = items[indexPath.row]
+        
+//        cell.bottomSeparatorView.isHidden = true
+//        cell.topSeparatorView.isHidden = true
+        
+        if indexPath.row == items.count - 1 {
+            cell.bottomSeparatorView.isHidden = false
+        } else {
+            cell.bottomSeparatorView.isHidden = true
+        }
 
         let keychain = Keychain(service: service)
         if let attributes = keychain[attributes: (item["key"] as? String)!] {

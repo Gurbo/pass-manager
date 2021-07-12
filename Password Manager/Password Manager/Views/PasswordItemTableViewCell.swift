@@ -10,6 +10,10 @@ import UIKit
 class PasswordItemTableViewCell: UITableViewCell {
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    @IBOutlet weak var topSeparatorView: UIView!
+    @IBOutlet weak var bottomSeparatorView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
