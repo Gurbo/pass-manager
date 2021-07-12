@@ -22,6 +22,12 @@ class SettingsTableViewController: UITableViewController {
             selector: #selector(updateSwitcherStates),
             name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
             object: nil)
+        
+        
+        self.view.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
+        self.tableView.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
+        
+        masterPasswordSwitcher.onTintColor = UIColor.init(hex: kMintColor)
     }
     
     @objc func updateSwitcherStates() {
