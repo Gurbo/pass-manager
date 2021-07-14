@@ -118,9 +118,10 @@ class SettingsTableViewController: UITableViewController {
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
                 var options = ALOptions()
-                //options.image = UIImage(named: "face")!
-                options.title = "Devios Ryasnoy"
-                options.color = .red
+                options.image = UIImage(named: "onb_lockx")!
+                options.subtitle = "FUCK"
+//                options.subtitle = "Create your new Master Password & use it to authorize in the app"
+                options.color = UIColor.init(hex: kBlackBackgroundColor)
                 options.onSuccessfulDismiss = { (mode: ALMode?) in
                     if let _ = mode {
                         UserDefaults.forAppGroup.isLocked = true

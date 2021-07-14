@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
             object: nil)
         
-        #warning("УДАЛИТЬ")
+        #warning("УДАЛИТЬ!")
         UserData.isFirstLaunch = false
 //        KeychainNew.logout()
 

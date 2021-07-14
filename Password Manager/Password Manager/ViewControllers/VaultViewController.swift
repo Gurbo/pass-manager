@@ -85,9 +85,6 @@ class VaultViewController: UIViewController {
         guard UserDefaults.forAppGroup.isLocked else {
             return
         }
-
-//        let passcodeNavigationController = PasscodeViewController.instantiate()
-//        present(passcodeNavigationController, animated: true, completion: nil)
     }
 }
 
@@ -140,10 +137,7 @@ extension VaultViewController: UITableViewDelegate, UITableViewDataSource {
 
         let items = Keychain(service: service).allItems()
         let item = items[indexPath.row]
-        
-//        cell.bottomSeparatorView.isHidden = true
-//        cell.topSeparatorView.isHidden = true
-        
+
         if indexPath.row == items.count - 1 {
             cell.bottomSeparatorView.isHidden = false
         } else {
