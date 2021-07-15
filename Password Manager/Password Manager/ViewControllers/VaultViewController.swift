@@ -48,10 +48,29 @@ class VaultViewController: UIViewController {
     }
     
     @objc func showAddPasswordScreen(sender:UIButton) {
+        
+        if UserData.isUserSubscribed {
+            showNavAndPassScreens()
+        } else {
+            let limitCount:Int  = Int(truncating: RemoteConfigHandler.shared.remoteConfig[saves_before_paid_mode].numberValue)
+            if UserDefaults.forAppGroup.savedPasswordsCount >= limitCount {
+                showPaywall()
+            } else {
+                showNavAndPassScreens()
+            }
+        }
+    }
+    
+    func showNavAndPassScreens() {
         let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "PasswordNavigationViewController") as PasswordNavigationViewController
         let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AddPasswordViewController") as AddPasswordViewController
         navVC.viewControllers = [addPassVC]
         self.present(navVC, animated: true, completion: nil)
+    }
+    
+    func showPaywall() {
+        let vc = SubscriptionViewController.instantiate()
+        self.navigationController?.present(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -63,31 +63,55 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func syncSwitcherAction(_ sender: Any) {
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
-                #warning("INSERT ALERT TEXT - 1 iCLOUD FOR ALL DEVICES")
-                UserDefaults.forAppGroup.isSyncToICloudEnabled = true
+                if UserData.isUserSubscribed {
+                    let alert = UIAlertController(title: "Attention!", message: "All your passwords will be synced between your devices with the same iCloud account (as your current iCloud account on your device).", preferredStyle: .alert)
+                    
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+                        UserDefaults.forAppGroup.isSyncToICloudEnabled = true
+                        PasswordSingletone.shared.allKCItemsShouldSynchronize()
+                    })
+                    
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { action in
+                        alert.dismiss(animated: true, completion: nil)
+                        UserDefaults.forAppGroup.isSyncToICloudEnabled = false
+                    })
+                    
+                    alert.addAction(ok)
+                    alert.addAction(cancelAction)
+                        
+                    DispatchQueue.main.async(execute: {
+                            self.present(alert, animated: true)
+                    })
+                } else {
+                    switcher.isOn = false
+                    showPaywall()
+                }
             } else {
                 UserDefaults.forAppGroup.isSyncToICloudEnabled = false
             }
-            PasswordSingletone.shared.allKCItemsShouldSynchronize()
         }
     }
     
     @IBAction func faceIDSwitcherAction(_ sender: Any) {
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
-                //включили в ON
-                if UserDefaults.forAppGroup.isLocked {
-                    UserDefaults.forAppGroup.isFaceIDEnabled = true
+                if UserData.isUserSubscribed {
+                    if UserDefaults.forAppGroup.isLocked {
+                        UserDefaults.forAppGroup.isFaceIDEnabled = true
+                    } else {
+                        UserDefaults.forAppGroup.isFaceIDEnabled = false
+                        updateSwitcherStates()
+                        let alert = UIAlertController(title: "Attention!", message: "You must first enable the Master Password", preferredStyle: .alert)
+                             let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+                             })
+                             alert.addAction(ok)
+                             DispatchQueue.main.async(execute: {
+                                self.present(alert, animated: true)
+                        })
+                    }
                 } else {
-                    UserDefaults.forAppGroup.isFaceIDEnabled = false
-                    updateSwitcherStates()
-                    let alert = UIAlertController(title: "First enable master password", message: "First enable master password", preferredStyle: .alert)
-                         let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
-                         })
-                         alert.addAction(ok)
-                         DispatchQueue.main.async(execute: {
-                            self.present(alert, animated: true)
-                    })
+                    switcher.isOn = false
+                    showPaywall()
                 }
             } else {
                 UserDefaults.forAppGroup.isFaceIDEnabled = false
@@ -99,10 +123,14 @@ class SettingsTableViewController: UITableViewController {
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
                 switcher.isOn = false
-                let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AutofillNavigationViewController") as AutofillNavigationViewController
-                let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AutofillViewController") as AutofillViewController
-                navVC.viewControllers = [addPassVC]
-                self.present(navVC, animated: true, completion: nil)
+                if UserData.isUserSubscribed {
+                    let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AutofillNavigationViewController") as AutofillNavigationViewController
+                    let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AutofillViewController") as AutofillViewController
+                    navVC.viewControllers = [addPassVC]
+                    self.present(navVC, animated: true, completion: nil)
+                } else {
+                    showPaywall()
+                }
             } else {
                 switcher.isOn = true
                 let alert = UIAlertController(title: "!!!!", message: "To turn off Autofill - Settings -> Passwords -> Autofill -> Uncheck ", preferredStyle: .alert)
@@ -119,30 +147,40 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func masterPaasswordAction(_ sender: Any) {
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
-                var options = ALOptions()
-                options.image = UIImage(named: "onb_lockx")!
-                options.subtitle = "Create your new Master Password to secure your Vault"
-                options.color = UIColor.init(hex: kBlackBackgroundColor)
-                options.onSuccessfulDismiss = { (mode: ALMode?) in
-                    if let _ = mode {
-                        UserDefaults.forAppGroup.isLocked = true
-                        self.masterPasswordSwitcher.isOn = true
-                    } else {
+                if UserData.isUserSubscribed {
+                    var options = ALOptions()
+                    options.image = UIImage(named: "onb_lockx")!
+                    options.subtitle = "Create your new Master Password to secure your Vault"
+                    options.color = UIColor.init(hex: kBlackBackgroundColor)
+                    options.onSuccessfulDismiss = { (mode: ALMode?) in
+                        if let _ = mode {
+                            UserDefaults.forAppGroup.isLocked = true
+                            self.masterPasswordSwitcher.isOn = true
+                        } else {
+                            UserDefaults.forAppGroup.isLocked = false
+                            self.masterPasswordSwitcher.isOn = false
+                        }
+                    }
+                    options.onFailedAttempt = { (mode: ALMode?) in
                         UserDefaults.forAppGroup.isLocked = false
                         self.masterPasswordSwitcher.isOn = false
                     }
-                }
-                options.onFailedAttempt = { (mode: ALMode?) in
-                    UserDefaults.forAppGroup.isLocked = false
+                    AppLocker.present(with: .create, and: options, over: self)
+                } else {
                     self.masterPasswordSwitcher.isOn = false
+                    showPaywall()
                 }
-                AppLocker.present(with: .create, and: options, over: self)
             } else {
                 UserDefaults.forAppGroup.isLocked = false
                 UserDefaults.forAppGroup.isFaceIDEnabled = false
                 updateSwitcherStates()
             }
         }
+    }
+    
+    func showPaywall() {
+        let vc = SubscriptionViewController.instantiate()
+        self.navigationController?.present(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -157,65 +195,4 @@ class SettingsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 3
-//    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

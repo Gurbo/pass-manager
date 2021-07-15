@@ -59,6 +59,10 @@
 		F0C03EDE2689C24A00579BCB /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */; };
 		F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
 		F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
+		F0D67AEA26A0895D000DD121 /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D67AE926A0895D000DD121 /* SubscriptionViewController.swift */; };
+		F0D67AF226A08976000DD121 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D67AEF26A08976000DD121 /* ProductView.swift */; };
+		F0D67AF326A08976000DD121 /* TextContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D67AF026A08976000DD121 /* TextContentView.xib */; };
+		F0D67AF426A08976000DD121 /* TextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D67AF126A08976000DD121 /* TextContentView.swift */; };
 		F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB6A512680C963006F4101 /* AppDelegate.swift */; };
 		F0EB6A542680C963006F4101 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB6A532680C963006F4101 /* SceneDelegate.swift */; };
 		F0EB6A592680C963006F4101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EB6A572680C963006F4101 /* Main.storyboard */; };
@@ -148,6 +152,10 @@
 		F0BC1BE826837D02003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSingletone.swift; sourceTree = "<group>"; };
+		F0D67AE926A0895D000DD121 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
+		F0D67AEF26A08976000DD121 /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		F0D67AF026A08976000DD121 /* TextContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextContentView.xib; sourceTree = "<group>"; };
+		F0D67AF126A08976000DD121 /* TextContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContentView.swift; sourceTree = "<group>"; };
 		F0EB6A4E2680C963006F4101 /* Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EB6A512680C963006F4101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EB6A532680C963006F4101 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -349,6 +357,7 @@
 				F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */,
 				F0FC467B2693265200A7EE8D /* AutofillViewController.swift */,
 				F02BF8A62697408C00C0714A /* LoadingViewController.swift */,
+				F0D67AE926A0895D000DD121 /* SubscriptionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -356,6 +365,9 @@
 		F0FBC32F2680CD0000A555A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F0D67AEF26A08976000DD121 /* ProductView.swift */,
+				F0D67AF126A08976000DD121 /* TextContentView.swift */,
+				F0D67AF026A08976000DD121 /* TextContentView.xib */,
 				F0473E7D26A0308800D53460 /* CustomAppLocker */,
 				F0FBC3302680CD0E00A555A5 /* PasswordItemTableViewCell.swift */,
 			);
@@ -459,6 +471,7 @@
 				F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */,
 				F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */,
 				F0419ACC26987185005057F7 /* RemoteConfigDefaults.plist in Resources */,
+				F0D67AF326A08976000DD121 /* TextContentView.xib in Resources */,
 				F0EB6A592680C963006F4101 /* Main.storyboard in Resources */,
 				F0473E8126A030B300D53460 /* AppLocker.xib in Resources */,
 			);
@@ -552,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D67AF226A08976000DD121 /* ProductView.swift in Sources */,
 				F0808294268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */,
 				F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */,
 				F0FBC34C2680D0B400A555A5 /* AddPasswordViewController.swift in Sources */,
@@ -572,6 +586,7 @@
 				F0473E8526A030BA00D53460 /* UI.swift in Sources */,
 				F08FF000268F46300035909B /* SettingsNavigationViewController.swift in Sources */,
 				F089D8CC268F5E2600CCE161 /* PasscodeViewController.swift in Sources */,
+				F0D67AF426A08976000DD121 /* TextContentView.swift in Sources */,
 				F02BF8A72697408C00C0714A /* LoadingViewController.swift in Sources */,
 				F0FBC3312680CD0E00A555A5 /* PasswordItemTableViewCell.swift in Sources */,
 				F0419AFE26988AE8005057F7 /* UIView+extension.swift in Sources */,
@@ -588,6 +603,7 @@
 				F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */,
 				F0419AD026987197005057F7 /* Reachability.swift in Sources */,
 				F0419B04269892CF005057F7 /* OnboardingFirstViewController.swift in Sources */,
+				F0D67AEA26A0895D000DD121 /* SubscriptionViewController.swift in Sources */,
 				F04C6B7B269307C500F44830 /* PasswordNavigationViewController.swift in Sources */,
 				F0419B0C269895B5005057F7 /* OnboardingThirdViewController.swift in Sources */,
 			);

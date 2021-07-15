@@ -25,6 +25,8 @@ class PasswordSingletone: NSObject {
         if let unwraped = itemsGroupedByService {
             sortedKeys = unwraped.keys.sorted()
         }
+        
+        UserDefaults.forAppGroup.savedPasswordsCount = 0
 
         if let items = itemsGroupedByService {
             for (index, _) in items.enumerated() {
@@ -64,6 +66,7 @@ class PasswordSingletone: NSObject {
                     
                     let passwordForQuickType = Password.init(id: customID, website: website, user: user, password: password, date: date, name: name)
                     passwordItems?.append(passwordForQuickType)
+                    UserDefaults.forAppGroup.savedPasswordsCount += 1
                 }
             }
         }

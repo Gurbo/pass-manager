@@ -20,6 +20,15 @@ extension UserDefaults {
         }
     }
     
+    var savedPasswordsCount: Int {
+        get {
+            return integer(forKey: "savedPasswordsCount")
+        }
+        set {
+            set(newValue, forKey: "savedPasswordsCount")
+        }
+    }
+    
     var isSyncToICloudEnabled: Bool {
         get {
             return bool(forKey: "isSyncToICloudEnabled")
