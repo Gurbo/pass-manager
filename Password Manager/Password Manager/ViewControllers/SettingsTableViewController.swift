@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AppLocker
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var masterPasswordSwitcher: UISwitch!
@@ -119,8 +118,7 @@ class SettingsTableViewController: UITableViewController {
             if switcher.isOn {
                 var options = ALOptions()
                 options.image = UIImage(named: "onb_lockx")!
-                options.subtitle = "FUCK"
-//                options.subtitle = "Create your new Master Password & use it to authorize in the app"
+                options.subtitle = "Create your new Master Password to secure your Vault"
                 options.color = UIColor.init(hex: kBlackBackgroundColor)
                 options.onSuccessfulDismiss = { (mode: ALMode?) in
                     if let _ = mode {

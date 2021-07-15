@@ -32,6 +32,9 @@
 		F0419B0C269895B5005057F7 /* OnboardingThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419B0B269895B5005057F7 /* OnboardingThirdViewController.swift */; };
 		F0419B10269896AB005057F7 /* OnboardingFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419B0F269896AB005057F7 /* OnboardingFourthViewController.swift */; };
 		F0419B1426989A74005057F7 /* OnboardingPaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419B1326989A74005057F7 /* OnboardingPaywallViewController.swift */; };
+		F0473E8026A030B300D53460 /* AppLocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0473E7E26A030B300D53460 /* AppLocker.swift */; };
+		F0473E8126A030B300D53460 /* AppLocker.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0473E7F26A030B300D53460 /* AppLocker.xib */; };
+		F0473E8526A030BA00D53460 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0473E8426A030BA00D53460 /* UI.swift */; };
 		F04C6B7B269307C500F44830 /* PasswordNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */; };
 		F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082612682376F00A5A94C /* CredentialProviderViewController.swift */; };
@@ -122,6 +125,9 @@
 		F0419B0B269895B5005057F7 /* OnboardingThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingThirdViewController.swift; sourceTree = "<group>"; };
 		F0419B0F269896AB005057F7 /* OnboardingFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFourthViewController.swift; sourceTree = "<group>"; };
 		F0419B1326989A74005057F7 /* OnboardingPaywallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingPaywallViewController.swift; sourceTree = "<group>"; };
+		F0473E7E26A030B300D53460 /* AppLocker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLocker.swift; sourceTree = "<group>"; };
+		F0473E7F26A030B300D53460 /* AppLocker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppLocker.xib; sourceTree = "<group>"; };
+		F0473E8426A030BA00D53460 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		F04C6B7A269307C500F44830 /* PasswordNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordNavigationViewController.swift; sourceTree = "<group>"; };
 		F080825D2682376F00A5A94C /* AutoFillExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutoFillExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F080825E2682376F00A5A94C /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
@@ -224,6 +230,16 @@
 				F0419AED2698801E005057F7 /* Storyboarded.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F0473E7D26A0308800D53460 /* CustomAppLocker */ = {
+			isa = PBXGroup;
+			children = (
+				F0473E8426A030BA00D53460 /* UI.swift */,
+				F0473E7E26A030B300D53460 /* AppLocker.swift */,
+				F0473E7F26A030B300D53460 /* AppLocker.xib */,
+			);
+			path = CustomAppLocker;
 			sourceTree = "<group>";
 		};
 		F08082602682376F00A5A94C /* AutoFillExtension */ = {
@@ -340,6 +356,7 @@
 		F0FBC32F2680CD0000A555A5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F0473E7D26A0308800D53460 /* CustomAppLocker */,
 				F0FBC3302680CD0E00A555A5 /* PasswordItemTableViewCell.swift */,
 			);
 			path = Views;
@@ -443,6 +460,7 @@
 				F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */,
 				F0419ACC26987185005057F7 /* RemoteConfigDefaults.plist in Resources */,
 				F0EB6A592680C963006F4101 /* Main.storyboard in Resources */,
+				F0473E8126A030B300D53460 /* AppLocker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,10 +564,12 @@
 				F08FEFF8268F3E150035909B /* Helper.swift in Sources */,
 				F0419B082698946A005057F7 /* OnboardingSecondViewController.swift in Sources */,
 				F080829C268250FF00A5A94C /* UserDefaults+AppGroup.swift in Sources */,
+				F0473E8026A030B300D53460 /* AppLocker.swift in Sources */,
 				F0FBC32B2680CBF700A555A5 /* VaultViewController.swift in Sources */,
 				F005DFD22683363200099DD6 /* Password.swift in Sources */,
 				F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */,
 				F0419AE126987CE9005057F7 /* WelcomeViewController.swift in Sources */,
+				F0473E8526A030BA00D53460 /* UI.swift in Sources */,
 				F08FF000268F46300035909B /* SettingsNavigationViewController.swift in Sources */,
 				F089D8CC268F5E2600CCE161 /* PasscodeViewController.swift in Sources */,
 				F02BF8A72697408C00C0714A /* LoadingViewController.swift in Sources */,

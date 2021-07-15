@@ -7,7 +7,6 @@
 
 import UIKit
 import KeychainAccess
-import AppLocker
 
 class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -40,9 +39,9 @@ class VaultViewController: UIViewController {
         
         if UserDefaults.forAppGroup.isLocked {
             var options = ALOptions()
-            //options.image = UIImage(named: "face")!
-            options.title = "Devios Ryasnoy"
-            options.color = .green
+            options.image = UIImage(named: "onb_lockx")!
+            options.subtitle = "Enter your new Master Password"
+            options.color = UIColor.init(hex: kBlackBackgroundColor)
             options.isSensorsEnabled = UserDefaults.forAppGroup.isFaceIDEnabled
             AppLocker.present(with: .validate, and: options, over: self)
         }

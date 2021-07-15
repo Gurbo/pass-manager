@@ -39,7 +39,7 @@ extension UIView {
                           height: rect.height-1.5)
         
         context.setLineWidth(1)
-        context.setStrokeColor(UIColor.lightGray.cgColor)
+        context.setStrokeColor(UIColor.init(red: 0, green: 1, blue: 1, alpha: 1).cgColor)
         context.strokeEllipse(in: rect)
     }
     

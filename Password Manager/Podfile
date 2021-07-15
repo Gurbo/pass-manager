@@ -12,7 +12,6 @@ target 'Password Manager' do
   pod 'Firebase/RemoteConfig'
   pod 'KeychainAccess'
   pod 'lottie-ios'
-  pod 'AppLocker', :git => 'https://github.com/Ryasnoy/AppLocker.git', :commit => '411725a'
 end
 
 target 'AutoFillExtension' do

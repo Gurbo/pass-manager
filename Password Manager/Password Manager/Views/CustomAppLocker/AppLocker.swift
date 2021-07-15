@@ -47,7 +47,7 @@ public class AppLocker: UIViewController {
     
     // MARK: - Top view
     @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var messageLabel: UILabel!
+//    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var submessageLabel: UILabel!
     @IBOutlet var pinIndicators: [Indicator]!
     @IBOutlet weak var cancelButton: UIButton!
@@ -79,13 +79,13 @@ public class AppLocker: UIViewController {
         didSet {
             switch mode {
             case .create:
-                submessageLabel.text = "Create your passcode" // Your submessage for create mode
+                submessageLabel.text = "Create your Master Password" // Your submessage for create mode
             case .change:
-                submessageLabel.text = "Enter your passcode" // Your submessage for change mode
+                submessageLabel.text = "Enter your Master Password" // Your submessage for change mode
             case .deactive:
-                submessageLabel.text = "Enter your passcode" // Your submessage for deactive mode
+                submessageLabel.text = "Enter your Master Password" // Your submessage for deactive mode
             case .validate:
-                submessageLabel.text = "Enter your passcode" // Your submessage for validate mode
+                submessageLabel.text = "Enter your Master Password" // Your submessage for validate mode
                 cancelButton.isHidden = true
                 isFirstCreationStep = false
             }
@@ -103,7 +103,7 @@ public class AppLocker: UIViewController {
         pinView?.isNeedClear = !isNeedClear
         
         UIView.animate(withDuration: ALConstants.duration, animations: {
-            pinView?.backgroundColor = isNeedClear ? .clear : .white
+            pinView?.backgroundColor = isNeedClear ? .clear : UIColor.init(red: 0, green: 1, blue: 1, alpha: 1.0)
         }) { _ in
             isNeedClear ? self.pin = String(self.pin.dropLast()) : self.pincodeChecker(tag ?? 0)
         }
@@ -133,7 +133,7 @@ public class AppLocker: UIViewController {
             isFirstCreationStep = false
             reservedPin = pin
             clearView()
-            submessageLabel.text = "Confirm your pincode"
+            submessageLabel.text = "Confirm your Master Password"
         } else {
             confirmPin()
         }
@@ -268,10 +268,11 @@ public extension AppLocker {
             let locker = Bundle(for: self.classForCoder()).loadNibNamed(ALConstants.nibName, owner: self, options: nil)?.first as? AppLocker else {
                 return
         }
-        locker.messageLabel.text = config?.title ?? ""
+        
+        locker.mode = mode
+//        locker.messageLabel.text = config?.title ?? ""
         locker.submessageLabel.text = config?.subtitle ?? ""
         locker.view.backgroundColor = config?.color ?? .black
-        locker.mode = mode
         locker.onSuccessfulDismiss = config?.onSuccessfulDismiss
         locker.onFailedAttempt = config?.onFailedAttempt
         
