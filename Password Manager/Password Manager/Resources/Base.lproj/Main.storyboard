@@ -604,13 +604,31 @@ a password</string>
                                 <rect key="frame" x="0.0" y="624" width="414" height="272"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ItI-97-G9I">
+                                <rect key="frame" x="364" y="245" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="MsC-VF-xId"/>
+                                    <constraint firstAttribute="height" constant="24" id="fYK-wf-ajP"/>
+                                </constraints>
+                                <state key="normal" image="copy"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wha-0B-ZXo">
+                                <rect key="frame" x="364" y="299" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="18M-d5-UqC"/>
+                                    <constraint firstAttribute="width" constant="24" id="AJ0-Vq-fEm"/>
+                                </constraints>
+                                <state key="normal" image="copy"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YLg-dI-cd0"/>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="9f6-TK-n8s" firstAttribute="trailing" secondItem="YLg-dI-cd0" secondAttribute="trailing" id="0Jt-4D-ISE"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="trailing" secondItem="vUz-D0-Ngm" secondAttribute="trailing" id="1WX-ME-3og"/>
+                            <constraint firstItem="ItI-97-G9I" firstAttribute="leading" secondItem="HVq-CN-6vK" secondAttribute="trailing" constant="-34" id="2Mk-qJ-DDa"/>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="leading" secondItem="EGG-8C-tNR" secondAttribute="leading" id="2ge-sd-PAQ"/>
+                            <constraint firstItem="Wha-0B-ZXo" firstAttribute="centerY" secondItem="UCn-d7-MoO" secondAttribute="centerY" id="5el-OF-WuO"/>
                             <constraint firstItem="EGG-8C-tNR" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" constant="16" id="6Qx-Qr-P1C"/>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="trailing" secondItem="EGG-8C-tNR" secondAttribute="trailing" id="AGs-w6-X51"/>
                             <constraint firstItem="YLg-dI-cd0" firstAttribute="trailing" secondItem="EGG-8C-tNR" secondAttribute="trailing" constant="16" id="Bw9-7i-ti1"/>
@@ -621,8 +639,10 @@ a password</string>
                             <constraint firstItem="vUz-D0-Ngm" firstAttribute="height" secondItem="EGG-8C-tNR" secondAttribute="height" id="HG1-vN-QSQ"/>
                             <constraint firstItem="EGG-8C-tNR" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" constant="40" id="JBp-ig-fSJ"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="leading" secondItem="vUz-D0-Ngm" secondAttribute="leading" id="MGz-8X-Mt1"/>
+                            <constraint firstItem="ItI-97-G9I" firstAttribute="centerY" secondItem="HVq-CN-6vK" secondAttribute="centerY" id="MKh-Ta-C1d"/>
                             <constraint firstItem="9f6-TK-n8s" firstAttribute="leading" secondItem="YLg-dI-cd0" secondAttribute="leading" id="T0O-XB-YiQ"/>
                             <constraint firstItem="HVq-CN-6vK" firstAttribute="top" secondItem="vUz-D0-Ngm" secondAttribute="bottom" constant="12" id="Upl-hp-eKG"/>
+                            <constraint firstItem="Wha-0B-ZXo" firstAttribute="leading" secondItem="UCn-d7-MoO" secondAttribute="trailing" constant="-34" id="asr-mP-oNe"/>
                             <constraint firstItem="9f6-TK-n8s" firstAttribute="top" secondItem="YLg-dI-cd0" secondAttribute="top" id="cE2-AA-nS2"/>
                             <constraint firstAttribute="bottom" secondItem="9f6-TK-n8s" secondAttribute="bottom" id="jmY-pY-wv3"/>
                             <constraint firstItem="UCn-d7-MoO" firstAttribute="trailing" secondItem="HVq-CN-6vK" secondAttribute="trailing" id="m6r-LX-TMz"/>
@@ -643,6 +663,8 @@ a password</string>
                     <connections>
                         <outlet property="blackView" destination="9f6-TK-n8s" id="tBJ-qL-tXR"/>
                         <outlet property="cancelButton" destination="37U-Pt-Ip7" id="rk5-QE-QEE"/>
+                        <outlet property="copyLoginButton" destination="ItI-97-G9I" id="XQv-ih-cwb"/>
+                        <outlet property="copyPasswordButton" destination="Wha-0B-ZXo" id="nh9-6L-7uX"/>
                         <outlet property="loginTextfield" destination="HVq-CN-6vK" id="oTg-SA-UdH"/>
                         <outlet property="nameTextfield" destination="EGG-8C-tNR" id="ecA-k6-Zcy"/>
                         <outlet property="passwordTextfield" destination="UCn-d7-MoO" id="7Zn-fC-6vy"/>
@@ -1485,6 +1507,7 @@ Features</string>
         <image name="af_switch" width="32" height="32"/>
         <image name="af_tap" width="32" height="32"/>
         <image name="close" width="16" height="16"/>
+        <image name="copy" width="24" height="24"/>
         <image name="dots_0" width="84" height="8"/>
         <image name="dots_1" width="84" height="8"/>
         <image name="dots_2" width="84" height="8"/>

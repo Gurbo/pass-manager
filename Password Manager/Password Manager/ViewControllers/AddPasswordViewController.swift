@@ -17,6 +17,9 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
     
+    @IBOutlet weak var copyLoginButton: UIButton!
+    @IBOutlet weak var copyPasswordButton: UIButton!
+    
     var itemToShow: [String: Any]?
     var serviceToShow: String = ""
     
@@ -32,7 +35,6 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
             
             saveButton.isEnabled = false
             navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
-            
             
             nameTextfield.isEnabled = false
             urlTextfield.isEnabled = false
@@ -50,9 +52,16 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
                 loginTextfield.text = username
             }
             urlTextfield.text = "https://www.\(serviceToShow)"
+            
+            copyLoginButton.isHidden = false
+            copyPasswordButton.isHidden = false
+            copyLoginButton.addTarget(self, action: #selector(copyLogin), for: .touchUpInside)
+            copyPasswordButton.addTarget(self, action: #selector(copyPassword), for: .touchUpInside)
         } else {
             nameTextfield.becomeFirstResponder()
             urlTextfield.text = "https://www."
+            copyLoginButton.isHidden = true
+            copyPasswordButton.isHidden = true
         }
         
         nameTextfield.keyboardType = .alphabet
@@ -77,6 +86,18 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         cancelButton.target = self
         cancelButton.action = #selector(dismissController(sender:))
         
+    }
+    
+    @objc func copyLogin() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = loginTextfield.text
+        VibratorEngine.shared.actionTaptic()
+    }
+    
+    @objc func copyPassword() {
+        let pasteboard = UIPasteboard.general
+        pasteboard.string = passwordTextfield.text
+        VibratorEngine.shared.actionTaptic()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
