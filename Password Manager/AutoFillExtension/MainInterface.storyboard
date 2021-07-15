@@ -69,7 +69,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygf-Oi-jBV">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Password" id="MVH-x2-Ik3">
+                                    <navigationItem title="PassKeeper" id="MVH-x2-Ik3">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WZf-M5-4a7">
                                             <connections>
                                                 <action selector="cancelTapped:" destination="Xki-Si-B7m" id="ql3-DZ-2cp"/>

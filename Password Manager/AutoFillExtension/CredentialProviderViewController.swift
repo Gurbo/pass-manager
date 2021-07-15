@@ -113,14 +113,15 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
 
         tableView.tableHeaderView = configurationHeaderView
 
+
         // Update QuickType data
-        configurationStatusLabel.text = "Updating QuickType..."
+        configurationStatusLabel.text = "Updating websites autofill..."
 
         QuickTypeManager.shared.updateState { (success) in
             if success {
-                self.configurationStatusLabel.text = "QuickType updated successfully."
+                self.configurationStatusLabel.text = "Websites Autofill enabled."
             } else {
-                self.configurationStatusLabel.text = "QuickType updated failed."
+                self.configurationStatusLabel.text = "Websites Autofill failed."
             }
         }
     }
@@ -182,4 +183,12 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
         present(passcodeNavigationController, animated: true, completion: nil)
     }
 
+}
+
+extension Bundle {
+    // Name of the app - title under the icon.
+    var displayName: String? {
+            return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
+                object(forInfoDictionaryKey: "CFBundleName") as? String
+    }
 }
