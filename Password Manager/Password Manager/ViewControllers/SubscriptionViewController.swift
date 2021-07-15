@@ -10,6 +10,7 @@ import NVActivityIndicatorView
 import Purchases
 import Amplitude_iOS
 import Firebase
+import Lottie
 
 class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyboarded {
 
@@ -41,6 +42,8 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     @IBOutlet weak var thirdProductCellHeight: NSLayoutConstraint!
     @IBOutlet weak var purchaseButtonTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var animationView: AnimationView!
+    
     var textContentView: TextContentView?
     
     var currentPackage: Purchases.Package?
@@ -60,19 +63,19 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         
         Analytics.logEvent("paywall_app", parameters: nil)
         Amplitude.instance()?.logEvent("paywall_app")
-        self.view.backgroundColor = UIColor.init(red: 24/255, green: 25/255, blue: 30/255, alpha: 1.0)
+        self.view.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
         
         
-        getPremiumTitle.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
-        getPremiumTitle.textColor = .white
-        getPremiumTitle.text = "GET PREMIUM ACCESS"
+//        getPremiumTitle.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
+//        getPremiumTitle.textColor = .white
+//        getPremiumTitle.text = "GET PREMIUM ACCESS"
         purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
 
         
-        firstPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
-        secondPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
-        thirdPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
-        fourthPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
+//        firstPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
+//        secondPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
+//        thirdPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
+//        fourthPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
 
         self.closeButton.isHidden = true
         
@@ -86,6 +89,8 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         _ = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
             self.shakeButton(button: self.purchaseButton)
         }
+        
+        addAnimation(to: animationView, name: "lf20_wfqrpe0x")
         
         let appleFontPriorityEnabled = RemoteConfigHandler.shared.remoteConfig[apple_font_priority].boolValue
         if appleFontPriorityEnabled {
@@ -104,9 +109,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         purchaseButton.imageView?.transform = CGAffineTransform(scaleX: -3.0, y: 1.0)
         purchaseButton.layer.cornerRadius = 23.0
         
-        indicator.type = .lineScalePulseOut
-        blackView.isHidden = false
-        indicator.startAnimating()
+//        indicator.type = .lineScalePulseOut
+        blackView.isHidden = true
+//        indicator.startAnimating()
         
         closeButton.addTarget(self, action: #selector(closePaywall), for: .touchUpInside)
         restoreButton.addTarget(self, action: #selector(restorePurchase), for: .touchUpInside)
@@ -144,56 +149,68 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         productCellHeight.constant = 55
         purchaseButtonHeightConstraint.constant = 50
         
-        if UIDevice().userInterfaceIdiom == .phone {
-        switch UIScreen.main.nativeBounds.height {
-            case 1136:
-                purchaseButton.layer.cornerRadius = 15.0
-                firstProduct.layer.cornerRadius = 8.0
-                secondProduct.layer.cornerRadius = 8.0
-                thirdProduct.layer.cornerRadius = 8.0
-            
-                secondProductDiscountLabel.layer.cornerRadius = 3.0
-                thirdProductDiscountLabel.layer.cornerRadius = 3.0
-            
-                productCellHeight.constant = 40
-                purchaseButtonHeightConstraint.constant = 40
-//                contentLayoutBottomConstraint.constant = -250
-                
-            case 1334:
-                print("iPhone 6/6S/7/8")
-                purchaseButton.layer.cornerRadius = 17.0
-                firstProduct.layer.cornerRadius = 10.0
-                secondProduct.layer.cornerRadius = 10.0
-                thirdProduct.layer.cornerRadius = 10.0
-            
-                secondProductDiscountLabel.layer.cornerRadius = 4.0
-                thirdProductDiscountLabel.layer.cornerRadius = 4.0
-            
-                productCellHeight.constant = 45
-                purchaseButtonHeightConstraint.constant = 45
-//                productsTopConstraint.constant = -25
-//                contentLayoutBottomConstraint.constant = -220
-                //done
-            case 1920, 2208:
-                print("iPhone 6+/6S+/7+/8+")
-//                contentLayoutBottomConstraint.constant = -190
-                //done
-            case 2436:
-                print("iPhone X/XS/11 Pro")
-                //contentLayoutBottomConstraint.constant = -100
-                //done
-            case 2688:
-                print("iPhone XS Max/11 Pro Max")
-//                contentLayoutBottomConstraint.constant = -50
-                //done
-            case 1792:
-                print("iPhone XR/ 11")
-//                contentLayoutBottomConstraint.constant = -50
-                //done
-            default:
-                print("Unknown")
-            }
-        }
+//        if UIDevice().userInterfaceIdiom == .phone {
+//        switch UIScreen.main.nativeBounds.height {
+//            case 1136:
+//                purchaseButton.layer.cornerRadius = 15.0
+//                firstProduct.layer.cornerRadius = 8.0
+//                secondProduct.layer.cornerRadius = 8.0
+//                thirdProduct.layer.cornerRadius = 8.0
+//
+//                secondProductDiscountLabel.layer.cornerRadius = 3.0
+//                thirdProductDiscountLabel.layer.cornerRadius = 3.0
+//
+//                productCellHeight.constant = 40
+//                purchaseButtonHeightConstraint.constant = 40
+////                contentLayoutBottomConstraint.constant = -250
+//
+//            case 1334:
+//                print("iPhone 6/6S/7/8")
+//                purchaseButton.layer.cornerRadius = 17.0
+//                firstProduct.layer.cornerRadius = 10.0
+//                secondProduct.layer.cornerRadius = 10.0
+//                thirdProduct.layer.cornerRadius = 10.0
+//
+//                secondProductDiscountLabel.layer.cornerRadius = 4.0
+//                thirdProductDiscountLabel.layer.cornerRadius = 4.0
+//
+//                productCellHeight.constant = 45
+//                purchaseButtonHeightConstraint.constant = 45
+////                productsTopConstraint.constant = -25
+////                contentLayoutBottomConstraint.constant = -220
+//                //done
+//            case 1920, 2208:
+//                print("iPhone 6+/6S+/7+/8+")
+////                contentLayoutBottomConstraint.constant = -190
+//                //done
+//            case 2436:
+//                print("iPhone X/XS/11 Pro")
+//                //contentLayoutBottomConstraint.constant = -100
+//                //done
+//            case 2688:
+//                print("iPhone XS Max/11 Pro Max")
+////                contentLayoutBottomConstraint.constant = -50
+//                //done
+//            case 1792:
+//                print("iPhone XR/ 11")
+////                contentLayoutBottomConstraint.constant = -50
+//                //done
+//            default:
+//                print("Unknown")
+//            }
+//        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animationView.play()
+    }
+    
+    private func addAnimation(to view: AnimationView, name: String) {
+        let animation = Animation.named(name)
+        view.animation = animation
+        view.loopMode = .loop
+        view.contentMode = .scaleAspectFill
     }
 
     func setProducts() {

@@ -25,7 +25,6 @@
 		F0419AEE2698801E005057F7 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AED2698801E005057F7 /* Storyboarded.swift */; };
 		F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AF126988108005057F7 /* VibratorEngine.swift */; };
 		F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */ = {isa = PBXBuildFile; fileRef = F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */; };
-		F0419AFA2698891D005057F7 /* 9068-password.json in Resources */ = {isa = PBXBuildFile; fileRef = F0419AF92698891D005057F7 /* 9068-password.json */; };
 		F0419AFE26988AE8005057F7 /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419AFD26988AE8005057F7 /* UIView+extension.swift */; };
 		F0419B04269892CF005057F7 /* OnboardingFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419B03269892CF005057F7 /* OnboardingFirstViewController.swift */; };
 		F0419B082698946A005057F7 /* OnboardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0419B0726989469005057F7 /* OnboardingSecondViewController.swift */; };
@@ -63,6 +62,7 @@
 		F0D67AF226A08976000DD121 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D67AEF26A08976000DD121 /* ProductView.swift */; };
 		F0D67AF326A08976000DD121 /* TextContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0D67AF026A08976000DD121 /* TextContentView.xib */; };
 		F0D67AF426A08976000DD121 /* TextContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D67AF126A08976000DD121 /* TextContentView.swift */; };
+		F0D67B3526A0A862000DD121 /* lf20_wfqrpe0x.json in Resources */ = {isa = PBXBuildFile; fileRef = F0D67B3426A0A862000DD121 /* lf20_wfqrpe0x.json */; };
 		F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB6A512680C963006F4101 /* AppDelegate.swift */; };
 		F0EB6A542680C963006F4101 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EB6A532680C963006F4101 /* SceneDelegate.swift */; };
 		F0EB6A592680C963006F4101 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0EB6A572680C963006F4101 /* Main.storyboard */; };
@@ -122,7 +122,6 @@
 		F0419AED2698801E005057F7 /* Storyboarded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		F0419AF126988108005057F7 /* VibratorEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibratorEngine.swift; sourceTree = "<group>"; };
 		F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf20_rpr0qbbn.json; sourceTree = "<group>"; };
-		F0419AF92698891D005057F7 /* 9068-password.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9068-password.json"; sourceTree = "<group>"; };
 		F0419AFD26988AE8005057F7 /* UIView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+extension.swift"; sourceTree = "<group>"; };
 		F0419B03269892CF005057F7 /* OnboardingFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingFirstViewController.swift; sourceTree = "<group>"; };
 		F0419B0726989469005057F7 /* OnboardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSecondViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		F0D67AEF26A08976000DD121 /* ProductView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		F0D67AF026A08976000DD121 /* TextContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextContentView.xib; sourceTree = "<group>"; };
 		F0D67AF126A08976000DD121 /* TextContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextContentView.swift; sourceTree = "<group>"; };
+		F0D67B3426A0A862000DD121 /* lf20_wfqrpe0x.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf20_wfqrpe0x.json; sourceTree = "<group>"; };
 		F0EB6A4E2680C963006F4101 /* Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0EB6A512680C963006F4101 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0EB6A532680C963006F4101 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -294,8 +294,8 @@
 			children = (
 				F0EB6A572680C963006F4101 /* Main.storyboard */,
 				F0419AE426987E88005057F7 /* Coordinator */,
-				F0419AF92698891D005057F7 /* 9068-password.json */,
 				F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */,
+				F0D67B3426A0A862000DD121 /* lf20_wfqrpe0x.json */,
 				F0419AF126988108005057F7 /* VibratorEngine.swift */,
 				F0419ADB269872F1005057F7 /* GoogleService-Info.plist */,
 				F0419AD7269872AF005057F7 /* UserData.swift */,
@@ -465,7 +465,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0419AFA2698891D005057F7 /* 9068-password.json in Resources */,
 				F0EB6A5E2680C965006F4101 /* LaunchScreen.storyboard in Resources */,
 				F0EB6A5B2680C965006F4101 /* Assets.xcassets in Resources */,
 				F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */,
@@ -473,6 +472,7 @@
 				F0419ACC26987185005057F7 /* RemoteConfigDefaults.plist in Resources */,
 				F0D67AF326A08976000DD121 /* TextContentView.xib in Resources */,
 				F0EB6A592680C963006F4101 /* Main.storyboard in Resources */,
+				F0D67B3526A0A862000DD121 /* lf20_wfqrpe0x.json in Resources */,
 				F0473E8126A030B300D53460 /* AppLocker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

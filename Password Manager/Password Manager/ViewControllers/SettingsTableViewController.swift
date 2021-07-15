@@ -30,7 +30,14 @@ class SettingsTableViewController: UITableViewController {
         faceIDSwitcher.onTintColor = UIColor.init(hex: kMintColor)
         autofillSwitcher.onTintColor = UIColor.init(hex: kMintColor)
         syncSwitcher.onTintColor = UIColor.init(hex: kMintColor)
+        
+        //NotificationCenter.default.addObserver(self, selector: #selector(updateUIAfterPurchase), name: NSNotification.Name(rawValue: "updateUIAfterPurchase"), object: nil)
     }
+    
+//    @objc func updateUIAfterPurchase() {
+//
+//    }
+    
     
     @objc func updateSwitcherStates() {
         DispatchQueue.main.async {
