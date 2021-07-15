@@ -27,6 +27,9 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
         
         masterPasswordSwitcher.onTintColor = UIColor.init(hex: kMintColor)
+        faceIDSwitcher.onTintColor = UIColor.init(hex: kMintColor)
+        autofillSwitcher.onTintColor = UIColor.init(hex: kMintColor)
+        syncSwitcher.onTintColor = UIColor.init(hex: kMintColor)
     }
     
     @objc func updateSwitcherStates() {

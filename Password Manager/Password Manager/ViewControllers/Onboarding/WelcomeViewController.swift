@@ -22,7 +22,12 @@ class WelcomeViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        titleLabel.text = "Welcome to\nPassword Keeper"
+        var appName = "PassKeeper"
+        if let strongName = Bundle.main.displayName {
+            appName = strongName
+        }
+        
+        titleLabel.text = "Welcome to\n \(appName)"
         subtitleLabel.text = "The app that makes Internet easier"
         
         continueButton.setTitle("Continue", for: .normal)
