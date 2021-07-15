@@ -105,7 +105,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         purchaseButton.layer.cornerRadius = 23.0
         
         indicator.type = .lineScalePulseOut
-        blackView.isHidden = true
+        blackView.isHidden = false
         indicator.startAnimating()
         
         closeButton.addTarget(self, action: #selector(closePaywall), for: .touchUpInside)

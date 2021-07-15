@@ -36,7 +36,7 @@ class AutofillViewController: UIViewController {
         headerTitleLabel.text = "Activate \(appName) with iOS AutoFill for fast and secure access to all your apps and websites"
         settingsLabel.text = "Go to your device Settings"
         tapLabel.text = "Tap Passwords"
-        autofillLabel.text = "Tap on Autofill Passwords"
+        autofillLabel.text = "Tap on AutoFill Passwords"
         switcherLabel.text = "Turn on Autofill"
         appLabel.text = "Select \(appName)"
         

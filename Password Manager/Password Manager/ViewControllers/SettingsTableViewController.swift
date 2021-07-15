@@ -133,7 +133,13 @@ class SettingsTableViewController: UITableViewController {
                 }
             } else {
                 switcher.isOn = true
-                let alert = UIAlertController(title: "!!!!", message: "To turn off Autofill - Settings -> Passwords -> Autofill -> Uncheck ", preferredStyle: .alert)
+                
+                var appName = "PassKeeper"
+                if let strongName = Bundle.main.displayName {
+                    appName = strongName
+                }
+                
+                let alert = UIAlertController(title: "Attention!", message: "To turn off Websites Autofill open your device Settings -> Passwords -> AutoFill Passwords -> Tap the \(appName) icon", preferredStyle: .alert)
                      let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
                      })
                      alert.addAction(ok)
