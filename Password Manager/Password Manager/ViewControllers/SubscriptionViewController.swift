@@ -66,10 +66,17 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         self.view.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
         
         
-//        getPremiumTitle.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
-//        getPremiumTitle.textColor = .white
-//        getPremiumTitle.text = "GET PREMIUM ACCESS"
+        getPremiumTitle.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
+        getPremiumTitle.textColor = .white
+        getPremiumTitle.text = "Unlock all Pro features. Cancel anytime."
+        
+        
         purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
+        
+        purchaseButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in
+                    guard let purchaseButton = view as? UIButton, let imageView = purchaseButton.imageView else { return }
+            purchaseButton.bringSubviewToFront(imageView) // To display imageview of button
+        }
 
         
 //        firstPlusLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
@@ -99,9 +106,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
             termsLabel.text = ""
         }
         
-        secondProductDiscountLabel.backgroundColor = UIColor.init(red: 105/255, green: 201/255, blue: 208/255, alpha: 1)
+        secondProductDiscountLabel.backgroundColor = UIColor.init(hex: "1461D6")
         secondProductDiscountLabel.textColor = .white
-        thirdProductDiscountLabel.backgroundColor = UIColor.init(red: 105/255, green: 201/255, blue: 208/255, alpha: 1)
+        thirdProductDiscountLabel.backgroundColor = UIColor.init(hex: kMintColor)
         thirdProductDiscountLabel.textColor = .white
         
         purchaseButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -273,7 +280,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                     var productDurationString = ""
                     switch package.packageType {
                     case .annual:
-                        productDurationString = "Unlimited Yearly VIP  "
+                        productDurationString = "Unlimited Year  "
                         self.annualPrice = Float(truncating: package.product.price)
                     case .monthly:
                         productDurationString = "Unlimited Month  "
@@ -367,7 +374,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                                 }
                             } else {
                                 if let pricePretty = package.product.prettyPrice {
-                                    priceString = "\(pricePretty) / \(trialString)"
+                                    priceString = "\(pricePretty)  \(trialString)"
                                 }
                             }
                         case .monthly:
@@ -419,7 +426,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     func shakeButton(button: UIButton) {
         button.layer.removeAllAnimations()
         let shake = CABasicAnimation(keyPath: "position")
-        shake.duration = 0.05
+        shake.duration = 0.02
         shake.repeatCount = 3
         shake.autoreverses = true
         shake.isRemovedOnCompletion = false
