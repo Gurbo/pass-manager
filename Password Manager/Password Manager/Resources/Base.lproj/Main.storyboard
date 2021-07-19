@@ -416,7 +416,6 @@
                                 <rect key="frame" x="80" y="736" width="254" height="56"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.5450980392" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="254" id="LW0-Mi-gXL"/>
                                     <constraint firstAttribute="height" constant="56" id="oj3-hg-v6H"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
@@ -884,10 +883,11 @@ Password Manager</string>
                             <constraint firstItem="xxq-75-pdd" firstAttribute="centerY" secondItem="ZN0-7B-EQD" secondAttribute="centerY" id="7go-FT-bxh"/>
                             <constraint firstItem="ZBk-U6-Vk4" firstAttribute="top" secondItem="nCj-3c-8xm" secondAttribute="bottom" constant="30" id="AWr-qT-UqL"/>
                             <constraint firstItem="nCj-3c-8xm" firstAttribute="leading" secondItem="B42-Uh-86F" secondAttribute="leading" constant="32" id="BD6-ML-Jb2"/>
-                            <constraint firstItem="B42-Uh-86F" firstAttribute="trailing" secondItem="xxq-75-pdd" secondAttribute="trailing" constant="57" id="EXS-pl-kaT"/>
+                            <constraint firstItem="B42-Uh-86F" firstAttribute="trailing" secondItem="xxq-75-pdd" secondAttribute="trailing" priority="999" constant="57" id="EXS-pl-kaT"/>
                             <constraint firstItem="nCj-3c-8xm" firstAttribute="top" secondItem="ZN0-7B-EQD" secondAttribute="top" constant="120" id="HTT-f3-kDN"/>
                             <constraint firstItem="d7z-vq-m0g" firstAttribute="centerX" secondItem="ZN0-7B-EQD" secondAttribute="centerX" id="JIo-h6-2BK"/>
-                            <constraint firstItem="xxq-75-pdd" firstAttribute="leading" secondItem="B42-Uh-86F" secondAttribute="leading" constant="57" id="Pdz-ez-TL3"/>
+                            <constraint firstItem="xxq-75-pdd" firstAttribute="centerX" secondItem="ZN0-7B-EQD" secondAttribute="centerX" id="KxF-5T-7aK"/>
+                            <constraint firstItem="xxq-75-pdd" firstAttribute="leading" secondItem="B42-Uh-86F" secondAttribute="leading" priority="999" constant="57" id="Pdz-ez-TL3"/>
                             <constraint firstItem="nCj-3c-8xm" firstAttribute="centerX" secondItem="ZN0-7B-EQD" secondAttribute="centerX" id="Tc0-Yx-2iH"/>
                             <constraint firstItem="6LB-ev-ZYG" firstAttribute="top" secondItem="d7z-vq-m0g" secondAttribute="bottom" constant="62" id="Tc9-Qu-MWA"/>
                             <constraint firstItem="B42-Uh-86F" firstAttribute="trailing" secondItem="nCj-3c-8xm" secondAttribute="trailing" constant="32" id="kre-Y1-aQ7"/>

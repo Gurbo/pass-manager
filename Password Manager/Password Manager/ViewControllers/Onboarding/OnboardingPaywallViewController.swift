@@ -94,6 +94,17 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
             default:
                 print("Unknown")
             }
+        } else {
+            //ipad
+            switch UIScreen.main.nativeBounds.height {
+                case 2732:
+                    print("ipad pro 12.9 device")
+                    leftImageConstraint.constant = 370
+            case 2224:
+                print("ipad pro 10.5 device")
+                default:
+                    print("Unknown")
+                }
         }
         
 

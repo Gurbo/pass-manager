@@ -80,8 +80,19 @@ class OnboardingFirstViewController: UIViewController, Storyboarded {
             default:
                 print("Unknown")
             }
+        } else {
+            //ipad
+            switch UIScreen.main.nativeBounds.height {
+                case 2732:
+                    print("ipad pro 12.9 device")
+                    imageBottomConstraint.constant = 400
+            case 2224:
+                print("ipad pro 10.5 device")
+                default:
+                    print("Unknown")
+                }
         }
-        // Do any additional setup after loading the view.
+
     }
     
     @objc func showSecondOnboardingScreen() {
