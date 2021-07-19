@@ -24,19 +24,22 @@ class ProductView: UIView {
     var package: Purchases.Package?
     var state: State? {
         willSet(newState) {
-            self.layer.borderColor = UIColor.white.cgColor
-            self.layer.borderWidth = 2.0
+
             switch newState {
             case .nonactive:
-                self.backgroundColor = UIColor.clear
+                self.layer.borderColor = UIColor.init(hex: kMintColor).cgColor
+                self.layer.borderWidth = 0.0
+                self.backgroundColor = UIColor.init(hex: kCellColor)
                 self.radioButtonImageView.image = nil
                 self.priceLabel.textColor = UIColor.white
                 self.nameLabel.textColor = UIColor.white
             case .active:
-                self.backgroundColor = UIColor.white
+                self.layer.borderColor = UIColor.init(hex: kMintColor).cgColor
+                self.layer.borderWidth = 1.5
+                self.backgroundColor = UIColor.init(hex: kCellColor)
                 self.radioButtonImageView.image = UIImage.init(named: "check")
-                self.priceLabel.textColor = UIColor.init(red: 242.0/255.0, green: 92.0/255.0, blue: 84.0/255.0, alpha: 1.0)
-                self.nameLabel.textColor = UIColor.init(red: 242.0/255.0, green: 92.0/255.0, blue: 84.0/255.0, alpha: 1.0)
+                self.priceLabel.textColor = UIColor.white
+                self.nameLabel.textColor = UIColor.white
             case .none:
                 print("")
             }

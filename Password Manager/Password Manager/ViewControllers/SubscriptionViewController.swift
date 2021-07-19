@@ -68,7 +68,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         
         getPremiumTitle.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
         getPremiumTitle.textColor = .white
-        getPremiumTitle.text = "Unlock all Pro features. Cancel anytime."
+        getPremiumTitle.text = "Unlock all PRO features. Cancel anytime."
         
         
         purchaseButton.titleLabel?.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
@@ -106,9 +106,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
             termsLabel.text = ""
         }
         
-        secondProductDiscountLabel.backgroundColor = UIColor.init(hex: "1461D6")
+        secondProductDiscountLabel.backgroundColor = UIColor.init(hex: "C53AF5")
         secondProductDiscountLabel.textColor = .white
-        thirdProductDiscountLabel.backgroundColor = UIColor.init(hex: kMintColor)
+        thirdProductDiscountLabel.backgroundColor = UIColor.init(hex: "C53AF5")
         thirdProductDiscountLabel.textColor = .white
         
         purchaseButton.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
@@ -116,9 +116,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         purchaseButton.imageView?.transform = CGAffineTransform(scaleX: -3.0, y: 1.0)
         purchaseButton.layer.cornerRadius = 23.0
         
-//        indicator.type = .lineScalePulseOut
+        indicator.type = .lineScalePulseOut
         blackView.isHidden = true
-//        indicator.startAnimating()
+        indicator.startAnimating()
         
         closeButton.addTarget(self, action: #selector(closePaywall), for: .touchUpInside)
         restoreButton.addTarget(self, action: #selector(restorePurchase), for: .touchUpInside)
