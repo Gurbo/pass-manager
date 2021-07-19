@@ -179,8 +179,8 @@ class CredentialProviderViewController: ASCredentialProviderViewController, UITa
             return
         }
 
-        let passcodeNavigationController = PasscodeViewController.instantiate(delegate: self)
-        present(passcodeNavigationController, animated: true, completion: nil)
+//        let passcodeNavigationController = PasscodeViewController.instantiate(delegate: self)
+//        present(passcodeNavigationController, animated: true, completion: nil)
     }
 
 }

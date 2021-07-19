@@ -69,6 +69,8 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         loginTextfield.keyboardType = .emailAddress
         passwordTextfield.keyboardType = .alphabet
         
+        nameTextfield.autocapitalizationType = .sentences
+        
         
         nameTextfield.attributedPlaceholder = NSAttributedString(string:"Name", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kSubtitleColor)])
         urlTextfield.attributedPlaceholder = NSAttributedString(string:"Website", attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kSubtitleColor)])

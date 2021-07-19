@@ -182,8 +182,16 @@
                                                         <constraint firstAttribute="height" constant="1" id="I0H-h2-MH5"/>
                                                     </constraints>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kt2-Lx-rwd">
+                                                    <rect key="frame" x="0.0" y="65" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="0kK-cP-thW"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Kt2-Lx-rwd" secondAttribute="trailing" id="8Pq-eC-H6t"/>
                                                 <constraint firstItem="0Ww-NU-Vxj" firstAttribute="trailing" secondItem="N6d-GD-2W8" secondAttribute="trailingMargin" id="PQK-zl-jeM"/>
                                                 <constraint firstItem="93L-LQ-9a7" firstAttribute="leading" secondItem="N6d-GD-2W8" secondAttribute="leading" id="Q5O-F1-dlU"/>
                                                 <constraint firstItem="0Ww-NU-Vxj" firstAttribute="centerY" secondItem="N6d-GD-2W8" secondAttribute="centerY" id="R7b-Cw-Eo1"/>
@@ -191,7 +199,9 @@
                                                 <constraint firstItem="sh6-yX-W6n" firstAttribute="leading" secondItem="N6d-GD-2W8" secondAttribute="leadingMargin" id="mjZ-q7-m3I"/>
                                                 <constraint firstItem="sh6-yX-W6n" firstAttribute="centerY" secondItem="N6d-GD-2W8" secondAttribute="centerY" id="nT1-rL-kkl"/>
                                                 <constraint firstItem="93L-LQ-9a7" firstAttribute="top" secondItem="N6d-GD-2W8" secondAttribute="top" id="pfu-Tj-51n"/>
+                                                <constraint firstAttribute="bottom" secondItem="Kt2-Lx-rwd" secondAttribute="bottom" id="pgM-KW-Zcf"/>
                                                 <constraint firstItem="0Ww-NU-Vxj" firstAttribute="leading" secondItem="sh6-yX-W6n" secondAttribute="trailing" constant="30" id="rLn-L2-M7c"/>
+                                                <constraint firstItem="Kt2-Lx-rwd" firstAttribute="leading" secondItem="N6d-GD-2W8" secondAttribute="leading" id="wHv-q1-1lZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
@@ -1875,6 +1885,10 @@ Features</string>
             <point key="canvasLocation" x="-3584.057971014493" y="1303.7946428571429"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="P2S-WJ-ciP"/>
+        <designable name="xxq-75-pdd"/>
+    </designables>
     <resources>
         <image name="af_app" width="32" height="32"/>
         <image name="af_key" width="32" height="32"/>

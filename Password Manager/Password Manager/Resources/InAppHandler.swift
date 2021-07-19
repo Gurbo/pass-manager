@@ -66,6 +66,10 @@ class InAppHandler: NSObject {
                         UserData.isUserSubscribed = false
                         UserData.shouldShowRater = false
                         
+                        UserDefaults.forAppGroup.isLocked = false
+                        UserDefaults.forAppGroup.isFaceIDEnabled = false
+                        
+                        
                         let identify = AMPIdentify.init()
                         identify.set("subscribed", value: "false" as NSObject)
                         Amplitude.instance()?.identify(identify)
