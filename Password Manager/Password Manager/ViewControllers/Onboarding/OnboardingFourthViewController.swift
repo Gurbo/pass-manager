@@ -23,7 +23,8 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
         
         //here
         titleLabel.text = "We don’t want your data"
-        subtitleLabel.text = "All your data is saved locally on your device and you can sync it using any of the supported cloud accounts."
+//        subtitleLabel.text = "All your data is saved locally on your device and you can sync it using any of the supported cloud accounts."
+        subtitleLabel.text = "All your data is saved locally on your device. We don't upload it to our server"
         
         continueButton.setTitle("Continue", for: .normal)
         continueButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in

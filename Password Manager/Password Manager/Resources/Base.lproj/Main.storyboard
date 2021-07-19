@@ -196,7 +196,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="slJ-Mn-pvj">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="slJ-Mn-pvj">
                                         <rect key="frame" x="0.0" y="216" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="slJ-Mn-pvj" id="Rs8-VY-yVh">
@@ -222,31 +222,21 @@
                                                         <constraint firstAttribute="height" constant="1" id="uNb-R2-71q"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csX-X0-vRN">
-                                                    <rect key="frame" x="0.0" y="65" width="414" height="1"/>
-                                                    <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="t1i-eH-AMH"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="k5w-Re-kp3" firstAttribute="trailing" secondItem="Rs8-VY-yVh" secondAttribute="trailingMargin" id="5oL-Ux-a76"/>
                                                 <constraint firstItem="k5w-Re-kp3" firstAttribute="centerY" secondItem="Rs8-VY-yVh" secondAttribute="centerY" id="6VY-c3-oyM"/>
-                                                <constraint firstItem="csX-X0-vRN" firstAttribute="leading" secondItem="Rs8-VY-yVh" secondAttribute="leading" id="9CI-ri-Kvt"/>
                                                 <constraint firstItem="YBH-gt-USe" firstAttribute="centerY" secondItem="Rs8-VY-yVh" secondAttribute="centerY" id="EOR-j9-nqz"/>
                                                 <constraint firstItem="k5w-Re-kp3" firstAttribute="leading" secondItem="YBH-gt-USe" secondAttribute="trailing" constant="30" id="MHI-XZ-o6m"/>
                                                 <constraint firstAttribute="trailing" secondItem="0xe-zp-mtU" secondAttribute="trailing" id="R2D-pl-jmu"/>
-                                                <constraint firstAttribute="bottom" secondItem="csX-X0-vRN" secondAttribute="bottom" id="RUV-8w-bCn"/>
                                                 <constraint firstItem="0xe-zp-mtU" firstAttribute="top" secondItem="Rs8-VY-yVh" secondAttribute="top" id="gai-wO-cQG"/>
                                                 <constraint firstItem="YBH-gt-USe" firstAttribute="leading" secondItem="Rs8-VY-yVh" secondAttribute="leadingMargin" id="ts2-AH-KK8"/>
                                                 <constraint firstItem="0xe-zp-mtU" firstAttribute="leading" secondItem="Rs8-VY-yVh" secondAttribute="leading" id="vyu-Mf-2Wg"/>
-                                                <constraint firstAttribute="trailing" secondItem="csX-X0-vRN" secondAttribute="trailing" id="yV2-nT-iNr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="Dh3-Oo-Oih">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="Dh3-Oo-Oih">
                                         <rect key="frame" x="0.0" y="282" width="414" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dh3-Oo-Oih" id="ibM-Es-tGV">
@@ -1349,7 +1339,7 @@ Features</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJf-pH-dxO">
                                 <rect key="frame" x="65" y="484.33333333333331" width="329" height="27.333333333333314"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pw_sync" translatesAutoresizingMaskIntoConstraints="NO" id="clk-yD-gwp">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pw_face" translatesAutoresizingMaskIntoConstraints="NO" id="clk-yD-gwp">
                                         <rect key="frame" x="8" y="1.6666666666666856" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="6ni-Kb-dEu"/>
@@ -1376,7 +1366,7 @@ Features</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCe-Dd-6W4">
                                 <rect key="frame" x="65" y="519.66666666666663" width="329" height="27.333333333333371"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pw_face" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-Kv-xk3">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pw_forget" translatesAutoresizingMaskIntoConstraints="NO" id="ST5-Kv-xk3">
                                         <rect key="frame" x="8" y="1.6666666666667425" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="9IH-cc-kvb"/>
@@ -1403,14 +1393,14 @@ Features</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPK-ht-AhL">
                                 <rect key="frame" x="65" y="555" width="329" height="27.333333333333371"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pw_forget" translatesAutoresizingMaskIntoConstraints="NO" id="6aa-Uu-8zW">
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pw_forget" translatesAutoresizingMaskIntoConstraints="NO" id="6aa-Uu-8zW">
                                         <rect key="frame" x="8" y="1.6666666666666288" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="SKF-5B-YKL"/>
                                             <constraint firstAttribute="width" constant="24" id="rAT-2M-ptf"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never forget again" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZA-gQ-oGj">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never forget again" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZA-gQ-oGj">
                                         <rect key="frame" x="40" y="2.6666666666666288" width="281" height="21.666666666666668"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1427,8 +1417,8 @@ Features</string>
                                     <constraint firstItem="6ZA-gQ-oGj" firstAttribute="top" secondItem="6aa-Uu-8zW" secondAttribute="top" constant="1" id="vGF-vC-m3Q"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.65000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zty-ji-wFI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <view alpha="0.65000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zty-ji-wFI">
+                                <rect key="frame" x="0.0" y="685" width="414" height="211"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ojW-SL-t43" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
@@ -1885,10 +1875,6 @@ Features</string>
             <point key="canvasLocation" x="-3584.057971014493" y="1303.7946428571429"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="P2S-WJ-ciP"/>
-        <designable name="xxq-75-pdd"/>
-    </designables>
     <resources>
         <image name="af_app" width="32" height="32"/>
         <image name="af_key" width="32" height="32"/>
@@ -1910,7 +1896,6 @@ Features</string>
         <image name="pw_forget" width="24" height="24"/>
         <image name="pw_hand" width="414" height="300"/>
         <image name="pw_sign" width="24" height="24"/>
-        <image name="pw_sync" width="24" height="24"/>
         <image name="pw_unlimited" width="24" height="24"/>
         <image name="splash_lock" width="218" height="236"/>
         <image name="tb_settings_disabled" width="24" height="24"/>

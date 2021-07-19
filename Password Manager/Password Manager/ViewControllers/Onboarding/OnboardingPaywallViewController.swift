@@ -49,9 +49,10 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
 
         unlimitedLabel.text = "Unlimited password storage"
         signInLabel.text = "Sign in to sites with one tap"
-        backupLabel.text = "Securely backup your vault"
-        faceLabel.text = "Use your face/finger as a key"
-        neverLabel.text = "Never forget again"
+//        backupLabel.text = "Securely backup your vault"
+        backupLabel.text = "Use your face/finger as a key"
+        faceLabel.text = "Never forget again"
+        neverLabel.text = ""
         
         purchaseButton.setTitle("Continue", for: .normal)
         purchaseButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in

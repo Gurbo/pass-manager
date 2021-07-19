@@ -24,7 +24,7 @@ class OnboardingSecondViewController: UIViewController, Storyboarded {
         
         //here
         titleLabel.text = "Forget about typing your passwords"
-        subtitleLabel.text = "We'll help you log in automatically whenever you want, securely."
+        subtitleLabel.text = "We'll help you log in automatically whenever you want, securely"
         
         continueButton.setTitle("Continue", for: .normal)
         continueButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in

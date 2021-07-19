@@ -17,7 +17,6 @@ class PasswordSingletone: NSObject {
     static let shared = PasswordSingletone()
     override private init() {}
     
-    
     func grabAllPasswords() {
         grabPureKeychainItemsForVault()
         passwordItems = [Password]()
@@ -157,8 +156,6 @@ class PasswordSingletone: NSObject {
                 }
             }
             
-            
-            
             let customID = UUID().uuidString
             let keychain: Keychain = Keychain(service: oldPassword.website).synchronizable(UserDefaults.forAppGroup.isSyncToICloudEnabled) //website
             do {
@@ -186,7 +183,6 @@ class PasswordSingletone: NSObject {
             }
             return ""
         }
-        print("")
     }
     
     private func groupBy<C: Collection, K: Hashable>(_ xs: C, key: (C.Iterator.Element) -> K) -> [K:[C.Iterator.Element]] {

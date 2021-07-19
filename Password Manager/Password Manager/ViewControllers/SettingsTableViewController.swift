@@ -96,6 +96,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func syncSwitcherAction(_ sender: Any) {
+//        #warning("DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE")
+//        UserData.isUserSubscribed = true
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
                 if UserData.isUserSubscribed {
