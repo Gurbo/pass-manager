@@ -50,7 +50,10 @@ class LoadingViewController: UIViewController, Storyboarded {
         RemoteConfigHandler.shared.fetchAndActivateRemoteConfig { (status) in
             
             InAppHandler.shared.checkUserSubscription { (isSubscribed) in
-
+                
+//                #warning("DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE")
+//                UserData.isUserSubscribed = true
+                
             }
             
             DispatchQueue.main.async {

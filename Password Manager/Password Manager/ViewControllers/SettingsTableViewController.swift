@@ -96,8 +96,6 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func syncSwitcherAction(_ sender: Any) {
-//        #warning("DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE")
-//        UserData.isUserSubscribed = true
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
                 if UserData.isUserSubscribed {
@@ -157,6 +155,10 @@ class SettingsTableViewController: UITableViewController {
     }
     
     @IBAction func autofillSwitcherAction(_ sender: Any) {
+        
+//        #warning("DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE")
+//        UserData.isUserSubscribed = true
+        
         if let switcher = sender as? UISwitch {
             if switcher.isOn {
                 switcher.isOn = false
@@ -193,7 +195,7 @@ class SettingsTableViewController: UITableViewController {
                 if UserData.isUserSubscribed {
                     var options = ALOptions()
                     options.image = UIImage(named: "onb_lockx")!
-                    options.subtitle = "Create your new Master Password to secure your Vault"
+                    options.subtitle = "Create your new Master Password"
                     options.color = UIColor.init(hex: kBlackBackgroundColor)
                     options.onSuccessfulDismiss = { (mode: ALMode?) in
                         if let _ = mode {

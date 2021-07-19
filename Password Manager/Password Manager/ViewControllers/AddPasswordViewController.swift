@@ -69,6 +69,11 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         loginTextfield.keyboardType = .emailAddress
         passwordTextfield.keyboardType = .alphabet
         
+        nameTextfield.autocorrectionType = .no
+        urlTextfield.autocorrectionType = .no
+        loginTextfield.autocorrectionType = .no
+        passwordTextfield.autocorrectionType = .no
+        
         nameTextfield.autocapitalizationType = .sentences
         
         

@@ -13,8 +13,8 @@ class OnboardingThirdViewController: UIViewController, Storyboarded {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
-//    @IBOutlet weak var topLabelTopConstraint: NSLayoutConstraint!
-//    @IBOutlet weak var imageBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class OnboardingThirdViewController: UIViewController, Storyboarded {
         
         //here
         titleLabel.text = "Use biometric authorization"
-        subtitleLabel.text = "Unlock with Face or Touch ID for quick access"
+        subtitleLabel.text = "Unlock with Face or Touch ID for quick access."
         
         continueButton.setTitle("Continue", for: .normal)
         continueButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in
@@ -49,37 +49,37 @@ class OnboardingThirdViewController: UIViewController, Storyboarded {
 //            }
 //        }
         
-//        topLabelTopConstraint.constant = 130
-//        imageBottomConstraint.constant = 125
-//        if UIDevice().userInterfaceIdiom == .phone {
-//        switch UIScreen.main.nativeBounds.height {
-//            case 1136:
-//                print("5s")
-//                topLabelTopConstraint.constant = 25
-//                imageBottomConstraint.constant = 30
-//            case 1334:
-//                print("iPhone 6/6S/7/8/SE2nd")
-//                topLabelTopConstraint.constant = 80
-//                imageBottomConstraint.constant = 50
-//            case 1920, 2208:
-//                print("iPhone 6+/6S+/7+/8+")
+        topLabelTopConstraint.constant = 120
+        imageBottomConstraint.constant = 124
+        if UIDevice().userInterfaceIdiom == .phone {
+        switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("5s")
+                topLabelTopConstraint.constant = 40
+                imageBottomConstraint.constant = 20
+            case 1334:
+                print("iPhone 6/6S/7/8/SE2nd")
+                topLabelTopConstraint.constant = 80
+                imageBottomConstraint.constant = 60
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
 //                topLabelTopConstraint.constant = 130
 //                imageBottomConstraint.constant = 70
-//            case 2436:
-//                print("iPhone X/XS/11 Pro")
-//            case 2688:
-//                print("iPhone XS Max/11 Pro Max")
-//            case 1792:
-//                print("iPhone XR/ 11")
-//            case 2532:
-//                print("iPhone_12_12Pro")
-//            case 2778:
-//                print("iPhone_12ProMax")
+            case 2436:
+                print("iPhone X/XS/11 Pro")
+            case 2688:
+                print("iPhone XS Max/11 Pro Max")
+            case 1792:
+                print("iPhone XR/ 11")
+            case 2532:
+                print("iPhone_12_12Pro")
+            case 2778:
+                print("iPhone_12ProMax")
 //                imageBottomConstraint.constant = 180
-//            default:
-//                print("Unknown")
-//            }
-//        }
+            default:
+                print("Unknown")
+            }
+        }
         // Do any additional setup after loading the view.
     }
     

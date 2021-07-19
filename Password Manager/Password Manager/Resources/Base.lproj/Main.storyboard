@@ -469,6 +469,7 @@
                     <connections>
                         <outlet property="appLabel" destination="biy-XC-iHk" id="NxI-lw-A4T"/>
                         <outlet property="autofillLabel" destination="cRY-TJ-1TS" id="y8s-ZJ-xwz"/>
+                        <outlet property="buttonBottomConstraint" destination="nVJ-0B-HZ2" id="P1E-gZ-zxl"/>
                         <outlet property="cancelButton" destination="9aa-nw-1eW" id="HSi-nR-fMK"/>
                         <outlet property="headerTitleLabel" destination="atK-Lu-x1Z" id="C0U-CR-5PV"/>
                         <outlet property="settingsButton" destination="lt9-9u-hrT" id="0xw-rf-u6B"/>
@@ -977,8 +978,10 @@ Password Manager</string>
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="v9R-FE-ANK" id="C5n-tZ-SYO"/>
+                        <outlet property="imageBottomConstraint" destination="B5b-i7-psc" id="gds-I1-mhc"/>
                         <outlet property="subtitleLabel" destination="aNo-S9-oRP" id="twa-eD-6ZL"/>
                         <outlet property="titleLabel" destination="81I-tA-54t" id="2tM-my-JvE"/>
+                        <outlet property="topLabelTopConstraint" destination="Iqk-aT-sE0" id="LN0-lq-sXE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uk5-6U-owf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1056,8 +1059,10 @@ Password Manager</string>
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="Ub5-jN-jUX" id="T8x-lV-uLW"/>
+                        <outlet property="imageBottomConstraint" destination="B6i-27-OKp" id="r5t-Vy-Esw"/>
                         <outlet property="subtitleLabel" destination="Pon-E7-5Kz" id="Gd3-Su-hWH"/>
                         <outlet property="titleLabel" destination="Qhc-gc-mBg" id="lFW-w4-S8o"/>
+                        <outlet property="topLabelTopConstraint" destination="2Fr-uv-epc" id="2hd-Hr-kYT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZM-yy-ufq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1137,8 +1142,10 @@ for quick access</string>
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="h2g-X9-xk2" id="7YG-BN-EhR"/>
+                        <outlet property="imageBottomConstraint" destination="Vei-Z6-KDH" id="96X-jU-ekz"/>
                         <outlet property="subtitleLabel" destination="Xa9-Qu-qwP" id="XWL-Jw-yhU"/>
                         <outlet property="titleLabel" destination="n9j-lq-iED" id="ZMO-1f-FX3"/>
+                        <outlet property="topLabelTopConstraint" destination="XVF-wC-Qcg" id="QYe-C1-Y3J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5FY-Gv-Xlq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1218,8 +1225,10 @@ your data</string>
                     </view>
                     <connections>
                         <outlet property="continueButton" destination="1iI-pb-B0K" id="g3a-kN-Ibr"/>
+                        <outlet property="imageBottomConstraint" destination="cRO-iV-V6X" id="y0b-wC-zjM"/>
                         <outlet property="subtitleLabel" destination="GAl-FP-qK3" id="cXW-b4-Csg"/>
                         <outlet property="titleLabel" destination="7pY-Br-EfX" id="T9a-AA-Kal"/>
+                        <outlet property="topLabelTopConstraint" destination="rHy-1g-Lmb" id="lz0-FZ-Hy2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Ct-X7-eKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1461,7 +1470,7 @@ Features</string>
                             <constraint firstItem="KCe-Dd-6W4" firstAttribute="trailing" secondItem="wJf-pH-dxO" secondAttribute="trailing" id="KnW-LO-iG0"/>
                             <constraint firstItem="udf-oI-FvS" firstAttribute="top" secondItem="HFz-St-h5c" secondAttribute="bottom" constant="7.6666666666666856" id="MXe-J1-eCf"/>
                             <constraint firstItem="yTM-mO-sHh" firstAttribute="top" secondItem="WqL-Yv-qIh" secondAttribute="bottom" constant="2" id="Mib-Z5-lhU"/>
-                            <constraint firstItem="SXp-6k-eEg" firstAttribute="top" secondItem="pGq-Ca-0zz" secondAttribute="bottom" constant="8" symbolic="YES" id="OD8-Xm-awk"/>
+                            <constraint firstItem="SXp-6k-eEg" firstAttribute="top" secondItem="pGq-Ca-0zz" secondAttribute="bottom" constant="8" id="OD8-Xm-awk"/>
                             <constraint firstItem="pGq-Ca-0zz" firstAttribute="top" secondItem="1jO-sw-bOE" secondAttribute="top" id="P8O-WI-KE6"/>
                             <constraint firstItem="KCe-Dd-6W4" firstAttribute="top" secondItem="wJf-pH-dxO" secondAttribute="bottom" constant="8" symbolic="YES" id="RWY-qq-CQw"/>
                             <constraint firstItem="wJf-pH-dxO" firstAttribute="leading" secondItem="udf-oI-FvS" secondAttribute="leading" id="Srk-6F-3yA"/>
@@ -1494,12 +1503,14 @@ Features</string>
                         <outlet property="crossTopConstraint" destination="kOE-Vz-CxW" id="svb-7x-6SO"/>
                         <outlet property="faceLabel" destination="xqp-3K-fta" id="tgW-Qu-LVB"/>
                         <outlet property="indicator" destination="ojW-SL-t43" id="oS5-Pw-SB5"/>
+                        <outlet property="leftImageConstraint" destination="ijv-i8-5eo" id="ohv-mp-p8l"/>
                         <outlet property="neverLabel" destination="6ZA-gQ-oGj" id="OgB-8B-GLY"/>
                         <outlet property="premiumAccessLabel" destination="SXp-6k-eEg" id="Pdn-RJ-ojJ"/>
                         <outlet property="priceLabel" destination="yTM-mO-sHh" id="Q3m-Ck-qip"/>
                         <outlet property="purchaseButton" destination="WqL-Yv-qIh" id="wdw-VX-jQ0"/>
                         <outlet property="restoreButton" destination="6To-OE-th5" id="ucS-9a-SC2"/>
                         <outlet property="signInLabel" destination="ko5-Gp-AWX" id="RTD-1L-Tdq"/>
+                        <outlet property="topLabelTopConstraint" destination="OD8-Xm-awk" id="sfB-CU-1TZ"/>
                         <outlet property="unlimitedLabel" destination="txq-wV-fbI" id="89t-Hc-bt8"/>
                     </connections>
                 </viewController>
@@ -1760,7 +1771,7 @@ Features</string>
                                                 <rect key="frame" x="70" y="114" width="274" height="274"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="274" id="QtD-Ho-sag"/>
+                                                    <constraint firstAttribute="height" constant="274" id="QtD-Ho-sag"/>
                                                     <constraint firstAttribute="width" secondItem="P2S-WJ-ciP" secondAttribute="height" multiplier="1:1" id="ilA-wh-YtT"/>
                                                 </constraints>
                                             </view>
@@ -1775,7 +1786,6 @@ Features</string>
                                         <constraints>
                                             <constraint firstItem="FVc-MJ-vqd" firstAttribute="trailing" secondItem="dVN-7q-4Wg" secondAttribute="trailing" id="1bE-uq-gsE"/>
                                             <constraint firstItem="hS5-Lg-6Ml" firstAttribute="top" secondItem="7oE-Q4-C7G" secondAttribute="bottom" constant="-10" id="1gh-mD-B5z"/>
-                                            <constraint firstAttribute="trailing" secondItem="P2S-WJ-ciP" secondAttribute="trailing" constant="70" id="4RA-ra-25x"/>
                                             <constraint firstItem="hS5-Lg-6Ml" firstAttribute="top" secondItem="0fM-tR-9tf" secondAttribute="bottom" constant="20" id="54O-lD-AjA"/>
                                             <constraint firstItem="9Hs-EA-Vex" firstAttribute="top" secondItem="FVc-MJ-vqd" secondAttribute="bottom" id="5TK-EV-8rD"/>
                                             <constraint firstItem="O3q-F1-le8" firstAttribute="leading" secondItem="WP0-By-Ffi" secondAttribute="leading" constant="30" id="5d1-1C-xMC"/>
@@ -1798,7 +1808,6 @@ Features</string>
                                             <constraint firstItem="zy2-WM-lxj" firstAttribute="trailing" secondItem="hS5-Lg-6Ml" secondAttribute="trailing" id="csd-AB-JyJ"/>
                                             <constraint firstItem="P2S-WJ-ciP" firstAttribute="top" secondItem="gSw-Je-YD3" secondAttribute="bottom" constant="38" id="g9b-Ds-wia"/>
                                             <constraint firstItem="9Hs-EA-Vex" firstAttribute="centerX" secondItem="WP0-By-Ffi" secondAttribute="centerX" multiplier="0.5" id="h9F-NX-EWo"/>
-                                            <constraint firstItem="P2S-WJ-ciP" firstAttribute="leading" secondItem="WP0-By-Ffi" secondAttribute="leading" constant="70" id="hJt-El-Zdp"/>
                                             <constraint firstItem="hS5-Lg-6Ml" firstAttribute="centerX" secondItem="0fM-tR-9tf" secondAttribute="centerX" id="kIt-VT-rlD"/>
                                             <constraint firstItem="zy2-WM-lxj" firstAttribute="top" secondItem="rl8-xg-5St" secondAttribute="bottom" constant="-10" id="leu-lC-eX3"/>
                                             <constraint firstItem="gds-T3-oBh" firstAttribute="height" secondItem="9Hs-EA-Vex" secondAttribute="height" id="mTQ-Nf-uzh"/>
@@ -1858,9 +1867,12 @@ Features</string>
                     </view>
                     <connections>
                         <outlet property="allViewsScrollView" destination="xuN-gg-90M" id="1lh-yD-CDz"/>
+                        <outlet property="animationImageHeightConstraint" destination="QtD-Ho-sag" id="ja7-cP-Maf"/>
+                        <outlet property="animationImageTopConstraint" destination="g9b-Ds-wia" id="QW3-kU-Zfw"/>
                         <outlet property="animationView" destination="P2S-WJ-ciP" id="5Lp-WK-40D"/>
                         <outlet property="blackView" destination="RU7-qv-z3a" id="iS1-Kw-cSI"/>
                         <outlet property="closeButton" destination="gSw-Je-YD3" id="a1K-QM-ku9"/>
+                        <outlet property="crossTopConstraint" destination="A42-qA-vbt" id="Rwu-US-jBm"/>
                         <outlet property="firstProduct" destination="0fM-tR-9tf" id="FuH-d1-O1m"/>
                         <outlet property="getPremiumTitle" destination="O3q-F1-le8" id="NYn-LO-Qcz"/>
                         <outlet property="indicator" destination="roa-BC-Mfk" id="gpv-BY-fmc"/>

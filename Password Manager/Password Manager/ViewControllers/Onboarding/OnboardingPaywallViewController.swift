@@ -17,6 +17,7 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var topLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var crossTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftImageConstraint: NSLayoutConstraint!
     
     var weeklyPrice: Float = 0
     var monthlyPrice: Float = 0
@@ -64,34 +65,38 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
         Analytics.logEvent("paywall_onboarding", parameters: nil)
         Amplitude.instance()?.logEvent("paywall_onboarding")
         
-//        crossTopConstraint.constant = 64
-//        topLabelTopConstraint.constant = 130
-//        if UIDevice().userInterfaceIdiom == .phone {
-//        switch UIScreen.main.nativeBounds.height {
-//        case 1136:
-//            print("5s")
-//            topLabelTopConstraint.constant = 25
-//            crossTopConstraint.constant = 20
-//        case 1334:
-//            print("iPhone 6/6S/7/8/SE2nd")
-//            topLabelTopConstraint.constant = 80
-//            crossTopConstraint.constant = 30
-//        case 1920, 2208:
-//            print("iPhone 6+/6S+/7+/8+")
+        crossTopConstraint.constant = 64
+        topLabelTopConstraint.constant = 8
+        leftImageConstraint.constant = 65
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+        switch UIScreen.main.nativeBounds.height {
+        case 1136:
+            print("5s")
+            crossTopConstraint.constant = 34
+            topLabelTopConstraint.constant = -130
+            leftImageConstraint.constant = 20
+        case 1334:
+            print("iPhone 6/6S/7/8/SE2nd")
+            crossTopConstraint.constant = 44
+            topLabelTopConstraint.constant = -20
+            leftImageConstraint.constant = 45
+        case 1920, 2208:
+            print("iPhone 6+/6S+/7+/8+")
 //            topLabelTopConstraint.constant = 130
-//            case 2436:
-//                print("iPhone X/XS/11 Pro")
-//
-//            case 2688:
-//                print("iPhone XS Max/11 Pro Max")
-//
-//            case 1792:
-//                print("iPhone XR/ 11")
-//
-//            default:
-//                print("Unknown")
-//            }
-//        }
+            case 2436:
+                print("iPhone X/XS/11 Pro")
+
+            case 2688:
+                print("iPhone XS Max/11 Pro Max")
+
+            case 1792:
+                print("iPhone XR/ 11")
+
+            default:
+                print("Unknown")
+            }
+        }
         
 
         self.closeButton.isHidden = true

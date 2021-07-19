@@ -42,6 +42,12 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     @IBOutlet weak var thirdProductCellHeight: NSLayoutConstraint!
     @IBOutlet weak var purchaseButtonTopConstraint: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var animationImageHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var animationImageTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var crossTopConstraint: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var animationView: AnimationView!
     
     var textContentView: TextContentView?
@@ -156,56 +162,76 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         productCellHeight.constant = 55
         purchaseButtonHeightConstraint.constant = 50
         
-//        if UIDevice().userInterfaceIdiom == .phone {
-//        switch UIScreen.main.nativeBounds.height {
-//            case 1136:
-//                purchaseButton.layer.cornerRadius = 15.0
-//                firstProduct.layer.cornerRadius = 8.0
-//                secondProduct.layer.cornerRadius = 8.0
-//                thirdProduct.layer.cornerRadius = 8.0
-//
-//                secondProductDiscountLabel.layer.cornerRadius = 3.0
-//                thirdProductDiscountLabel.layer.cornerRadius = 3.0
-//
-//                productCellHeight.constant = 40
-//                purchaseButtonHeightConstraint.constant = 40
-////                contentLayoutBottomConstraint.constant = -250
-//
-//            case 1334:
-//                print("iPhone 6/6S/7/8")
-//                purchaseButton.layer.cornerRadius = 17.0
-//                firstProduct.layer.cornerRadius = 10.0
-//                secondProduct.layer.cornerRadius = 10.0
-//                thirdProduct.layer.cornerRadius = 10.0
-//
-//                secondProductDiscountLabel.layer.cornerRadius = 4.0
-//                thirdProductDiscountLabel.layer.cornerRadius = 4.0
-//
-//                productCellHeight.constant = 45
-//                purchaseButtonHeightConstraint.constant = 45
-////                productsTopConstraint.constant = -25
-////                contentLayoutBottomConstraint.constant = -220
-//                //done
-//            case 1920, 2208:
-//                print("iPhone 6+/6S+/7+/8+")
-////                contentLayoutBottomConstraint.constant = -190
-//                //done
-//            case 2436:
-//                print("iPhone X/XS/11 Pro")
-//                //contentLayoutBottomConstraint.constant = -100
-//                //done
-//            case 2688:
-//                print("iPhone XS Max/11 Pro Max")
-////                contentLayoutBottomConstraint.constant = -50
-//                //done
-//            case 1792:
-//                print("iPhone XR/ 11")
-////                contentLayoutBottomConstraint.constant = -50
-//                //done
-//            default:
-//                print("Unknown")
-//            }
-//        }
+        
+        animationImageHeightConstraint.constant = 274
+        animationImageTopConstraint.constant = 38
+        crossTopConstraint.constant = 60
+        
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+        switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                purchaseButton.layer.cornerRadius = 15.0
+                firstProduct.layer.cornerRadius = 8.0
+                secondProduct.layer.cornerRadius = 8.0
+                thirdProduct.layer.cornerRadius = 8.0
+
+                secondProductDiscountLabel.layer.cornerRadius = 3.0
+                thirdProductDiscountLabel.layer.cornerRadius = 3.0
+
+                productCellHeight.constant = 40
+                purchaseButtonHeightConstraint.constant = 40
+                
+                
+                animationImageHeightConstraint.constant = 120
+                animationImageTopConstraint.constant = 0
+                crossTopConstraint.constant = 20
+                
+                
+//                contentLayoutBottomConstraint.constant = -250
+
+            case 1334:
+                print("iPhone 6/6S/7/8/SE2nd")
+                
+                
+                animationImageHeightConstraint.constant = 200
+                animationImageTopConstraint.constant = 0
+                crossTopConstraint.constant = 30
+                
+                
+                purchaseButton.layer.cornerRadius = 17.0
+                firstProduct.layer.cornerRadius = 10.0
+                secondProduct.layer.cornerRadius = 10.0
+                thirdProduct.layer.cornerRadius = 10.0
+
+                secondProductDiscountLabel.layer.cornerRadius = 4.0
+                thirdProductDiscountLabel.layer.cornerRadius = 4.0
+
+                productCellHeight.constant = 45
+                purchaseButtonHeightConstraint.constant = 45
+//                productsTopConstraint.constant = -25
+//                contentLayoutBottomConstraint.constant = -220
+                //done
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+//                contentLayoutBottomConstraint.constant = -190
+                //done
+            case 2436:
+                print("iPhone X/XS/11 Pro")
+                //contentLayoutBottomConstraint.constant = -100
+                //done
+            case 2688:
+                print("iPhone XS Max/11 Pro Max")
+//                contentLayoutBottomConstraint.constant = -50
+                //done
+            case 1792:
+                print("iPhone XR/ 11")
+//                contentLayoutBottomConstraint.constant = -50
+                //done
+            default:
+                print("Unknown")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -682,6 +708,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         VibratorEngine.shared.actionTaptic()
         self.blackView.isHidden = false
         self.indicator.startAnimating()
+        
         Purchases.shared.restoreTransactions { (info, error) in
             self.indicator.stopAnimating()
             self.blackView.isHidden = true

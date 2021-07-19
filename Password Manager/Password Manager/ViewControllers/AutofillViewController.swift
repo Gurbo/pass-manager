@@ -19,6 +19,10 @@ class AutofillViewController: UIViewController {
     @IBOutlet weak var settingsButton: UIButton!
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    
+    @IBOutlet weak var buttonBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +54,35 @@ class AutofillViewController: UIViewController {
         settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
         settingsButton.setTitle("Open Settings", for: .normal)
 
+        
+        
+        buttonBottomConstraint.constant = 70
+
+        if UIDevice().userInterfaceIdiom == .phone {
+        switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("5s")
+                buttonBottomConstraint.constant = 20
+            case 1334:
+                print("iPhone 6/6S/7/8/SE2nd")
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+            case 2436:
+                print("iPhone X/XS/11 Pro")
+            case 2688:
+                print("iPhone XS Max/11 Pro Max")
+            case 1792:
+                print("iPhone XR/ 11")
+            case 2532:
+                print("iPhone_12_12Pro")
+            case 2778:
+                print("iPhone_12ProMax")
+            default:
+                print("Unknown")
+            }
+        }
+        
+        
 
         // Do any additional setup after loading the view.
     }
