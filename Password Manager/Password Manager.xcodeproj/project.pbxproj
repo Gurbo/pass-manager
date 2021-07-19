@@ -55,6 +55,8 @@
 		F08FEFFC268F3F600035909B /* VaultNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FEFFB268F3F600035909B /* VaultNavigationViewController.swift */; };
 		F08FF000268F46300035909B /* SettingsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FEFFF268F46300035909B /* SettingsNavigationViewController.swift */; };
 		F08FF00A268F4D8B0035909B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */; };
+		F0BD5A4026A56EE300B7AF0F /* terms.txt in Resources */ = {isa = PBXBuildFile; fileRef = F0BD5A3E26A56EE200B7AF0F /* terms.txt */; };
+		F0BD5A4126A56EE300B7AF0F /* privacy.txt in Resources */ = {isa = PBXBuildFile; fileRef = F0BD5A3F26A56EE300B7AF0F /* privacy.txt */; };
 		F0C03EDE2689C24A00579BCB /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */; };
 		F0C03EEC2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
 		F0C03EED2689C73600579BCB /* PasswordSingletone.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */; };
@@ -149,6 +151,8 @@
 		F08FF009268F4D8B0035909B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		F0BC1BE326836A9B003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0BC1BE826837D02003FB40E /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BD5A3E26A56EE200B7AF0F /* terms.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = terms.txt; sourceTree = "<group>"; };
+		F0BD5A3F26A56EE300B7AF0F /* privacy.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = privacy.txt; sourceTree = "<group>"; };
 		F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0C03EEB2689C73600579BCB /* PasswordSingletone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSingletone.swift; sourceTree = "<group>"; };
 		F0D67AE926A0895D000DD121 /* SubscriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
 				F0FBC3672680E2DD00A555A5 /* Constants.swift */,
 				F0EB6A532680C963006F4101 /* SceneDelegate.swift */,
+				F0BD5A3F26A56EE300B7AF0F /* privacy.txt */,
+				F0BD5A3E26A56EE200B7AF0F /* terms.txt */,
 				F0419AFD26988AE8005057F7 /* UIView+extension.swift */,
 			);
 			path = Resources;
@@ -466,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0EB6A5E2680C965006F4101 /* LaunchScreen.storyboard in Resources */,
+				F0BD5A4126A56EE300B7AF0F /* privacy.txt in Resources */,
 				F0EB6A5B2680C965006F4101 /* Assets.xcassets in Resources */,
 				F0419AF626988792005057F7 /* lf20_rpr0qbbn.json in Resources */,
 				F0419ADC269872F1005057F7 /* GoogleService-Info.plist in Resources */,
@@ -473,6 +480,7 @@
 				F0D67AF326A08976000DD121 /* TextContentView.xib in Resources */,
 				F0EB6A592680C963006F4101 /* Main.storyboard in Resources */,
 				F0D67B3526A0A862000DD121 /* lf20_wfqrpe0x.json in Resources */,
+				F0BD5A4026A56EE300B7AF0F /* terms.txt in Resources */,
 				F0473E8126A030B300D53460 /* AppLocker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
