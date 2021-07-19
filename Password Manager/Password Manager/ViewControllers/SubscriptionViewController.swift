@@ -132,18 +132,18 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         termsButton.addTarget(self, action: #selector(showTerms), for: .touchUpInside)
         privacyButton.addTarget(self, action: #selector(showPrivacy), for: .touchUpInside)
         
-        restoreButton.isHidden = true
-        purchaseButton.isHidden = true
-        termsButton.isHidden = true
-        termsLabel.isHidden = true
-        privacyButton.isHidden = true
-        firstProduct.isHidden = true
-        secondProduct.isHidden = true
-        secondProductCellHeight.constant = 0
-        secondProductDiscountLabel.isHidden = true
-        thirdProduct.isHidden = true
-        thirdProductCellHeight.constant = 0
-        thirdProductDiscountLabel.isHidden = true
+//        restoreButton.isHidden = true
+//        purchaseButton.isHidden = true
+//        termsButton.isHidden = true
+//        termsLabel.isHidden = true
+//        privacyButton.isHidden = true
+//        firstProduct.isHidden = true
+//        secondProduct.isHidden = true
+//        secondProductCellHeight.constant = 0
+//        secondProductDiscountLabel.isHidden = true
+//        thirdProduct.isHidden = true
+//        thirdProductCellHeight.constant = 0
+//        thirdProductDiscountLabel.isHidden = true
         
         firstProduct.selectButton.tag = 0
         secondProduct.selectButton.tag = 1

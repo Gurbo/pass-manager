@@ -67,6 +67,7 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
                 imageBottomConstraint.constant = 80
             case 2436:
                 print("iPhone X/XS/11 Pro")
+                imageBottomConstraint.constant = 100
             case 2688:
                 print("iPhone XS Max/11 Pro Max")
             case 1792:
@@ -75,7 +76,7 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
                 print("iPhone_12_12Pro")
             case 2778:
                 print("iPhone_12ProMax")
-//                imageBottomConstraint.constant = 180
+                imageBottomConstraint.constant = 160
             default:
                 print("Unknown")
             }

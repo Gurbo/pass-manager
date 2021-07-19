@@ -88,7 +88,6 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
             leftImageConstraint.constant = 50
         case 2688:
             print("iPhone XS Max/11 Pro Max")
-
         case 1792:
             print("iPhone XR/ 11")
             

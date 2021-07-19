@@ -60,9 +60,16 @@ class WelcomeViewController: UIViewController, Storyboarded {
                 print("iPhone X/XS/11 Pro")
             case 2688:
                 print("iPhone XS Max/11 Pro Max")
-
             case 1792:
                 print("iPhone XR/ 11")
+        case 2340: //2436
+            print("iPhone 12 Mini")
+            
+        case 2532:
+            print("iPhone 12 / 12 Pro")
+        case 2778:
+            print("iPhone 12 Pro Max")
+            
 
             default:
                 print("Unknown")
