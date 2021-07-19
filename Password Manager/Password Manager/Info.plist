@@ -6,6 +6,19 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>PassKeeper</string>
+<key>CFBundleURLTypes</key>
+<array>
+  <dict>
+  <key>CFBundleURLSchemes</key>
+  <array>
+    <string>fb210084857685210</string>
+  </array>
+  </dict>
+</array>
+<key>FacebookAppID</key>
+<string>210084857685210</string>
+<key>FacebookDisplayName</key>
+<string>Password Keeper</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

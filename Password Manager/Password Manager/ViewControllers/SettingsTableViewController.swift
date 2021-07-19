@@ -38,6 +38,34 @@ class SettingsTableViewController: UITableViewController {
 //
 //    }
     
+    @IBAction func eraseAll(_ sender: Any) {
+        let alert = UIAlertController(title: "Attention!", message: "All passwords that you created in the app will be deleted from your device and will not be available for autofill on websites.", preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "I understand", style: .default, handler: { action in
+            KeychainNew.logout()
+            
+            let alert = UIAlertController(title: "", message: "All your passwords were successfully deleted", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+
+            })
+            alert.addAction(cancelAction)
+            DispatchQueue.main.async(execute: {
+                    self.present(alert, animated: true)
+            })
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: { action in
+
+        })
+        
+        alert.addAction(ok)
+        alert.addAction(cancelAction)
+            
+        DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true)
+        })
+    }
+    
     
     @objc func updateSwitcherStates() {
         DispatchQueue.main.async {

@@ -246,6 +246,57 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.054901960784313725" green="0.054901960784313725" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="66" id="Dh3-Oo-Oih">
+                                        <rect key="frame" x="0.0" y="282" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dh3-Oo-Oih" id="ibM-Es-tGV">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Erase all Data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecU-IG-NxK">
+                                                    <rect key="frame" x="19.999999999999993" y="24" width="93.333333333333314" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" systemColor="systemPinkColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n0V-Jk-s7m">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="eq3-1o-ksF"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXA-75-WIZ">
+                                                    <rect key="frame" x="0.0" y="65" width="414" height="1"/>
+                                                    <color key="backgroundColor" red="0.1529411765" green="0.1529411765" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="1ta-vf-sJc"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8h-wA-I2w">
+                                                    <rect key="frame" x="5" y="10" width="402" height="47"/>
+                                                    <connections>
+                                                        <action selector="eraseAll:" destination="u2e-rT-yV3" eventType="touchUpInside" id="Kac-xi-fsP"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="n0V-Jk-s7m" firstAttribute="leading" secondItem="ibM-Es-tGV" secondAttribute="leading" id="0TY-Um-j94"/>
+                                                <constraint firstAttribute="bottom" secondItem="EXA-75-WIZ" secondAttribute="bottom" id="23D-V3-YGh"/>
+                                                <constraint firstItem="ecU-IG-NxK" firstAttribute="leading" secondItem="ibM-Es-tGV" secondAttribute="leadingMargin" id="6my-kd-Q18"/>
+                                                <constraint firstItem="ecU-IG-NxK" firstAttribute="centerY" secondItem="ibM-Es-tGV" secondAttribute="centerY" id="Kyj-cU-x7p"/>
+                                                <constraint firstItem="w8h-wA-I2w" firstAttribute="leading" secondItem="ibM-Es-tGV" secondAttribute="leading" constant="5" id="Las-dJ-pug"/>
+                                                <constraint firstItem="EXA-75-WIZ" firstAttribute="leading" secondItem="ibM-Es-tGV" secondAttribute="leading" id="Mx9-3j-dnC"/>
+                                                <constraint firstAttribute="trailing" secondItem="n0V-Jk-s7m" secondAttribute="trailing" id="OAT-eR-ax1"/>
+                                                <constraint firstItem="n0V-Jk-s7m" firstAttribute="top" secondItem="ibM-Es-tGV" secondAttribute="top" id="Ti3-Nf-mNV"/>
+                                                <constraint firstAttribute="trailing" secondItem="EXA-75-WIZ" secondAttribute="trailing" id="ayi-MW-hNO"/>
+                                                <constraint firstAttribute="trailing" secondItem="w8h-wA-I2w" secondAttribute="trailing" constant="7" id="dR8-gQ-maz"/>
+                                                <constraint firstItem="EXA-75-WIZ" firstAttribute="top" secondItem="w8h-wA-I2w" secondAttribute="bottom" constant="8" symbolic="YES" id="mtM-id-kEq"/>
+                                                <constraint firstItem="w8h-wA-I2w" firstAttribute="top" secondItem="n0V-Jk-s7m" secondAttribute="bottom" constant="9" id="zma-jy-Nax"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.054901960780000002" green="0.054901960780000002" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -1868,6 +1919,9 @@ Features</string>
         <image name="tb_vault_enabled" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
