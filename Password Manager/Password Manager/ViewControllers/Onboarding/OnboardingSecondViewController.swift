@@ -83,14 +83,27 @@ class OnboardingSecondViewController: UIViewController, Storyboarded {
         } else {
             //ipad
             switch UIScreen.main.nativeBounds.height {
-                case 2732:
-                    print("ipad pro 12.9 device")
-                    imageBottomConstraint.constant = 400
+            case 2732:
+                print("IS_IPAD_PRO_12_9")
+                imageBottomConstraint.constant = 400
+            case 2388:
+                print("IS_IPAD_PRO_11")
+                imageBottomConstraint.constant = 310
+            case 2360:
+                print("IS_IPAD_AIR_4")
+                imageBottomConstraint.constant = 300
             case 2224:
-                print("ipad pro 10.5 device")
-                default:
-                    print("Unknown")
-                }
+                print("IS_IPAD_PRO_10_5")
+                imageBottomConstraint.constant = 290
+            case 2160:
+                print("IS_IPAD_8th")
+                imageBottomConstraint.constant = 280
+            case 2048:
+                print("IS_IPAD_OR_MINI")
+                imageBottomConstraint.constant = 250
+            default:
+                print("Unknown")
+            }
         }
         // Do any additional setup after loading the view.
     }

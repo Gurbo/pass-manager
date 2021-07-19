@@ -51,7 +51,8 @@ class LoadingViewController: UIViewController, Storyboarded {
             
             InAppHandler.shared.checkUserSubscription { (isSubscribed) in
                 
- 
+//                #warning("DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE DELETE")
+//                UserData.isUserSubscribed = true
                 
             }
             
