@@ -214,8 +214,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                 //done
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
-//                contentLayoutBottomConstraint.constant = -190
-                //done
+                animationImageHeightConstraint.constant = 200
+                animationImageTopConstraint.constant = 20
+                crossTopConstraint.constant = 30
             case 2436:
                 print("iPhone X/XS/11 Pro")
                 //contentLayoutBottomConstraint.constant = -100

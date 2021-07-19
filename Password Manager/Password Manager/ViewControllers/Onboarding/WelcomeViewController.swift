@@ -56,7 +56,6 @@ class WelcomeViewController: UIViewController, Storyboarded {
                 topLabelTopConstraint.constant = 80
             case 1920, 2208:
                 print("iPhone 6+/6S+/7+/8+")
-//                topLabelTopConstraint.constant = 120
             case 2436:
                 print("iPhone X/XS/11 Pro")
             case 2688:
