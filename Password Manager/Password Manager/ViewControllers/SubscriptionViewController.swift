@@ -219,8 +219,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                 crossTopConstraint.constant = 30
             case 2436:
                 print("iPhone X/XS/11 Pro")
-                //contentLayoutBottomConstraint.constant = -100
-                //done
+                animationImageHeightConstraint.constant = 200
+                animationImageTopConstraint.constant = 30
+                crossTopConstraint.constant = 50
             case 2688:
                 print("iPhone XS Max/11 Pro Max")
 //                contentLayoutBottomConstraint.constant = -50
