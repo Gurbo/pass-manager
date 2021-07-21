@@ -124,7 +124,7 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func fieldEditingChanged(_ sender: Any) {
         saveButton.isEnabled = urlTextfield.text?.isEmpty == false
-            && parseDomain(from: urlTextfield.text!).isEmpty == false
+            && parseDomain(from: urlTextfield.text!).isEmpty == false && parseDomain(from: urlTextfield.text!).isValidURL == true
             && nameTextfield.text?.isEmpty == false
             && loginTextfield.text?.isEmpty == false
             && passwordTextfield.text?.isEmpty == false
