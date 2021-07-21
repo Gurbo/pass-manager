@@ -41,9 +41,7 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let prcSize = RemoteConfigHandler.shared.remoteConfig[onbPaywlSize].numberValue
-        
-        priceLabel.font = UIFont.systemFont(ofSize: prcSize as! CGFloat, weight: .medium)
+        priceLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         //here
         restoreButton.setTitle("Restore", for: .normal)
         premiumAccessLabel.text = "Get All Premium Features"
@@ -90,7 +88,7 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
             print("iPhone XS Max/11 Pro Max")
         case 1792:
             print("iPhone XR/ 11")
-            
+            leftImageConstraint.constant = 50
             default:
                 print("Unknown")
             }
