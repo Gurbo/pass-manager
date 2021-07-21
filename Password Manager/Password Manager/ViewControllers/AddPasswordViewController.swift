@@ -7,6 +7,7 @@
 
 import UIKit
 import KeychainAccess
+import SwiftRater
 
 class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -161,6 +162,8 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         //Saved to autofill
         let password = Password(id: customID, website: parseDomain(from: urlTextfield.text!), user: loginTextfield.text!, password: passwordTextfield.text!, date: Date(), name: nameTextfield.text!)
         password.add()
+        
+        SwiftRater.incrementSignificantUsageCount()
         
         NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
         self.dismiss(animated: true, completion: nil)

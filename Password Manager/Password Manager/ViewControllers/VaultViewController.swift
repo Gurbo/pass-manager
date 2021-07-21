@@ -7,6 +7,7 @@
 
 import UIKit
 import KeychainAccess
+import SwiftRater
 
 class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -44,6 +45,13 @@ class VaultViewController: UIViewController {
             options.color = UIColor.init(hex: kBlackBackgroundColor)
             options.isSensorsEnabled = UserDefaults.forAppGroup.isFaceIDEnabled
             AppLocker.present(with: .validate, and: options, over: self)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !UserData.paywallWasShown {
+            SwiftRater.check()
         }
     }
     
@@ -95,6 +103,9 @@ class VaultViewController: UIViewController {
     }
     
     @objc func updateVaultAfterAddingRecord() {
+        if !UserData.paywallWasShown {
+            SwiftRater.check()
+        }
         reloadData()
         tableView.reloadData()
     }

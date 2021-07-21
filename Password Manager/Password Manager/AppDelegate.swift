@@ -12,6 +12,7 @@ import Qonversion
 import Amplitude_iOS
 import Purchases
 import FBSDKCoreKit
+import SwiftRater
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            Amplitude.instance()?.setUserId(result.uid)
         }
         
+        setRater()
+        
         NotificationCenter.default.addObserver(self,
             selector: #selector(applicationDidBecomeActive),
             name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
@@ -51,6 +54,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        KeychainNew.logout()
 
         return true
+    }
+    
+    func setRater() {
+        SwiftRater.significantUsesUntilPrompt = 0
+        SwiftRater.daysBeforeReminding = 5
+        SwiftRater.showLaterButton = true
+        SwiftRater.debugMode = false
+        SwiftRater.appID = "1575742112"
+        SwiftRater.appLaunched()
     }
     
     @objc func applicationDidBecomeActive() {

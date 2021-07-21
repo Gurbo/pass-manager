@@ -21,6 +21,9 @@ struct UserData {
     
     @Storage(key: "shouldShowRater", defaultValue: false)
     static var shouldShowRater: Bool
+    
+    @Storage(key: "paywallWasShown", defaultValue: false)
+    static var paywallWasShown: Bool
 }
 
 @propertyWrapper

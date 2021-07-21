@@ -65,6 +65,8 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserData.paywallWasShown = true
+        
         self.modalPresentationStyle = .fullScreen
         
         Analytics.logEvent("paywall_app", parameters: nil)
