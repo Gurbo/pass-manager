@@ -33,7 +33,7 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
         }
         continueButton.addTarget(self, action: #selector(showOnboardingPaywall), for: .touchUpInside)
         
-        Amplitude.instance()?.logEvent("onboarding_3")
+        Amplitude.instance()?.logEvent("onboarding_4")
         
         
 //        var screenType: ScreenType {

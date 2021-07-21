@@ -62,8 +62,8 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
         }
         
         
-        Analytics.logEvent("paywall_onboarding", parameters: nil)
-        Amplitude.instance()?.logEvent("paywall_onboarding")
+        Analytics.logEvent("paywall_onboarding_show", parameters: nil)
+        Amplitude.instance()?.logEvent("paywall_onboarding_show")
         
         crossTopConstraint.constant = 64
         topLabelTopConstraint.constant = 8
@@ -223,7 +223,7 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
     }
     
     @objc func restorePurchase() {
-        Amplitude.instance()?.logEvent("onboarding.paywall.restore")
+        Amplitude.instance()?.logEvent("paywall_onboarding_restore_pressed")
         
         VibratorEngine.shared.actionTaptic()
         self.blackView.isHidden = false
@@ -303,8 +303,8 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
                                        "subscriptionPrice" : subscriptionAmount ?? ""]
                 }
                 
-                Amplitude.instance()?.logEvent("onboarding.paywall.purchase.pressed", withEventProperties: eventProperties)
-                Analytics.logEvent("onboarding_paywall_purchase_pressed", parameters: eventProperties)
+                Amplitude.instance()?.logEvent("paywall_onboarding_purchase_pressed", withEventProperties: eventProperties)
+                Analytics.logEvent("paywall_onboarding_purchase_pressed", parameters: eventProperties)
                 
                 Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
                   self.indicator.stopAnimating()
@@ -314,8 +314,9 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
                             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                             self.present(alert, animated: true)
+                            Amplitude.instance()?.logEvent("paywall_onboarding_purchase_error", withEventProperties: eventProperties)
                         } else {
-                            Amplitude.instance()?.logEvent("onboarding.paywall.purchase.cancel", withEventProperties: eventProperties)
+                            Amplitude.instance()?.logEvent("paywall_onboarding_purchase_cancel", withEventProperties: eventProperties)
                         }
                     } else {
                         if let subsInfo = purchaserInfo {
@@ -329,8 +330,8 @@ class OnboardingPaywallViewController: UIViewController, Storyboarded {
                                 identify.set("subscribed", value: "true" as NSObject)
                                 Amplitude.instance()?.identify(identify)
                                 
-                                Amplitude.instance()?.logEvent("onboarding.paywall.purchase.success", withEventProperties: eventProperties)
-                                Analytics.logEvent("onboarding_paywall_purchase_success", parameters: eventProperties)
+                                Amplitude.instance()?.logEvent("paywall_onboarding_purchased", withEventProperties: eventProperties)
+                                Analytics.logEvent("paywall_onboarding_purchased", parameters: eventProperties)
                                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateUIAfterPurchase"), object: nil)
                                 self.closePaywall()
                             }

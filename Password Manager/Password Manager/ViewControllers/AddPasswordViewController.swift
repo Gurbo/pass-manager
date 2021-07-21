@@ -8,6 +8,7 @@
 import UIKit
 import KeychainAccess
 import SwiftRater
+import Amplitude_iOS
 
 class AddPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
@@ -164,6 +165,8 @@ class AddPasswordViewController: UIViewController, UITextFieldDelegate {
         password.add()
         
         SwiftRater.incrementSignificantUsageCount()
+        
+        Amplitude.instance()?.logEvent("password_added")
         
         NotificationCenter.default.post(name: Notification.Name("kUpdateVaultNotification"), object: nil)
         self.dismiss(animated: true, completion: nil)

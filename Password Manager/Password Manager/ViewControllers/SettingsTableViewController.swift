@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Amplitude_iOS
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var masterPasswordSwitcher: UISwitch!
@@ -146,6 +147,7 @@ class SettingsTableViewController: UITableViewController {
                     }
                 } else {
                     switcher.isOn = false
+                    Amplitude.instance()?.logEvent("paywall_app_face_show")
                     showPaywall()
                 }
             } else {
@@ -168,6 +170,7 @@ class SettingsTableViewController: UITableViewController {
                     navVC.viewControllers = [addPassVC]
                     self.present(navVC, animated: true, completion: nil)
                 } else {
+                    Amplitude.instance()?.logEvent("paywall_app_autofill_show")
                     showPaywall()
                 }
             } else {
@@ -212,6 +215,7 @@ class SettingsTableViewController: UITableViewController {
                     }
                     AppLocker.present(with: .create, and: options, over: self)
                 } else {
+                    Amplitude.instance()?.logEvent("paywall_app_password_show")
                     self.masterPasswordSwitcher.isOn = false
                     showPaywall()
                 }

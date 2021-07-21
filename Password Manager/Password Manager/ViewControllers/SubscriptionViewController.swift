@@ -69,8 +69,6 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
         
         self.modalPresentationStyle = .fullScreen
         
-        Analytics.logEvent("paywall_app", parameters: nil)
-        Amplitude.instance()?.logEvent("paywall_app")
         self.view.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
         
         
@@ -664,8 +662,8 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                                        "subscriptionPrice" : subscriptionAmount ?? ""]
                 }
                 
-                Amplitude.instance()?.logEvent("paywall.purchase.pressed", withEventProperties: eventProperties)
-                Analytics.logEvent("paywall_purchase_pressed", parameters: eventProperties)
+                Amplitude.instance()?.logEvent("paywall_app_purchase_pressed", withEventProperties: eventProperties)
+                Analytics.logEvent("paywall_app_purchase_pressed", parameters: eventProperties)
                 
                 Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
                   self.indicator.stopAnimating()
@@ -675,8 +673,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                             self.present(alert, animated: true)
+                            Amplitude.instance()?.logEvent("paywall_app_purchase_error", withEventProperties: eventProperties)
                         } else {
-                            Amplitude.instance()?.logEvent("paywall.purchase.cancel", withEventProperties: eventProperties)
+                            Amplitude.instance()?.logEvent("paywall_app_purchase_cancel", withEventProperties: eventProperties)
                         }
                     } else {
                         if let subsInfo = purchaserInfo {
@@ -690,8 +689,8 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                                 identify.set("subscribed", value: "true" as NSObject)
                                 Amplitude.instance()?.identify(identify)
                                 
-                                Amplitude.instance()?.logEvent("paywall.purchase.success", withEventProperties: eventProperties)
-                                Analytics.logEvent("paywall_purchase_success", parameters: eventProperties)
+                                Amplitude.instance()?.logEvent("paywall_app_purchased", withEventProperties: eventProperties)
+                                Analytics.logEvent("paywall_app_purchased", parameters: eventProperties)
                                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateUIAfterPurchase"), object: nil)
                                 self.closePaywall()
                             }
@@ -707,7 +706,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     }
     
     @objc func restorePurchase() {
-        Amplitude.instance()?.logEvent("paywall.restore")
+        Amplitude.instance()?.logEvent("paywall_app_restore_pressed")
         
         VibratorEngine.shared.actionTaptic()
         self.blackView.isHidden = false

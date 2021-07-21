@@ -26,7 +26,7 @@ class LoadingViewController: UIViewController, Storyboarded {
         activityIndicator.startAnimating()
         self.navigationController?.navigationBar.isHidden = true
         
-        Amplitude.instance()?.logEvent("loading_screen")
+        Amplitude.instance()?.logEvent("screen_loading")
         
         titleLabel.text = ""
         internetLabel.text = "Turn on the Internet to use the app"

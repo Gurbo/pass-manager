@@ -8,6 +8,7 @@
 import UIKit
 import KeychainAccess
 import SwiftRater
+import Amplitude_iOS
 
 class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -34,6 +35,8 @@ class VaultViewController: UIViewController {
         
         addPasswordButton.target = self
         addPasswordButton.action = #selector(showAddPasswordScreen)
+        
+        Amplitude.instance()?.logEvent("main_screen")
         
         let nc = NotificationCenter.default
         nc.addObserver(self, selector: #selector(updateVaultAfterAddingRecord), name: Notification.Name("kUpdateVaultNotification"), object: nil)
@@ -62,6 +65,7 @@ class VaultViewController: UIViewController {
         } else {
             let limitCount:Int  = Int(truncating: RemoteConfigHandler.shared.remoteConfig[saves_before_paid_mode].numberValue)
             if UserDefaults.forAppGroup.savedPasswordsCount >= limitCount {
+                Amplitude.instance()?.logEvent("paywall_app_limit_show")
                 showPaywall()
             } else {
                 showNavAndPassScreens()
@@ -70,6 +74,7 @@ class VaultViewController: UIViewController {
     }
     
     func showNavAndPassScreens() {
+        Amplitude.instance()?.logEvent("add_password_show")
         let navVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "PasswordNavigationViewController") as PasswordNavigationViewController
         let addPassVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "AddPasswordViewController") as AddPasswordViewController
         navVC.viewControllers = [addPassVC]

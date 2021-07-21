@@ -35,7 +35,7 @@ class WelcomeViewController: UIViewController, Storyboarded {
         addAnimation(to: animationView, name: "lf20_rpr0qbbn")
         
         
-        Amplitude.instance()?.logEvent("welcome_screen")
+        Amplitude.instance()?.logEvent("screen_welcome")
         
         
         continueButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in
