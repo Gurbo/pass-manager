@@ -47,12 +47,12 @@ class AutofillViewController: UIViewController {
         self.view.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
         
         
-        settingsButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in
-                    guard let settingsButton = view as? UIButton, let imageView = settingsButton.imageView else { return }
-            settingsButton.bringSubviewToFront(imageView) // To display imageview of button
-        }
-        settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
-        settingsButton.setTitle("Open Settings", for: .normal)
+//        settingsButton.setGradientBackgroundColor(colors: [UIColor.init(hex: "1461D6"), UIColor.init(hex: "00FFFF")], axis: .horizontal, cornerRadius: 12) { view in
+//                    guard let settingsButton = view as? UIButton, let imageView = settingsButton.imageView else { return }
+//            settingsButton.bringSubviewToFront(imageView) // To display imageview of button
+//        }
+//        settingsButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
+//        settingsButton.setTitle("Open Settings", for: .normal)
 
         
         

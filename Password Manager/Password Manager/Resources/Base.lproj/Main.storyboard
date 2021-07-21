@@ -412,7 +412,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-9u-hrT">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lt9-9u-hrT">
                                 <rect key="frame" x="80" y="736" width="254" height="56"/>
                                 <color key="backgroundColor" red="0.21960784310000001" green="0.5450980392" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -471,7 +471,6 @@
                         <outlet property="buttonBottomConstraint" destination="nVJ-0B-HZ2" id="P1E-gZ-zxl"/>
                         <outlet property="cancelButton" destination="9aa-nw-1eW" id="HSi-nR-fMK"/>
                         <outlet property="headerTitleLabel" destination="atK-Lu-x1Z" id="C0U-CR-5PV"/>
-                        <outlet property="settingsButton" destination="lt9-9u-hrT" id="0xw-rf-u6B"/>
                         <outlet property="settingsLabel" destination="eVG-QM-9tB" id="R1b-bc-PHK"/>
                         <outlet property="switcherLabel" destination="k1f-dv-FjP" id="SjU-cF-6Ls"/>
                         <outlet property="tapLabel" destination="6Zd-Ih-PIl" id="Wid-te-e3Q"/>
