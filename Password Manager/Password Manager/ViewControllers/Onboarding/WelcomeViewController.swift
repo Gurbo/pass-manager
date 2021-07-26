@@ -22,7 +22,7 @@ class WelcomeViewController: UIViewController, Storyboarded {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var appName = "PassKeeper"
+        var appName = "KeyKeeper"
         if let strongName = Bundle.main.displayName {
             appName = strongName
         }

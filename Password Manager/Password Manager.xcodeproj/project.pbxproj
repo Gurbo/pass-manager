@@ -654,7 +654,7 @@
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = AutoFillExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -679,7 +679,7 @@
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = AutoFillExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -823,7 +823,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Password Manager/Password Manager.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = "Password Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -849,7 +849,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Password Manager/Password Manager.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = "Password Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
