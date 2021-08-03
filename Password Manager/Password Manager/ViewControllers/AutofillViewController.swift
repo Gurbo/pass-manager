@@ -31,7 +31,7 @@ class AutofillViewController: UIViewController {
         self.title = "How to enable Autofill?"
         
         
-        var appName = "KeyKeeper"
+        var appName = "iPassword"
         if let strongName = Bundle.main.displayName {
             appName = strongName
         }

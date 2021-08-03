@@ -176,7 +176,7 @@ class SettingsTableViewController: UITableViewController {
             } else {
                 switcher.isOn = true
                 
-                var appName = "KeyKeeper"
+                var appName = "iPassword"
                 if let strongName = Bundle.main.displayName {
                     appName = strongName
                 }
