@@ -20,17 +20,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol FBSDKServerConfigurationProviding;
+
 @interface FBSDKRestrictiveDataFilterManager : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
+- (instancetype)initWithServerConfigurationProvider:(Class<FBSDKServerConfigurationProviding>)serverConfigurationProvider NS_DESIGNATED_INITIALIZER;
 
-+ (void)enable;
-+ (void)updateFilters:(nullable NSDictionary<NSString *, id> *)restrictiveParams;
-+ (void)processEvents:(NSMutableArray<NSDictionary<NSString *, id> *> *)events;
-+ (nullable NSDictionary<NSString *, id> *)processParameters:(nullable NSDictionary<NSString *, id> *)parameters
+- (void)enable;
+- (void)processEvents:(NSMutableArray<NSDictionary<NSString *, id> *> *)events;
+- (nullable NSDictionary<NSString *, id> *)processParameters:(nullable NSDictionary<NSString *, id> *)parameters
                                                    eventName:(NSString *)eventName;
-
 @end
 
 NS_ASSUME_NONNULL_END

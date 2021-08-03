@@ -20,15 +20,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+NS_SWIFT_NAME(EventDeactivationManager)
 @interface FBSDKEventDeactivationManager : NSObject
 
-+ (void)enable;
-+ (void)updateDeactivatedEvents:(nullable NSDictionary<NSString *, id> *)events;
-+ (void)processEvents:(NSMutableArray<NSDictionary<NSString *, id> *> *)events;
-+ (nullable NSDictionary<NSString *, id> *)processParameters:(nullable NSDictionary<NSString *, id> *)parameters
+- (void)enable;
+- (void)processEvents:(NSMutableArray<NSDictionary<NSString *, id> *> *)events;
+- (nullable NSDictionary<NSString *, id> *)processParameters:(nullable NSDictionary<NSString *, id> *)parameters
                                                    eventName:(NSString *)eventName;
 
 @end
 
 NS_ASSUME_NONNULL_END
-

@@ -12,6 +12,7 @@ import Qonversion
 import Amplitude_iOS
 import Purchases
 import FBSDKCoreKit
+import FBAudienceNetwork
 import SwiftRater
 
 @main
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
+        FBAudienceNetworkAds.initialize(with: nil, completionHandler: nil)
         
         Purchases.debugLogsEnabled = true
         Purchases.configure(withAPIKey: "PNfyAyCundbVAOuSMaVXShvPyDKWyiVl")
