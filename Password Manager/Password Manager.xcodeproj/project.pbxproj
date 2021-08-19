@@ -76,6 +76,9 @@
 		F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBC3672680E2DD00A555A5 /* Constants.swift */; };
 		F0FC46782693259500A7EE8D /* AutofillNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC46772693259500A7EE8D /* AutofillNavigationViewController.swift */; };
 		F0FC467C2693265300A7EE8D /* AutofillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC467B2693265200A7EE8D /* AutofillViewController.swift */; };
+		FA97B14F26CE4E830067F8D1 /* SwitchPaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97B14E26CE4E830067F8D1 /* SwitchPaywallViewController.swift */; };
+		FA97B15126CE7D9F0067F8D1 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97B15026CE7D9F0067F8D1 /* ReviewView.swift */; };
+		FA97B15326CE7E100067F8D1 /* ReviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA97B15226CE7E100067F8D1 /* ReviewView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +177,9 @@
 		F0FBC36B2680E8E100A555A5 /* Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Password Manager.entitlements"; sourceTree = "<group>"; };
 		F0FC46772693259500A7EE8D /* AutofillNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillNavigationViewController.swift; sourceTree = "<group>"; };
 		F0FC467B2693265200A7EE8D /* AutofillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillViewController.swift; sourceTree = "<group>"; };
+		FA97B14E26CE4E830067F8D1 /* SwitchPaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchPaywallViewController.swift; sourceTree = "<group>"; };
+		FA97B15026CE7D9F0067F8D1 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		FA97B15226CE7E100067F8D1 /* ReviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -358,6 +364,7 @@
 		F0FBC3292680CBC500A555A5 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA97B14E26CE4E830067F8D1 /* SwitchPaywallViewController.swift */,
 				F0419ADF26987C6F005057F7 /* Onboarding */,
 				F0FBC32A2680CBF700A555A5 /* VaultViewController.swift */,
 				F0FBC34B2680D0B400A555A5 /* AddPasswordViewController.swift */,
@@ -376,6 +383,8 @@
 				F0D67AF026A08976000DD121 /* TextContentView.xib */,
 				F0473E7D26A0308800D53460 /* CustomAppLocker */,
 				F0FBC3302680CD0E00A555A5 /* PasswordItemTableViewCell.swift */,
+				FA97B15026CE7D9F0067F8D1 /* ReviewView.swift */,
+				FA97B15226CE7E100067F8D1 /* ReviewView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -471,6 +480,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA97B15326CE7E100067F8D1 /* ReviewView.xib in Resources */,
 				F0EB6A5E2680C965006F4101 /* LaunchScreen.storyboard in Resources */,
 				F0BD5A4126A56EE300B7AF0F /* privacy.txt in Resources */,
 				F0EB6A5B2680C965006F4101 /* Assets.xcassets in Resources */,
@@ -574,6 +584,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0D67AF226A08976000DD121 /* ProductView.swift in Sources */,
+				FA97B14F26CE4E830067F8D1 /* SwitchPaywallViewController.swift in Sources */,
 				F0808294268250DB00A5A94C /* ASPasswordCredential+PasswordItem.swift in Sources */,
 				F0EB6A522680C963006F4101 /* AppDelegate.swift in Sources */,
 				F0FBC34C2680D0B400A555A5 /* AddPasswordViewController.swift in Sources */,
@@ -589,6 +600,7 @@
 				F0473E8026A030B300D53460 /* AppLocker.swift in Sources */,
 				F0FBC32B2680CBF700A555A5 /* VaultViewController.swift in Sources */,
 				F005DFD22683363200099DD6 /* Password.swift in Sources */,
+				FA97B15126CE7D9F0067F8D1 /* ReviewView.swift in Sources */,
 				F0419AF226988108005057F7 /* VibratorEngine.swift in Sources */,
 				F0419AE126987CE9005057F7 /* WelcomeViewController.swift in Sources */,
 				F0473E8526A030BA00D53460 /* UI.swift in Sources */,
