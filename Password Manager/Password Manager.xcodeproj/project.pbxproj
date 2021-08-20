@@ -304,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				F0EB6A572680C963006F4101 /* Main.storyboard */,
+				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
 				F0419AE426987E88005057F7 /* Coordinator */,
 				F0419AF526988792005057F7 /* lf20_rpr0qbbn.json */,
 				F0D67B3426A0A862000DD121 /* lf20_wfqrpe0x.json */,
@@ -316,7 +317,6 @@
 				F0419AC52698715B005057F7 /* RemoteConfigHandler.swift */,
 				F08FEFF7268F3E150035909B /* Helper.swift */,
 				F0EB6A5C2680C965006F4101 /* LaunchScreen.storyboard */,
-				F0EB6A5A2680C965006F4101 /* Assets.xcassets */,
 				F0FBC3672680E2DD00A555A5 /* Constants.swift */,
 				F0EB6A532680C963006F4101 /* SceneDelegate.swift */,
 				F0BD5A3F26A56EE300B7AF0F /* privacy.txt */,

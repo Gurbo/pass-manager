@@ -69,8 +69,6 @@ class WelcomeViewController: UIViewController, Storyboarded {
             print("iPhone 12 / 12 Pro")
         case 2778:
             print("iPhone 12 Pro Max")
-            
-
             default:
                 print("Unknown")
             }
@@ -92,15 +90,7 @@ class WelcomeViewController: UIViewController, Storyboarded {
     
     @objc func showFirstOnboardingScreen() {
         VibratorEngine.shared.actionTaptic()
-        
-        
-        
-        
-        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(identifier: "SwitchPaywallViewController") as SwitchPaywallViewController
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-        
-//        let vc = OnboardingFirstViewController.instantiate()
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = OnboardingFirstViewController.instantiate()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

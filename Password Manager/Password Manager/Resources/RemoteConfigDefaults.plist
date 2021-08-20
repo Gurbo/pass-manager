@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>inTheAppPaywall</key>
+	<string>classic</string>
+	<key>onboardingPaywall</key>
+	<string>trial</string>
 	<key>trialOnboardingOffering</key>
 	<string>vip.week3d.annual.offering</string>
 	<key>saves_before_paid_mode</key>

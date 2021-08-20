@@ -11,7 +11,7 @@ import Purchases
 import Amplitude_iOS
 import Firebase
 
-class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
+class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate, Storyboarded {
 
     @IBOutlet weak var closeButton: UIButton!
     
@@ -46,6 +46,10 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var leftView: UIView!
     @IBOutlet weak var centerView: UIView!
     @IBOutlet weak var rightView: UIView!
+    
+    @IBOutlet weak var leftViewTextLabel: UILabel!
+    @IBOutlet weak var centerViewTextLabel: UILabel!
+    @IBOutlet weak var rightViewTextLabel: UILabel!
 
     var textContentView: TextContentView?
     @IBOutlet weak var blackView: UIView!
@@ -63,6 +67,9 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var indicator: NVActivityIndicatorView!
     
+    @IBOutlet weak var priceLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var switchViewTopConstraint: NSLayoutConstraint!
+    
     
     var weeklyPrice: Float = 0
     var monthlyPrice: Float = 0
@@ -74,14 +81,10 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
         
         UserData.paywallWasShown = true
         
-        indicator.type = .lineScalePulseOut
-        blackView.isHidden = false
-        indicator.startAnimating()
-        
         getProducts()
         
         reviews = createReviews()
-        createImages()
+        
         setSmallViews()
         
         switcherContainerView.backgroundColor = .white
@@ -126,10 +129,45 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
             continueButton.bringSubviewToFront(imageView) // To display imageview of button
         }
         purchaseButton.setTitle("Continue", for: .normal)
+        
+        priceLabelTopConstraint.constant = 80
+        switchViewTopConstraint.constant = 17
+        
+        if UIDevice().userInterfaceIdiom == .phone {
+        switch UIScreen.main.nativeBounds.height {
+            case 1136:
+                print("5s") //DONE
+                priceLabelTopConstraint.constant = 0
+                switchViewTopConstraint.constant = 7
+                
+                leftViewTextLabel.font = UIFont.systemFont(ofSize: 11)
+                centerViewTextLabel.font = UIFont.systemFont(ofSize: 11)
+                rightViewTextLabel.font = UIFont.systemFont(ofSize: 11)
+            case 1334:
+                print("iPhone 6/6S/7/8/SE2nd") //DONE
+                priceLabelTopConstraint.constant = 20
+            case 1920, 2208:
+                print("iPhone 6+/6S+/7+/8+")
+                priceLabelTopConstraint.constant = 40 //DONE
+            case 2436:
+                print("iPhone X/XS/11 Pro") //DONE
+            case 2688:
+                print("iPhone XS Max/11 Pro Max") //DONE
+            case 1792:
+                print("iPhone XR/ 11") //DONE
+            case 2340: //2436
+                print("iPhone 12 Mini") //DONE
+            case 2532:
+                print("iPhone 12 / 12 Pro") //DONE
+            case 2778:
+                print("iPhone 12 Pro Max") //DONE
+            default:
+                print("Unknown")
+            }
+        }
     }
     
     @IBAction func switchWasChanged(_ sender: Any) {
-        
         if let ssender = sender as? UISwitch {
             if ssender.isOn {
                 switcherLabel.text = "Free Trial Enabled"
@@ -144,6 +182,11 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func getProducts() {
+        
+        indicator.type = .lineScalePulseOut
+        blackView.isHidden = false
+        indicator.startAnimating()
+        
         let offeringName = RemoteConfigHandler.shared.remoteConfig[trialOnboardingOffering].stringValue
         InAppHandler.shared.getAvaiableProducts(offeringName: offeringName!) { (offering) in
             VibratorEngine.shared.actionTaptic()
@@ -287,7 +330,7 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
         for i in 0..<images.count {
             let imageView = UIImageView()
             imageView.image = UIImage.init(named: images[i])
-            let xPosition = self.imagesContainerView.frame.width * CGFloat(i)
+            let xPosition = self.imagesContainerView.bounds.width * CGFloat(i)
             imageView.frame = CGRect(x: xPosition, y: 0, width: self.imagesContainerView.frame.width, height: self.imagesContainerView.frame.height)
             imagesScrollView.contentSize.width = imagesContainerView.frame.width * CGFloat(i + 1)
             imageView.contentMode = .scaleToFill
@@ -494,5 +537,6 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewWillLayoutSubviews() {
         setupSlideScrollView(reviews: reviews)
+        createImages()
     }
 }

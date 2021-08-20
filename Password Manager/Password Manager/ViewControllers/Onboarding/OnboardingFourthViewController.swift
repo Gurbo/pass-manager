@@ -112,8 +112,21 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
         let showPaywall = RemoteConfigHandler.shared.remoteConfig[show_onboarding_paywall].boolValue
         let paidModeEnabled = RemoteConfigHandler.shared.remoteConfig[paid_mode_enabled].boolValue
         if showPaywall && paidModeEnabled && !UserData.isUserSubscribed {
-            let vc = OnboardingPaywallViewController.instantiate()
-            navigationController?.pushViewController(vc, animated: true)
+            
+            let onboardingPaywall = RemoteConfigHandler.shared.remoteConfig[onboardingPaywall].stringValue
+            if onboardingPaywall == "trial" {
+                let vc = SwitchPaywallViewController.instantiate()
+                navigationController?.pushViewController(vc, animated: true)
+            } else if onboardingPaywall == "annual" {
+                let vc = OnboardingPaywallViewController.instantiate()
+                navigationController?.pushViewController(vc, animated: true)
+            } else if onboardingPaywall == "classic" {
+                let vc = SubscriptionViewController.instantiate()
+                navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = SwitchPaywallViewController.instantiate()
+                navigationController?.pushViewController(vc, animated: true)
+            }
         } else {
             if UserData.isFirstLaunch {
                 let vc = WelcomeViewController.instantiate()
