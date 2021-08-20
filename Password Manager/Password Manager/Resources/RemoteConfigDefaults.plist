@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>trialOnboardingOffering</key>
+	<string>vip.week3d.annual.offering</string>
 	<key>saves_before_paid_mode</key>
 	<integer>3</integer>
 	<key>onboarding_offering</key>

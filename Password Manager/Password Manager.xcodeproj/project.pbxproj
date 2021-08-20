@@ -666,7 +666,7 @@
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = AutoFillExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -675,7 +675,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver.AutoFillExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = password.saver.extension.dev;
@@ -692,7 +692,7 @@
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = AutoFillExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -701,7 +701,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver.AutoFillExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = password.saver.extension.dev;
@@ -837,7 +837,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Password Manager/Password Manager.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = "Password Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -845,7 +845,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = password.saver.dev;
@@ -864,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Password Manager/Password Manager.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
 				INFOPLIST_FILE = "Password Manager/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -872,7 +872,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = password.saver.dev;

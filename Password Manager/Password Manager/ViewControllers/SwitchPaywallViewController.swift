@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+import Purchases
+import Amplitude_iOS
+import Firebase
 
 class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
 
@@ -43,8 +47,8 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var centerView: UIView!
     @IBOutlet weak var rightView: UIView!
 
-    
-    
+    var textContentView: TextContentView?
+    @IBOutlet weak var blackView: UIView!
     
     var reviews: [ReviewView] = []
     var scrollTimer: Timer?
@@ -52,16 +56,51 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     let images = ["happy_1","happy_2","happy_3"]
     var scrollImageTimer: Timer!
     
+    var currentPackage: Purchases.Package?
+    var trialPackage: Purchases.Package?
+    var nonTrialPackage: Purchases.Package?
+    
+    
+    @IBOutlet weak var indicator: NVActivityIndicatorView!
+    
+    
+    var weeklyPrice: Float = 0
+    var monthlyPrice: Float = 0
+    var annualPrice: Float = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserData.paywallWasShown = true
+        
+        indicator.type = .lineScalePulseOut
+        blackView.isHidden = false
+        indicator.startAnimating()
+        
+        getProducts()
         
         reviews = createReviews()
         createImages()
         setSmallViews()
         
+        switcherContainerView.backgroundColor = .white
+        switcherContainerView.layer.cornerRadius = 15.0
+        
+        switcherTrial.isOn = false
+        switcherLabel.text = "Not sure yet? \nEnable free trial" // Free Trial Enabled
+        
         pageControl.numberOfPages = reviews.count
         pageControl.currentPage = 0
+        
+        
+        tosButton.addTarget(self, action: #selector(showTerms), for: .touchUpInside)
+        privacyButton.addTarget(self, action: #selector(showPrivacy), for: .touchUpInside)
+        closeButton.addTarget(self, action: #selector(closePaywall), for: .touchUpInside)
+        restoreButton.addTarget(self, action: #selector(restorePurchase), for: .touchUpInside)
+        purchaseButton.addTarget(self, action: #selector(makePurchase), for: .touchUpInside)
+        
+        
         
         scrollTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
             var reviewOffset: CGFloat = 0
@@ -87,8 +126,123 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
             continueButton.bringSubviewToFront(imageView) // To display imageview of button
         }
         purchaseButton.setTitle("Continue", for: .normal)
-        //purchaseButton.addTarget(self, action: #selector(showFirstOnboardingScreen), for: .touchUpInside)
     }
+    
+    @IBAction func switchWasChanged(_ sender: Any) {
+        
+        if let ssender = sender as? UISwitch {
+            if ssender.isOn {
+                switcherLabel.text = "Free Trial Enabled"
+                self.currentPackage = trialPackage
+                setupProductsUI(forNonTrialPackage: false)
+            } else {
+                switcherLabel.text = "Not sure yet? \nEnable free trial"
+                self.currentPackage = nonTrialPackage
+                setupProductsUI(forNonTrialPackage: true)
+            }
+        }
+    }
+    
+    func getProducts() {
+        let offeringName = RemoteConfigHandler.shared.remoteConfig[trialOnboardingOffering].stringValue
+        InAppHandler.shared.getAvaiableProducts(offeringName: offeringName!) { (offering) in
+            VibratorEngine.shared.actionTaptic()
+            
+            self.restoreButton.isHidden = false
+            self.purchaseButton.isHidden = false
+            self.tosButton.isHidden = false
+            self.privacyButton.isHidden = false
+            
+            self.blackView.isHidden = true
+            self.indicator.stopAnimating()
+        
+            for (_, package) in offering.availablePackages.enumerated() {
+                if let _ = package.product.introductoryPrice {
+                    self.trialPackage = package
+                } else {
+                    self.currentPackage = package
+                    self.nonTrialPackage = package
+                }
+            }
+            self.setupProductsUI(forNonTrialPackage: true)
+        }
+    }
+    
+    func setupProductsUI(forNonTrialPackage: Bool) {
+        if forNonTrialPackage {
+            if let nonTrialPCKG = nonTrialPackage {
+                var productDurationString = ""
+                switch nonTrialPCKG.packageType {
+                case .annual:
+                    productDurationString = "/year"
+                    self.annualPrice = Float(truncating: nonTrialPCKG.product.price)
+                case .monthly:
+                    productDurationString = "/month"
+                    self.monthlyPrice = Float(truncating: nonTrialPCKG.product.price)
+                case .weekly:
+                    productDurationString = "/week"
+                    self.weeklyPrice = Float(truncating: nonTrialPCKG.product.price)
+                case .lifetime:
+                    productDurationString = "/forever"
+                default:
+                    print("")
+                }
+                
+                if let nonTrialPrettyPrice = nonTrialPCKG.product.prettyPrice {
+                    let boldAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
+                    let firstPart = NSMutableAttributedString(string: "Just \(nonTrialPrettyPrice)\(productDurationString)", attributes: boldAttributes)
+                    self.priceLabel.attributedText = firstPart
+                }
+            }
+        } else {
+            if let trialPCKG = trialPackage {
+                
+                var productDurationString = ""
+                switch trialPCKG.packageType {
+                case .annual:
+                    productDurationString = " per year"
+                    self.annualPrice = Float(truncating: trialPCKG.product.price)
+                case .monthly:
+                    productDurationString = " per month"
+                    self.monthlyPrice = Float(truncating: trialPCKG.product.price)
+                case .weekly:
+                    productDurationString = " per week"
+                    self.weeklyPrice = Float(truncating: trialPCKG.product.price)
+                case .lifetime:
+                    productDurationString = " / forever"
+                default:
+                    print("")
+                }
+                
+                var trialString: String = ""
+                if let introPrice = trialPCKG.product.introductoryPrice {
+                    switch introPrice.subscriptionPeriod.unit {
+                    case .day:
+                        trialString = " after \(introPrice.subscriptionPeriod.numberOfUnits)-day trial"
+                    case .week:
+                        trialString = " after \(introPrice.subscriptionPeriod.numberOfUnits)-week trial"
+                    default:
+                        print("")
+                    }
+                }
+                
+                if let nonTrialPrettyPrice = trialPCKG.product.prettyPrice {
+                    let boldAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24.0, weight: .semibold), NSAttributedString.Key.foregroundColor: UIColor.white]
+                    let firstPart = NSMutableAttributedString(string: "\(nonTrialPrettyPrice)\(productDurationString)", attributes: boldAttributes)
+                    
+                    let trialAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15.0, weight: .regular), NSAttributedString.Key.foregroundColor: UIColor.white]
+                    let secondPart = NSMutableAttributedString(string: "\(trialString)", attributes: trialAttributes)
+                    
+                    let thirdAttrString = NSMutableAttributedString.init()
+                    thirdAttrString.append(firstPart)
+                    thirdAttrString.append(secondPart)
+                    
+                    self.priceLabel.attributedText = thirdAttrString
+                }
+            }
+        }
+    }
+    
     
     func setSmallViews() {
         centerView.layer.cornerRadius = 10.0
@@ -155,6 +309,187 @@ class SwitchPaywallViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/reviewsContainerView.frame.width)
         pageControl.currentPage = Int(pageIndex)
+    }
+    
+    @objc func makePurchase() {
+        VibratorEngine.shared.actionTaptic()
+        
+        if Purchases.canMakePayments() {
+            if let package = self.currentPackage {
+                self.blackView.isHidden = false
+                self.indicator.startAnimating()
+                
+                var eventProperties: [String: Any]?
+                
+                var inappType = ""
+                let subscriptionAmount = package.product.prettyPrice
+                var trialDelay = ""
+                
+                switch package.packageType {
+                case .annual:
+                    inappType = "Annual"
+                case .monthly:
+                    inappType = "Monthly"
+                case .weekly:
+                    inappType = "Weekly"
+                case .lifetime:
+                    inappType = "Lifetime"
+                default:
+                    print("")
+                }
+                
+                if let introPrice = package.product.introductoryPrice {
+                    switch introPrice.subscriptionPeriod.unit {
+                    case .day:
+                        trialDelay = "\(introPrice.subscriptionPeriod.numberOfUnits)"
+                    default:
+                        print("")
+                    }
+                }
+                
+                if trialDelay.count > 0 {
+                    eventProperties = ["type" : inappType,
+                                       "subscriptionPrice" : subscriptionAmount ?? "",
+                                       "trialDelay" : trialDelay]
+                } else {
+                    eventProperties = ["type" : inappType,
+                                       "subscriptionPrice" : subscriptionAmount ?? ""]
+                }
+                
+                Amplitude.instance()?.logEvent("paywall_app_purchase_pressed", withEventProperties: eventProperties)
+                Analytics.logEvent("paywall_app_purchase_pressed", parameters: eventProperties)
+                
+                Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
+                  self.indicator.stopAnimating()
+                    self.blackView.isHidden = true
+                    if let error = error {
+                        if !userCancelled {
+                            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                            self.present(alert, animated: true)
+                            Amplitude.instance()?.logEvent("paywall_app_purchase_error", withEventProperties: eventProperties)
+                        } else {
+                            Amplitude.instance()?.logEvent("paywall_app_purchase_cancel", withEventProperties: eventProperties)
+                        }
+                    } else {
+                        if let subsInfo = purchaserInfo {
+                            if (subsInfo.activeSubscriptions.count > 0 || !subsInfo.nonConsumablePurchases.isEmpty) {
+                                InAppHandler.shared.isUserSubscribed = true
+                                UserData.isUserSubscribed = true
+                                UserData.shouldShowRater = true
+                              
+                                
+                                let identify = AMPIdentify.init()
+                                identify.set("subscribed", value: "true" as NSObject)
+                                Amplitude.instance()?.identify(identify)
+                                
+                                Amplitude.instance()?.logEvent("paywall_app_purchased", withEventProperties: eventProperties)
+                                Analytics.logEvent("paywall_app_purchased", parameters: eventProperties)
+                                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateUIAfterPurchase"), object: nil)
+                                self.closePaywall()
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Please set up your ITunes Account correctly & Check that in-app purchases are allowed in Settings->Screen Time->Content & Privacy Restrictions", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    @objc func restorePurchase() {
+        Amplitude.instance()?.logEvent("paywall_app_restore_pressed")
+        
+        VibratorEngine.shared.actionTaptic()
+        self.blackView.isHidden = false
+        self.indicator.startAnimating()
+        
+        Purchases.shared.restoreTransactions { (info, error) in
+            self.indicator.stopAnimating()
+            self.blackView.isHidden = true
+            if let error = error {
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
+            } else {
+                if let purchaserInfo = info {
+                     if purchaserInfo.entitlements[proEntitlementName]?.isActive == true {
+                        InAppHandler.shared.isUserSubscribed = true
+                        UserData.isUserSubscribed = true
+                        UserData.shouldShowRater = true
+                        
+                        let identify = AMPIdentify.init()
+                        identify.set("subscribed", value: "true" as NSObject)
+                        Amplitude.instance()?.identify(identify)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateUIAfterPurchase"), object: nil)
+                        self.closePaywall()
+                    }
+                    else {
+                        let alert = UIAlertController(title: "Restore Unsuccessful", message: "No prior purchases found for your account.", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        self.present(alert, animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc func closePaywall() {
+        VibratorEngine.shared.actionTaptic()
+        #warning("analytics fix!")
+        Amplitude.instance()?.logEvent("paywall_app_close")
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func showTerms() {
+        VibratorEngine.shared.actionTaptic()
+        textContentView = Bundle.main.loadNibNamed("TextContentView", owner: self, options: nil)?.first as? TextContentView
+        textContentView?.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        textContentView?.closeButton.addTarget(self, action: #selector(closeTextContentView), for: .touchUpInside)
+        textContentView?.contentView.text = load(file: "terms")
+        textContentView?.contentView.backgroundColor = .white
+        if let textContentView = self.textContentView {
+            UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+              self.view.addSubview(textContentView)
+            }, completion: nil)
+        }
+    }
+
+    @objc func showPrivacy() {
+        VibratorEngine.shared.actionTaptic()
+        textContentView = Bundle.main.loadNibNamed("TextContentView", owner: self, options: nil)?.first as? TextContentView
+        textContentView?.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        textContentView?.closeButton.addTarget(self, action: #selector(closeTextContentView), for: .touchUpInside)
+        textContentView?.contentView.backgroundColor = .white
+        textContentView?.contentView.text = load(file: "privacy")
+        if let textContentView = self.textContentView {
+            UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+              self.view.addSubview(textContentView)
+            }, completion: nil)
+        }
+    }
+    
+    @objc func closeTextContentView() {
+        VibratorEngine.shared.actionTaptic()
+        UIView.transition(with: self.view, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+            self.textContentView?.removeFromSuperview()
+        }) { (true) in
+        }
+    }
+    
+    func load(file name:String) -> String {
+        if let path = Bundle.main.path(forResource: name, ofType: "txt") {
+            if let contents = try? String(contentsOfFile: path) {
+                return contents
+            } else {
+                print("Error! - This file doesn't contain any text.")
+            }
+        } else {
+            print("Error! - This file doesn't exist.")
+        }
+        return ""
     }
     
     override func viewWillLayoutSubviews() {

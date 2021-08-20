@@ -25,6 +25,8 @@ let onboarding_offering = "onboarding_offering"
 let show_our_apps = "show_our_apps"
 let onbPaywlSize = "onbPaywlSize"
 let saves_before_paid_mode = "saves_before_paid_mode"
+let trialOnboardingOffering = "trialOnboardingOffering"
+
 
 
 
