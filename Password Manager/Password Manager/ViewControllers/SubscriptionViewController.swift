@@ -13,6 +13,10 @@ import Firebase
 import Lottie
 
 class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyboarded {
+    
+    var openedFromOnboarding: Bool = true
+    var placeString = ""
+    let paywallType = "classic"
 
     @IBOutlet weak var allViewsScrollView: UIScrollView!
     @IBOutlet weak var getPremiumTitle: UILabel!
@@ -57,13 +61,16 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     
     @IBOutlet weak var indicator: NVActivityIndicatorView!
     
-    
     var weeklyPrice: Float = 0
     var monthlyPrice: Float = 0
     var annualPrice: Float = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var eventProperties: [String: Any]?
+        eventProperties = ["place":"\(placeString)", "type":"\(paywallType)"]
+        Amplitude.instance()?.logEvent("paywall_show", withEventProperties: eventProperties)
         
         UserData.paywallWasShown = true
         
@@ -564,8 +571,29 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     
     @objc func closePaywall() {
         VibratorEngine.shared.actionTaptic()
-        Amplitude.instance()?.logEvent("paywall_app_close")
-        self.dismiss(animated: true, completion: nil)
+        
+        var eventProperties: [String: Any]?
+        eventProperties = ["place":"\(placeString)", "type":"\(paywallType)"]
+        Amplitude.instance()?.logEvent("paywall_close",withEventProperties: eventProperties)
+        
+        if openedFromOnboarding {
+            UserData.isFirstLaunch = false
+            if UserData.isFirstLaunch {
+                let vc = WelcomeViewController.instantiate()
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                let vc = CustomTabbarViewController.instantiate()
+                if let window = UIApplication.shared.currentWindow {
+                    UIView.transition(with: window, duration: 0.3, options: UIView.AnimationOptions.transitionFlipFromLeft, animations: {
+                        window.rootViewController = vc
+                    }, completion: nil)
+                }
+            }
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
     
     @objc func showTerms() {
@@ -654,16 +682,18 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                 }
                 
                 if trialDelay.count > 0 {
-                    eventProperties = ["type" : inappType,
-                                       "subscriptionPrice" : subscriptionAmount ?? "",
-                                       "trialDelay" : trialDelay]
+                    eventProperties = ["subLength" : inappType,
+                                       "subPrice" : subscriptionAmount ?? "",
+                                       "trialDelay" : trialDelay,
+                                       "place":"\(placeString)",
+                                       "type":"\(paywallType)"                 ]
                 } else {
-                    eventProperties = ["type" : inappType,
-                                       "subscriptionPrice" : subscriptionAmount ?? ""]
+                    eventProperties = ["subLength" : inappType,
+                                       "subPrice" : subscriptionAmount ?? "",
+                                       "place":"\(placeString)",
+                                       "type":"\(paywallType)"]
                 }
-                
-                Amplitude.instance()?.logEvent("paywall_app_purchase_pressed", withEventProperties: eventProperties)
-                Analytics.logEvent("paywall_app_purchase_pressed", parameters: eventProperties)
+                Amplitude.instance()?.logEvent("paywall_purchase_pressed", withEventProperties: eventProperties)
                 
                 Purchases.shared.purchasePackage(package) { (transaction, purchaserInfo, error, userCancelled) in
                   self.indicator.stopAnimating()
@@ -673,9 +703,9 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
                             self.present(alert, animated: true)
-                            Amplitude.instance()?.logEvent("paywall_app_purchase_error", withEventProperties: eventProperties)
+                            Amplitude.instance()?.logEvent("paywall_purchase_error", withEventProperties: eventProperties)
                         } else {
-                            Amplitude.instance()?.logEvent("paywall_app_purchase_cancel", withEventProperties: eventProperties)
+                            Amplitude.instance()?.logEvent("paywall_purchase_cancel", withEventProperties: eventProperties)
                         }
                     } else {
                         if let subsInfo = purchaserInfo {
@@ -689,8 +719,7 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
                                 identify.set("subscribed", value: "true" as NSObject)
                                 Amplitude.instance()?.identify(identify)
                                 
-                                Amplitude.instance()?.logEvent("paywall_app_purchased", withEventProperties: eventProperties)
-                                Analytics.logEvent("paywall_app_purchased", parameters: eventProperties)
+                                Amplitude.instance()?.logEvent("paywall_purchased", withEventProperties: eventProperties)
                                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateUIAfterPurchase"), object: nil)
                                 self.closePaywall()
                             }
@@ -706,7 +735,10 @@ class SubscriptionViewController: UIViewController, UIScrollViewDelegate, Storyb
     }
     
     @objc func restorePurchase() {
-        Amplitude.instance()?.logEvent("paywall_app_restore_pressed")
+        var eventProperties: [String: Any]?
+        eventProperties = ["place":"\(placeString)",
+                           "type":"\(paywallType)"]
+        Amplitude.instance()?.logEvent("paywall_restore_pressed", withEventProperties: eventProperties)
         
         VibratorEngine.shared.actionTaptic()
         self.blackView.isHidden = false

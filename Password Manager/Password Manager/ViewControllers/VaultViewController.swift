@@ -92,7 +92,6 @@ class VaultViewController: UIViewController {
         } else {
             let limitCount:Int  = Int(truncating: RemoteConfigHandler.shared.remoteConfig[saves_before_paid_mode].numberValue)
             if UserDefaults.forAppGroup.savedPasswordsCount >= limitCount {
-                Amplitude.instance()?.logEvent("paywall_app_limit_show")
                 showPaywall()
             } else {
                 showNavAndPassScreens()
@@ -109,8 +108,28 @@ class VaultViewController: UIViewController {
     }
     
     func showPaywall() {
-        let vc = SubscriptionViewController.instantiate()
-        self.navigationController?.present(vc, animated: true)
+        let inTheAppPaywall = RemoteConfigHandler.shared.remoteConfig[inTheAppPaywall].stringValue
+        if inTheAppPaywall == "trial" {
+            let vc = SwitchPaywallViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = "passLimit"
+            self.present(vc, animated: true, completion: nil)
+        } else if inTheAppPaywall == "annual" {
+            let vc = OnboardingPaywallViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = "passLimit"
+            self.present(vc, animated: true, completion: nil)
+        } else if inTheAppPaywall == "classic" {
+            let vc = SubscriptionViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = "passLimit"
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            let vc = SwitchPaywallViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = "passLimit"
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

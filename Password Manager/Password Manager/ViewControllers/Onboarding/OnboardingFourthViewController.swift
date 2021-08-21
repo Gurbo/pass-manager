@@ -33,7 +33,9 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
         }
         continueButton.addTarget(self, action: #selector(showOnboardingPaywall), for: .touchUpInside)
         
-        Amplitude.instance()?.logEvent("onboarding_4")
+        var eventProperties: [String: Any]?
+        eventProperties = ["number" : "4"]
+        Amplitude.instance()?.logEvent("onboarding_screen", withEventProperties: eventProperties)
         
         
 //        var screenType: ScreenType {
@@ -116,15 +118,23 @@ class OnboardingFourthViewController: UIViewController, Storyboarded {
             let onboardingPaywall = RemoteConfigHandler.shared.remoteConfig[onboardingPaywall].stringValue
             if onboardingPaywall == "trial" {
                 let vc = SwitchPaywallViewController.instantiate()
+                vc.openedFromOnboarding = true
+                vc.placeString = "onboarding"
                 navigationController?.pushViewController(vc, animated: true)
             } else if onboardingPaywall == "annual" {
                 let vc = OnboardingPaywallViewController.instantiate()
+                vc.openedFromOnboarding = true
+                vc.placeString = "onboarding"
                 navigationController?.pushViewController(vc, animated: true)
             } else if onboardingPaywall == "classic" {
                 let vc = SubscriptionViewController.instantiate()
+                vc.openedFromOnboarding = true
+                vc.placeString = "onboarding"
                 navigationController?.pushViewController(vc, animated: true)
             } else {
                 let vc = SwitchPaywallViewController.instantiate()
+                vc.openedFromOnboarding = true
+                vc.placeString = "onboarding"
                 navigationController?.pushViewController(vc, animated: true)
             }
         } else {

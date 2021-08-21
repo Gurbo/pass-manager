@@ -120,7 +120,7 @@ class SettingsTableViewController: UITableViewController {
                     })
                 } else {
                     switcher.isOn = false
-                    showPaywall()
+                    showPaywall(forPlace: "sync")
                 }
             } else {
                 UserDefaults.forAppGroup.isSyncToICloudEnabled = false
@@ -147,8 +147,7 @@ class SettingsTableViewController: UITableViewController {
                     }
                 } else {
                     switcher.isOn = false
-                    Amplitude.instance()?.logEvent("paywall_app_face_show")
-                    showPaywall()
+                    showPaywall(forPlace: "faceID")
                 }
             } else {
                 UserDefaults.forAppGroup.isFaceIDEnabled = false
@@ -170,8 +169,7 @@ class SettingsTableViewController: UITableViewController {
                     navVC.viewControllers = [addPassVC]
                     self.present(navVC, animated: true, completion: nil)
                 } else {
-                    Amplitude.instance()?.logEvent("paywall_app_autofill_show")
-                    showPaywall()
+                    showPaywall(forPlace: "autofill")
                 }
             } else {
                 switcher.isOn = true
@@ -215,9 +213,8 @@ class SettingsTableViewController: UITableViewController {
                     }
                     AppLocker.present(with: .create, and: options, over: self)
                 } else {
-                    Amplitude.instance()?.logEvent("paywall_app_password_show")
                     self.masterPasswordSwitcher.isOn = false
-                    showPaywall()
+                    showPaywall(forPlace: "masterPassword")
                 }
             } else {
                 UserDefaults.forAppGroup.isLocked = false
@@ -227,9 +224,29 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
-    func showPaywall() {
-        let vc = SubscriptionViewController.instantiate()
-        self.navigationController?.present(vc, animated: true)
+    func showPaywall(forPlace:String) {
+        let inTheAppPaywall = RemoteConfigHandler.shared.remoteConfig[inTheAppPaywall].stringValue
+        if inTheAppPaywall == "trial" {
+            let vc = SwitchPaywallViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = forPlace
+            self.present(vc, animated: true, completion: nil)
+        } else if inTheAppPaywall == "annual" {
+            let vc = OnboardingPaywallViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = forPlace
+            self.present(vc, animated: true, completion: nil)
+        } else if inTheAppPaywall == "classic" {
+            let vc = SubscriptionViewController.instantiate()
+            vc.placeString = forPlace
+            vc.openedFromOnboarding = false
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            let vc = SwitchPaywallViewController.instantiate()
+            vc.openedFromOnboarding = false
+            vc.placeString = forPlace
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

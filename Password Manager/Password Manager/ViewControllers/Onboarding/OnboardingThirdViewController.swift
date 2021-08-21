@@ -32,7 +32,9 @@ class OnboardingThirdViewController: UIViewController, Storyboarded {
         }
         continueButton.addTarget(self, action: #selector(showFourthOnboardingScreen), for: .touchUpInside)
         
-        Amplitude.instance()?.logEvent("onboarding_3")
+        var eventProperties: [String: Any]?
+        eventProperties = ["number" : "3"]
+        Amplitude.instance()?.logEvent("onboarding_screen", withEventProperties: eventProperties)
         
         
 //        var screenType: ScreenType {

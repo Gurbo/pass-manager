@@ -33,7 +33,9 @@ class OnboardingFirstViewController: UIViewController, Storyboarded {
         }
         continueButton.addTarget(self, action: #selector(showSecondOnboardingScreen), for: .touchUpInside)
         
-        Amplitude.instance()?.logEvent("onboarding_1")
+        var eventProperties: [String: Any]?
+        eventProperties = ["number" : "1"]
+        Amplitude.instance()?.logEvent("onboarding_screen", withEventProperties: eventProperties)
         
         
 //        var screenType: ScreenType {
