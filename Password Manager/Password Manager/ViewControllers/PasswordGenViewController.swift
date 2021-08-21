@@ -57,6 +57,7 @@ class PasswordGenViewController: UIViewController {
         generateRandomString()
         
         generateButton.addTarget(self, action: #selector(generateRandomString), for: .touchUpInside)
+        copyButton.addTarget(self, action: #selector(copyPassword), for: .touchUpInside)
         
         
         // Do any additional setup after loading the view.
