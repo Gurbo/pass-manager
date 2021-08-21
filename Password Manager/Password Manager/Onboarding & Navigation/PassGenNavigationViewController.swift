@@ -1,27 +1,30 @@
 //
-//  PasswordNavigationViewController.swift
+//  PassGenNavigationViewController.swift
 //  Password Manager
 //
-//  Created by Alex Gurbo on 7/2/21.
+//  Created by Alex on 21.08.21.
 //
 
 import UIKit
 
-class PasswordNavigationViewController: UINavigationController {
+class PassGenNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        self.view.backgroundColor = .red
+//        navigationController?.navigationBar.barTintColor = UIColor.green
+//        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.orange]
+        
         if #available(iOS 13.0, *) {
             let navBarAppearance = UINavigationBarAppearance()
             navBarAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kTitleWhiteColor),
                                                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0, weight: .regular)]
             navBarAppearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.init(hex: kTitleWhiteColor),
                                                          NSAttributedString.Key.font: UIFont.systemFont(ofSize: 30.0, weight: .bold)]
-            navBarAppearance.backgroundColor = UIColor.init(hex: kCellColor)
+            navBarAppearance.backgroundColor = UIColor.init(hex: kBlackBackgroundColor)
             navBarAppearance.shadowColor = .clear
             
-            navigationBar.setBackgroundImage(UIImage.imageWithColor(color: UIColor.init(hex: kCellColor)), for: .default)
+            navigationBar.setBackgroundImage(UIImage.imageWithColor(color: UIColor.init(hex: kBlackBackgroundColor)), for: .default)
             
             navigationBar.standardAppearance = navBarAppearance
             navigationBar.scrollEdgeAppearance = navBarAppearance

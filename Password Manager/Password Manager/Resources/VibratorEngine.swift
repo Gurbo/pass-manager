@@ -19,4 +19,9 @@ class VibratorEngine: NSObject{
         let generator = UIImpactFeedbackGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle.light)
         generator.impactOccurred()
     }
+    
+    func sliderTaptic() {
+        let generator = UIImpactFeedbackGenerator(style: UIImpactFeedbackGenerator.FeedbackStyle.soft)
+        generator.impactOccurred()
+    }
 }

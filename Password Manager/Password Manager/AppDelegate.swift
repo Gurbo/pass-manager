@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             object: nil)
         
 //        #warning("УДАЛИТЬ!")
-//        UserData.isFirstLaunch = false
+        UserData.isFirstLaunch = false
 //        KeychainNew.logout()
 
         return true
