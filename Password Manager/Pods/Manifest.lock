@@ -1,8 +1,5 @@
 PODS:
   - Amplitude-iOS (4.9.3)
-  - AppsFlyerFramework (6.3.4):
-    - AppsFlyerFramework/Main (= 6.3.4)
-  - AppsFlyerFramework/Main (6.3.4)
   - FBAEMKit (11.1.0):
     - FBAEMKit/AEM (= 11.1.0)
   - FBAEMKit/AEM (11.1.0):
@@ -120,7 +117,6 @@ PODS:
 
 DEPENDENCIES:
   - Amplitude-iOS (~> 4.9.3)
-  - AppsFlyerFramework
   - FBAudienceNetwork
   - FBSDKCoreKit
   - Firebase/Analytics
@@ -135,7 +131,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Amplitude-iOS
-    - AppsFlyerFramework
     - FBAEMKit
     - FBAudienceNetwork
     - FBSDKCoreKit
@@ -161,7 +156,6 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Amplitude-iOS: 122e026c44db8460e5efcf84859aa290a0ae9786
-  AppsFlyerFramework: df3920affb393748b111cd8b686584508f2193f5
   FBAEMKit: 5c8a8d08e5b2c79628490784883e0fcc75b12615
   FBAudienceNetwork: 9a5f277d6ed36a46354a045c46a4858b47407a72
   FBSDKCoreKit: 7ccb8b4bb2b5ee2ad94327b774dc23f03509675d
@@ -185,6 +179,6 @@ SPEC CHECKSUMS:
   Qonversion: 550da5e779fced3c0da3a70a62eb86e70d1e50e5
   SwiftRater: 6094fa6e9b3866ff8beca0a871b4b5f9ab896a6d
 
-PODFILE CHECKSUM: c01c50e5e05ad8dd5f9946e7b23deac8b40bba25
+PODFILE CHECKSUM: 9a94c5b0cd7c36644202a2b1a596413e298b13b2
 
 COCOAPODS: 1.10.2
