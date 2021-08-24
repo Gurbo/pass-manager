@@ -13,6 +13,7 @@ target 'Password Manager' do
   pod 'Firebase/RemoteConfig'
   pod 'KeychainAccess'
   pod 'lottie-ios'
+  pod 'Branch'
 end
 
 target 'AutoFillExtension' do

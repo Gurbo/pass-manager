@@ -38,7 +38,6 @@
 		F080825F2682376F00A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082622682376F00A5A94C /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082612682376F00A5A94C /* CredentialProviderViewController.swift */; };
 		F080826A2682376F00A5A94C /* AutoFillExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F080825D2682376F00A5A94C /* AutoFillExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F080827B2682393800A5A94C /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
 		F08082862682502300A5A94C /* PasscodeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08082852682502300A5A94C /* PasscodeField.swift */; };
 		F080828E268250CC00A5A94C /* QuickTypeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080828D268250CC00A5A94C /* QuickTypeManager.swift */; };
 		F0808293268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0808291268250DB00A5A94C /* ASPasswordCredentialIdentity+PasswordItem.swift */; };
@@ -76,6 +75,11 @@
 		F0FBC3682680E2DD00A555A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FBC3672680E2DD00A555A5 /* Constants.swift */; };
 		F0FC46782693259500A7EE8D /* AutofillNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC46772693259500A7EE8D /* AutofillNavigationViewController.swift */; };
 		F0FC467C2693265300A7EE8D /* AutofillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FC467B2693265200A7EE8D /* AutofillViewController.swift */; };
+		FA5286D526D53F94005214D6 /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA790E426D3CDFD00ACC59E /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FA5286D826D53F95005214D6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA790DA26D3C52800ACC59E /* AdSupport.framework */; };
+		FA5286DA26D53F97005214D6 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F080825E2682376F00A5A94C /* AuthenticationServices.framework */; };
+		FA5286DE26D54025005214D6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA790DE26D3C53900ACC59E /* iAd.framework */; };
+		FA5286E026D542C4005214D6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA790E026D3C54200ACC59E /* StoreKit.framework */; };
 		FA552E9C26D150BD006E3F45 /* PasswordGenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA552E9B26D150BD006E3F45 /* PasswordGenViewController.swift */; };
 		FA552E9E26D1516A006E3F45 /* PassGenNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA552E9D26D1516A006E3F45 /* PassGenNavigationViewController.swift */; };
 		FA97B14F26CE4E830067F8D1 /* SwitchPaywallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97B14E26CE4E830067F8D1 /* SwitchPaywallViewController.swift */; };
@@ -184,6 +188,11 @@
 		FA97B14E26CE4E830067F8D1 /* SwitchPaywallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchPaywallViewController.swift; sourceTree = "<group>"; };
 		FA97B15026CE7D9F0067F8D1 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
 		FA97B15226CE7E100067F8D1 /* ReviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewView.xib; sourceTree = "<group>"; };
+		FAA790DA26D3C52800ACC59E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		FAA790DC26D3C53200ACC59E /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		FAA790DE26D3C53900ACC59E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		FAA790E026D3C54200ACC59E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FAA790E426D3CDFD00ACC59E /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +210,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F080827B2682393800A5A94C /* AuthenticationServices.framework in Frameworks */,
+				FA5286D526D53F94005214D6 /* AdServices.framework in Frameworks */,
+				FA5286DE26D54025005214D6 /* iAd.framework in Frameworks */,
+				FA5286DA26D53F97005214D6 /* AuthenticationServices.framework in Frameworks */,
+				FA5286E026D542C4005214D6 /* StoreKit.framework in Frameworks */,
+				FA5286D826D53F95005214D6 /* AdSupport.framework in Frameworks */,
 				407E85017FB8DC72D7CB801D /* Pods_Password_Manager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +236,11 @@
 		631CFF21D978DD84758D06A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FAA790E426D3CDFD00ACC59E /* AdServices.framework */,
+				FAA790E026D3C54200ACC59E /* StoreKit.framework */,
+				FAA790DE26D3C53900ACC59E /* iAd.framework */,
+				FAA790DC26D3C53200ACC59E /* AppTrackingTransparency.framework */,
+				FAA790DA26D3C52800ACC59E /* AdSupport.framework */,
 				F0C03EDD2689C24A00579BCB /* KeychainAccess.framework */,
 				F0BC1BE826837D02003FB40E /* KeychainAccess.framework */,
 				F0BC1BE326836A9B003FB40E /* KeychainAccess.framework */,
@@ -672,7 +690,7 @@
 			baseConfigurationReference = 365243DCA26EDE07693ABB88 /* Pods-AutoFillExtension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
@@ -687,7 +705,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver.AutoFillExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = password.saver.extension.dev;
+				PROVISIONING_PROFILE_SPECIFIER = password.saver.extension.appstore;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -699,7 +717,7 @@
 			baseConfigurationReference = 6FBD1D06F1013DBC61BF2690 /* Pods-AutoFillExtension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AutoFillExtension/AutoFillExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
@@ -714,7 +732,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver.AutoFillExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = password.saver.extension.dev;
+				PROVISIONING_PROFILE_SPECIFIER = password.saver.extension.appstore;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -847,7 +865,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Password Manager/Password Manager.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
@@ -861,7 +879,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = password.saver.dev;
+				PROVISIONING_PROFILE_SPECIFIER = password.saver.appstore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -875,7 +893,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Password Manager/Password Manager.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development: Aliaksei Hurbo (PKXB3SS5RU)";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Aliaksei Hurbo (W3KLYB8DPV)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = W3KLYB8DPV;
@@ -889,7 +907,7 @@
 				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ag.password.saver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = password.saver.dev;
+				PROVISIONING_PROFILE_SPECIFIER = password.saver.appstore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

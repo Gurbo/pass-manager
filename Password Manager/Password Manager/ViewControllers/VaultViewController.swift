@@ -10,11 +10,10 @@ import KeychainAccess
 import SwiftRater
 import Amplitude_iOS
 
-import AdSupport
-import AppTrackingTransparency
 import FBSDKCoreKit
 import FBAudienceNetwork
 import StoreKit
+import Branch
 
 class VaultViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -25,27 +24,6 @@ class VaultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if #available(iOS 14, *) {
-            ATTrackingManager.requestTrackingAuthorization { status in
-                DispatchQueue.main.async {
-                    switch status {
-                    case .authorized:
-                        // Authorized
-                        Settings.setAdvertiserTrackingEnabled(true)
-                        SKAdNetwork.registerAppForAdNetworkAttribution()
-    //                    let idfa = ASIdentifierManager.shared().advertisingIdentifier
-                    case .denied,
-                         .notDetermined,
-                         .restricted:
-                        Settings.setAdvertiserTrackingEnabled(false)
-                        break
-                    @unknown default:
-                        break
-                    }
-                }
-            }
-        }
         
         PasswordSingletone.shared.grabAllPasswords()
         QuickTypeManager.shared.activate()

@@ -7,49 +7,47 @@
 
 import UIKit
 import KeychainAccess
-
 import Qonversion
 import Amplitude_iOS
 import Purchases
 import FBSDKCoreKit
 import FBAudienceNetwork
 import SwiftRater
-//import AppsFlyerLib
-//import UserNotifications
+import Branch
+import iAd
+import AdSupport
+import AppTrackingTransparency
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        SKAdNetwork.registerAppForAdNetworkAttribution()
+        
+        Branch.getInstance().delayInitToCheckForSearchAds()
         
         
-//        AppsFlyerLib.shared().appsFlyerDevKey = "StyaLXDGpiyHnEmfptygBj"
-//        AppsFlyerLib.shared().appleAppID = "1575742112"
-//        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 80)
-//        AppsFlyerLib.shared().delegate = self
-//        AppsFlyerLib.shared().isDebug = true
-//               // iOS 10 or later
-//        if #available(iOS 10, *) {
-//            UNUserNotificationCenter.current().requestAuthorization(options: [.badge, .alert, .sound]) { _, _ in }
-//            application.registerForRemoteNotifications()
-//        }
-//               // iOS 9 support - Given for reference. This demo app supports iOS 13 and above
-//        else {
-//            application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil))
-//            application.registerForRemoteNotifications()
-//        }
-//
-//        NotificationCenter.default.addObserver(self, selector: NSSelectorFromString("sendLaunch"), name: UIApplication.didBecomeActiveNotification, object: nil)
+//        #warning("DELETE LOGGING")
+//        Branch.getInstance().enableLogging()
+//        Branch.setUseTestBranchKey(true)
         
         
+        // This version of initSession includes the source UIScene in the callback
+        BranchScene.shared().initSession(launchOptions: launchOptions, registerDeepLinkHandler: { (params, error, scene) in
+            Branch.getInstance().setIdentity("\(UUID().uuidString)")
+        })
+
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         FBAudienceNetworkAds.initialize(with: nil, completionHandler: nil)
         
-        Purchases.debugLogsEnabled = true
-        Purchases.configure(withAPIKey: "PNfyAyCundbVAOuSMaVXShvPyDKWyiVl")
+        Purchases.debugLogsEnabled = false
+        Purchases.automaticAppleSearchAdsAttributionCollection = true
+        Purchases.configure(withAPIKey: "PNfyAyCundbVAOuSMaVXShvPyDKWyiVl", appUserID: nil)
         
-        Settings.isAutoLogAppEventsEnabled = true
+        Settings.isAutoLogAppEventsEnabled = false
+        Settings.isAdvertiserIDCollectionEnabled = true
         
         Amplitude.instance()?.initializeApiKey("4e705a46dc403fd5b4ec8d7d0cb8abdf")
         Amplitude.instance()?.trackingSessionEvents = true
@@ -69,6 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         setRater()
         
+        requestIDFAPermission()
+        
         NotificationCenter.default.addObserver(self,
             selector: #selector(appnDidBecomeActive),
             name: UIApplication.didBecomeActiveNotification, // UIApplication.didBecomeActiveNotification for swift 4.2+
@@ -81,53 +81,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//           // Start the SDK (start the IDFA timeout set above, for iOS 14 or later)
-//        print("FUCK FUCK AppsFlyerLib.shared().start()")
-//           AppsFlyerLib.shared().start()
-//       }
-//
-//    @objc func sendLaunch() {
-//        print("FUCK Kind AppsFlyerLib.shared().start()")
-//            AppsFlyerLib.shared().start()
-//        }
-//
-//    // Open Univerasal Links
-//     // For Swift version < 4.2 replace function signature with the commented out code:
-//     // func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-//     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-//         print(" user info \(userInfo)")
-//         AppsFlyerLib.shared().handlePushNotification(userInfo)
-//     }
-//
-//    // Open Deeplinks
-//    // Open URI-scheme for iOS 8 and below
-//    private func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-//        AppsFlyerLib.shared().continue(userActivity, restorationHandler: restorationHandler)
-//        return true
-//    }
-//
-//    // Open URI-scheme for iOS 9 and above
-//        func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-//            AppsFlyerLib.shared().handleOpen(url, sourceApplication: sourceApplication, withAnnotation: annotation)
-//            return true
-//        }
-//
-//    // Report Push Notification attribution data for re-engagements
-//        func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//            AppsFlyerLib.shared().handleOpen(url, options: options)
-//            return true
-//        }
-//
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//            AppsFlyerLib.shared().handlePushNotification(userInfo)
-//        }
-//
-//    // Reports app open from deep link for iOS 10 or later
-//        func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//            AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
-//            return true
-//        }
+    
+    func requestIDFAPermission() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                DispatchQueue.main.async {
+                    Branch.getInstance().handleATTAuthorizationStatus(status.rawValue)
+                    switch status {
+                    case .authorized:
+                        // Authorized
+                        Settings.setAdvertiserTrackingEnabled(true)
+                        SKAdNetwork.registerAppForAdNetworkAttribution()
+    //                    let idfa = ASIdentifierManager.shared().advertisingIdentifier
+                    case .denied,
+                         .notDetermined,
+                         .restricted:
+                        Settings.setAdvertiserTrackingEnabled(false)
+                        break
+                    @unknown default:
+                        break
+                    }
+                }
+            }
+        }
+        }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+      //check for link_click_id
+        if url.absoluteString.contains("link_click_id") == true{
+            return Branch.getInstance().application(app, open: url, options: options)
+        }
+        return true
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+      //check for app.link or appropriate Branch custom domain
+        if ((userActivity.webpageURL?.absoluteString.contains("app.link")) != nil){
+        return Branch.getInstance().continue(userActivity)
+      }
+        return true
+    }
+
+
     
     func setRater() {
         SwiftRater.significantUsesUntilPrompt = 0
@@ -187,47 +182,3 @@ extension Bundle {
                 object(forInfoDictionaryKey: "CFBundleName") as? String
     }
 }
-
-////MARK: AppsFlyerLibDelegate
-//extension AppDelegate: AppsFlyerLibDelegate{
-//
-//    // Handle Organic/Non-organic installation
-//    func onConversionDataSuccess(_ installData: [AnyHashable: Any]) {
-//        print("onConversionDataSuccess data:")
-//        for (key, value) in installData {
-//            print(key, ":", value)
-//        }
-//        if let status = installData["af_status"] as? String {
-//            if (status == "Non-organic") {
-//                if let sourceID = installData["media_source"],
-//                    let campaign = installData["campaign"] {
-//                    print("This is a Non-Organic install. Media source: \(sourceID)  Campaign: \(campaign)")
-//                }
-//            } else {
-//                print("This is an organic install.")
-//            }
-//            if let is_first_launch = installData["is_first_launch"] as? Bool,
-//                is_first_launch {
-//                print("First Launch")
-//            } else {
-//                print("Not First Launch")
-//            }
-//        }
-//    }
-//    func onConversionDataFail(_ error: Error) {
-//        print("HERE HERE HERE")
-//        print(error)
-//    }
-//    //Handle Deep Link
-//    func onAppOpenAttribution(_ attributionData: [AnyHashable : Any]) {
-//        //Handle Deep Link Data
-//        print("onAppOpenAttribution data:")
-//        for (key, value) in attributionData {
-//            print(key, ":",value)
-//        }
-//    }
-//    func onAppOpenAttributionFailure(_ error: Error) {
-//        print("HERE HERE HERE 111")
-//        print(error)
-//    }
-//}

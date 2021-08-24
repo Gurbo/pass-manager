@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>branch_universal_link_domains</key>
+	<array>
+		<string>ipassword.app.link</string>
+		<string>ipassword-alternate.app.link</string>
+		<string>ipassword.test-app.link</string>
+		<string>ipassword-alternate.test-app.link</string>
+	</array>
+	<key>branch_key</key>
+	<dict>
+		<key>live</key>
+		<string>key_live_jiYwsl6cJYaiUFy26fb2lcjpDyl7gys8</string>
+		<key>test</key>
+		<string>key_test_cjYBylYkG0lnMAB1YpTzrkgcxCd0lAPn</string>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -21,6 +35,16 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.branch.sdk</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ipassword</string>
+			</array>
+		</dict>
+		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb210084857685210</string>
@@ -31,8 +55,14 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>FacebookAppID</key>
 	<string>210084857685210</string>
+	<key>FacebookClientToken</key>
+	<string>3cc9fabf2497c5d8ff128f04953eb479</string>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<false/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<true/>
 	<key>FacebookDisplayName</key>
-	<string>Password Keeper</string>
+	<string>iPassword</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSFaceIDUsageDescription</key>
